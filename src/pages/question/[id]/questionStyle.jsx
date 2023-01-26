@@ -13,12 +13,13 @@ import Image from 'next/image';
 
 export const Wrap = styled.div`
     width: 329px;
-    height: 700px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
     justify-content: space-around;
     padding-top: 3rem;
+    
 `;
 
 export const Div = styled.div`
@@ -42,15 +43,8 @@ export const Rate = styled.div`
 
 export const Img = styled(Image)`
     position: absolute;
-    top: 57px;
+    top: 65px;
 `
-
-export const Player = styled.div`
-    width: 327px;
-    height: 223px;
-    padding: 30px;
-    background-color: purple;
-`;
 
 export const Btn = styled.button`
     padding: 5px;

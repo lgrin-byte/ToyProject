@@ -64,6 +64,7 @@ body {
     height: 100%;
     /* color: var(--black); */
     line-height: 1.4;
+    /* background-color: ${props => props.theme.mainColor}; */
     /* background-color: ${(props) => props.theme.bgColor}; */
     /* background-color: var(--light-purple); */
     font-family: var(--font);
@@ -77,8 +78,8 @@ body {
     height: 1px;
     overflow: hidden;
 }
-.start{
-    color: #50c927;
+.question{
+    background-color: ${props => props.theme.mainColor};
 
 }
 @media all and (min-width: 720px) {
