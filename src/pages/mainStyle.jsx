@@ -3,9 +3,14 @@ import Link from "next/link"
 
 
 export const Wrap = styled.div`
-    /* width: 329px; */
+    width: 329px;
     /* height: 720px; */
-    
+    /* @media ${props => props.theme.tablet} {
+    width: 100%;
+    margin: 0 auto;
+} */
+
+
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
@@ -14,6 +19,7 @@ export const Wrap = styled.div`
     justify-content: space-around;
 
 `;
+
 
 export const H = styled.h1`
     font-size: 40px;
