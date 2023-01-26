@@ -1,38 +1,71 @@
 import React, { useRef, useState } from 'react'
+import Image from 'next/image';
 import YouTube from 'react-youtube';
+import note from '../../../assets/images/note.png'
+import cassette from '../../../assets/images/cassette.png'
+import play from '../../../assets/images/play.png'
+import replay from '../../../assets/images/replay.png'
+import pause from '../../../assets/images/pause.png'
+import {Btn} from '../../../components/Button'
+
 import {
     Wrap,
     Div,
-    Player,
-    Btn,
     Input,
-    Ment
+    Ment,
+    Img,
+    Rate
 } from './questionStyle'
+import {Player} from '../../../components/Youtube'
+
 
 export default function Question() {
     const youtubeRef = useRef();
-    const [play, setPlay] = useState();
-    const onPlay =(e)=>{
-        // youtubeRef.current.onPlay()
-        e.current.props.onPlay
-        console.log(e.current.props.onPlay);
-    }
 
-    const handleDiv = (e)=>{
-        // console.log(e.target.children[0].stopVideo(0))
+    const [playEvent, setPlayEvent] = useState();
+    const [playState, setPlayState] = useState(); 
+    const arr = [1,2,3,4,5,6,7,8,9,10];
+    const state = {
+        play : {
+            image: play,
+            onClick: ()=>{
+                playEvent? playEvent.target.playVideo() : youtubeRef.current.updateVideo();
+            }
+        },
+        replay : {
+            image: replay,
+            onClick: ()=>{
+                youtubeRef.current.updateVideo();
+            }
+        },
+        pause : {
+            image: pause,
+            onClick: ()=>{
+                playEvent.target.pauseVideo()
+            }
+        },
     }
 
     return (
         <Wrap>
-            <Div>
-                <span>2/10</span>
-                <span>1990년대</span>
+            <Div type="header">
+                <Img src= {note} alt="" />
+                <span className='span'>2/10</span>
+                <div></div>
+                {arr.map(a=> <Rate></Rate>)
+                }
+                <span className='span'>2020s</span>
             </Div>
-            <div>진행바</div>
             <Player>
+                <Image src={cassette}/>
+            { playState=== 1 ? 
+                <Image className="btn_play" src={state["pause"].image} onClick={state["pause"].onClick}/> :
+                <Image className="btn_play" src={state["play"].image} onClick={state["play"].onClick}/> }
+                <Image className="btn_replay" src={state["replay"].image} onClick={state["replay"].onClick}/>
+
             <YouTube
                 videoId= "jeqdYqsrsA0"
-                id='yotube'
+                id="yotube"
                 ref={youtubeRef}
                 className="ir"
                 opts={
@@ -50,32 +83,25 @@ export default function Question() {
                 }
                 onPlay={(e)=>{e.target.playVideo();
                     console.log(e.target.getDuration());
-                    setPlay(e)}}
+                    setPlayEvent(e)
+                    setPlayState(e.data);
+                    console.log("플레이",e.data);
+                    
+                }}
                 onPause={(e)=> {
                     console.log(e);
+                    setPlayState(e.data);
+                    console.log("일정",e.data);
 
                 }}   
-                onEnd={(e)=>{e.target.stopVideo(0);
-                            console.log(e);
+                onEnd={(e)=>{
+                    setPlayState(e.data);
+                    console.log("끝",e.data);
+                    setPlayEvent()
+                    e.target.stopVideo(0);
                             
                             }}   
             />
-            <Div>
-                <Btn onClick={()=>{
-                    // youtubeRef.current.updateVideo();
-                    play.target.playVideo()
-
-                }}>재생</Btn>
-                <Btn onClick={()=>{
-                    youtubeRef.current.updateVideo();
-
-                }}>처음부터</Btn>
-                <Btn onClick={()=>{
-                    // play.onStateChange(2)
-                    // play.target.stopVideo()
-                    play.target.pauseVideo()
-                }}>일시정지</Btn>
-            </Div>
             </Player>
             <div>시간초바</div>
             <span>가수</span>
@@ -83,7 +109,7 @@ export default function Question() {
             <span>제목</span>
             <Input type="text"/>
             <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
-            <Btn>다음</Btn>
+            <Btn href="/choice" attr='question'>다음</Btn>
 
 
         </Wrap>

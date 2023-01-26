@@ -1,11 +1,10 @@
 import {
     Wrap,
-    BtnYear,
     H,
     Image,
     Input
 } from './mainStyle'
-
+import {Btn} from '../components/Button'
 
 export default function index() {
     return (
@@ -14,9 +13,9 @@ export default function index() {
             <Image>일러스트</Image>
             <p className='start'>닉네임 입력하기</p>
             <Input type="text" />
-            <BtnYear href="/choice">
-                <button>다음 페이지</button>
-            </BtnYear>
+            <Btn href="/choice">
+                다음 페이지
+            </Btn>
         </Wrap>
     )
 }
