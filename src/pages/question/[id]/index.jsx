@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image';
 import YouTube from 'react-youtube';
 import note from '../../../assets/images/note.png'
@@ -6,17 +6,24 @@ import cassette from '../../../assets/images/cassette.png'
 import play from '../../../assets/images/play.png'
 import replay from '../../../assets/images/replay.png'
 import pause from '../../../assets/images/pause.png'
+import timer from '../../../assets/images/timer.png'
 import {Btn} from '../../../components/Button'
-
+import {
+    Cont_Inp,
+    Title,
+    Inp
+} from '../../../components/InputAnswer'
+import {Player} from '../../../components/Youtube'
 import {
     Wrap,
     Div,
-    Input,
     Ment,
     Img,
-    Rate
+    Rate,
+    MyProgress,
+    StateBar
 } from './questionStyle'
-import {Player} from '../../../components/Youtube'
+import useInterval from '../../../hooks/useInterval'
 
 
 export default function Question(props) {
@@ -25,6 +32,12 @@ export default function Question(props) {
     const [playEvent, setPlayEvent] = useState();
     const [playState, setPlayState] = useState(); 
     const arr = [1,2,3,4,5,6,7,8,9,10];
+    const [second, setSecond] = useState(30);
+    const customInterval = useInterval(() => {
+        // Your custom logic here
+        setSecond(second - 1);
+    }, 1000,second);
+    const [isStartTimerOn, setIsStartTimerOn] = useState(true);
     const state = {
         play : {
             image: play,
@@ -45,7 +58,7 @@ export default function Question(props) {
             }
         },
     }
-    console.log(props);
+
     return (
         <div className='question'>
             <Wrap>
@@ -53,7 +66,9 @@ export default function Question(props) {
                     <Img src= {note} alt="" />
                     <span className='span'>2/10</span>
                     <div></div>
-                    {arr.map(a=> <Rate></Rate>)
+                    {arr.map(a=> 
+                    
+                        <Rate range={a}></Rate>)
                     }
                     <span className='span'>2020s</span>
                 </Div>
@@ -104,12 +119,23 @@ export default function Question(props) {
                                 }}   
                 />
                 </Player>
-                <div>시간초바</div>
-                <span>가수</span>
-                <Input type="text" />
-                <span>제목</span>
-                <Input type="text"/>
-                <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
+                <MyProgress>
+                    <StateBar className='stateBar' width={second}></StateBar>
+                </MyProgress>
+                <Div>
+                    <Image src={timer}/>
+                    <p>{second}s</p>
+                </Div>
+                <Cont_Inp>
+                    <Title>가수</Title>
+                    <Inp type="text" />
+                </Cont_Inp>
+                <Cont_Inp>
+                    <Title>제목</Title>
+                    <Inp type="text"/>
+                </Cont_Inp>
+                    <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
+
                 <Btn href="/choice" attr='question'>다음</Btn>
 
 

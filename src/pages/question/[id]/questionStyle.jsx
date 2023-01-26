@@ -14,11 +14,8 @@ import Image from 'next/image';
 export const Wrap = styled.div`
     width: 329px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     margin: 0 auto ;
-    justify-content: space-around;
-    padding-top: 3rem;
+    padding-top: 70px;
     
 `;
 
@@ -32,18 +29,33 @@ export const Div = styled.div`
     }
 `;
 
+export const MyProgress = styled.div`
+    margin: 44px 0 14px;
+    width: 328px;
+    height:3px;
+    background-color:white;        
+`;
+
+export const StateBar = styled.div`
+    width:  calc(100/30*${(props)=>props.width}%);
+    /* transition: 0.5s; */
+    height:3px;
+    background-color: #EF6363;;       
+`;
 
 export const Rate = styled.div`
     margin-top: 10px;
     width: 8px;
     height: 8px;
-    background-color: aqua;
+    background-color: ${(props) => props.range>2?"white": "#EF6363"};
+    /* background-color:#EF6363; */
+    
     border-radius: 50%;
 `
 
 export const Img = styled(Image)`
     position: absolute;
-    top: 65px;
+    top: 76px;
 `
 
 export const Btn = styled.button`
@@ -60,13 +72,11 @@ export const Input = styled.input`
     /* 텍스트창 구분을 위해 임시로 넣음 */
     border-radius: 10px;
     background-color: rgba(0, 29, 36, 0.1);
-
-
 `
 
 export const Ment = styled.p`
     text-align: center;
     color: red;
     font-size: 16px;
-    margin: 10px 0;
+    margin: 56px 0 20px;
 `
