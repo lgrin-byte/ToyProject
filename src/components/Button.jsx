@@ -31,10 +31,14 @@ export const Btn = styled(Link)`
     height: 60px;
     width: 329px;
     border-radius: 5px;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
+    /* &:hover{
+        border: 1px solid blue;          
+
+    } */
 
     ${({ attr }) => setAttr(attr)}
 `;
