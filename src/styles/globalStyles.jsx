@@ -24,6 +24,7 @@ input, button {
     padding: 0;
     margin: 0;
     cursor: pointer;
+    font-family: var(--font);
 }
 textarea {
   padding: 0;

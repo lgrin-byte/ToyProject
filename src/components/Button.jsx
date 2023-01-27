@@ -10,9 +10,10 @@ import Link from "next/link"
             `;
         case 'change':
             return css`
-            width: 36px;
-            height: 36px;
-            background-color: var(--deep-gray);
+            background-color: #EF6363;
+            color: white;
+            font-size: 22px;
+            transition: 0.2s;
             `;
         case 'choice':
             return css`
@@ -21,7 +22,8 @@ import Link from "next/link"
             `;
         default:
             return css`
-                border: 1px solid black;          
+                border: 1px solid black;
+                
             `;
         }
     };
