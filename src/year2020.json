@@ -1,0 +1,43 @@
+
+{
+    "low":[
+        {"url": "azaZt7eccnc",
+        "title":["새삥"],
+        "singer":["지코"]},
+        {"url": "KhZ5DCd7m6s",
+        "title":["다이너마이트", "Dynamite"],
+        "singer":["방탄소년단","BTS"]},
+        {"url": "-sAfYm10kuE",
+        "title":["FOREVER 1"],
+        "singer":["소녀시대"]}
+
+    ],
+    "middle":[        
+        {"url": "haCpjUXIhrI",
+        "title":["Ditto"],
+        "singer":["뉴진스"]},
+        {"url": "hc32lb0po9U",
+        "title":["OMG"],
+        "singer":["뉴진스"]},
+        {"url": "a1r2PX8uwPg",
+        "title":["a1r2PX8uwPg"],
+        "singer":["뉴진스"]}
+    ],
+    "high":[
+        {"url": "iFDUuog1IcI",
+        "title":["블랙맘바"],
+        "singer":["에스파"]},
+        {"url": "bMSkW8byD3k",
+        "title":["워너비"],
+        "singer":["있지"]},
+        {"url": "_PBnU2eWLE4",
+        "title":["빨간 립스틱"],
+        "singer":["이하이"]},
+        {"url": "_ejbyikx9mA",
+        "title":["Maria"],
+        "singer":["화사"]}
+
+    ]
+
+
+}
