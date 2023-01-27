@@ -47,7 +47,7 @@ export const Rate = styled.div`
     margin-top: 10px;
     width: 8px;
     height: 8px;
-    background-color: ${(props) => props.range>2?"white": "#EF6363"};
+    background-color: ${(props) => props.range>props.level?"white": "#EF6363"};
     /* background-color:#EF6363; */
     
     border-radius: 50%;

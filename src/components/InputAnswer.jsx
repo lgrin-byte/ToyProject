@@ -20,6 +20,5 @@ export const Inp = styled.input`
     width: 262px;
     height: 50px;
     padding: 15px 10px 17px;
-    font-family: var(--font);
     font-size: 18px;
 `;
