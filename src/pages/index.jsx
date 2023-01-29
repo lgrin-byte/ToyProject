@@ -12,7 +12,7 @@ export default function index() {
 
     const handleNickname = (e)=>{
         console.log(e.target.value);
-        e.target.value? setIsActive("change") :setIsActive("") 
+        e.target.value? setIsActive("change") :setIsActive("empty") 
     }
 
     return (
@@ -21,7 +21,7 @@ export default function index() {
             <Image>일러스트</Image>
             <p className='start'>닉네임 입력하기</p>
             <Input type="text" id='' onChange={handleNickname}/>
-            <Btn href="/choice" attr={isActive? "change" : ""}>
+            <Btn href="/choice" attr={isActive}>
                 다음 페이지
             </Btn>
         </Wrap>

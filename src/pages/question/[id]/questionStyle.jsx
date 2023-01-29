@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {css, keyframes } from 'styled-components';
 import Image from 'next/image';
 
 
@@ -10,6 +10,26 @@ import Image from 'next/image';
     //         height: 50px;
     //         background-size: 30px;
     //         `;
+
+
+    export const vibration = keyframes` 
+        from {
+            transform: rotate(5deg);
+        }
+        to {
+            transform: rotate(-5deg);
+        }
+    `;
+
+const styles = css`
+    animation: ${vibration} 0.1s infinite;
+`
+
+const setAttr = (time) => {
+    if(time<=10){
+        return styles
+    }
+}
 
 export const Wrap = styled.div`
     width: 329px;
@@ -23,11 +43,18 @@ export const Div = styled.div`
     display: flex;
     margin-bottom: 54px;
     justify-content: space-between;
+    /* ${".vibration"}{
+        animation: 
+        ${vibration} 0.1s infinite;
 
+        ${(props) => props.time<20 && `${vibration} 0.1s infinite`};
+    } */
     span{
         margin-left: 22px;
     }
 `;
+
+
 
 export const MyProgress = styled.div`
     margin: 44px 0 14px;
@@ -47,11 +74,14 @@ export const Rate = styled.div`
     margin-top: 10px;
     width: 8px;
     height: 8px;
-    background-color: ${(props) => props.range>props.level?"white": "#EF6363"};
+    background-color: ${(props) => props.range>props.level?"white": "#EF6363" };
 
     /* background-color:#EF6363; */
     
     border-radius: 50%;
+`
+export const TimerImg = styled(Image)`
+    ${({ time }) => setAttr(time)}
 `
 
 export const Img = styled(Image)`
