@@ -10,7 +10,6 @@ export const P = styled.p`
     text-align: center;
     font-size: 16px;
     margin:25px 0 50px;
-    color: red;
 `;
 
 
