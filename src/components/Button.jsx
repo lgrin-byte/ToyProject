@@ -1,5 +1,25 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import Link from "next/link"
+
+const scale = keyframes` 
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+
+`
+
+const scaleDown = keyframes` 
+    0% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+
+`
 
     const setAttr = (attr) => {
         switch (attr) {
@@ -12,14 +32,20 @@ import Link from "next/link"
             return css`
             background-color: #EF6363;
             color: white;
-            font-size: 22px;
-            transition: 0.2s;
+            animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             `;
         case 'choice':
             return css`
             background-color: var(--deep-gray);
             margin-bottom: 25px;
             `;
+        case 'empty':
+            return css`
+                border: 1px solid black;
+                animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+            `;
+        
         default:
             return css`
                 border: 1px solid black;
