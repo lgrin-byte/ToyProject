@@ -1,42 +1,137 @@
 
 {
     "low":[
-        {"url": "azaZt7eccnc",
-        "title":["새삥"],
-        "singer":["지코"]},
-        {"url": "KhZ5DCd7m6s",
-        "title":["다이너마이트", "Dynamite"],
-        "singer":["방탄소년단","BTS"]},
-        {"url": "-sAfYm10kuE",
-        "title":["FOREVER 1"],
-        "singer":["소녀시대"]}
-
-    ],
+        {
+        "singer": "아이브 ",
+        "title": "일레븐\/ELEVEN",
+        "url": "e91HyUPLaMM"
+        },
+        {
+        "singer": "지코 ",
+        "title": "새삥\/",
+        "url": "azaZt7eccnc"
+        },
+        {
+        "singer": "방탄소년단 BTS",
+        "title": "다이너마이트\/Dynamite",
+        "url": "KhZ5DCd7m6s"
+        },
+        {
+        "singer": "싸이 PSY",
+        "title": "\/That That",
+        "url": "uOdA5_R2x_E"
+        },
+        {
+        "singer": "소녀시대 ",
+        "title": "포에버원\/FOREVER 1",
+        "url": "-sAfYm10kuE"
+        },
+        {
+        "singer": "제시 ",
+        "title": "\/ZOOM",
+        "url": "aDEnerwR0JQ"
+        },
+        {
+        "singer": "장기하 ",
+        "title": "부럽지가 않어\/",
+        "url": "SzyB2xBqkps"
+        },
+        {
+        "singer": "(여자)아이들 ",
+        "title": "톰보이\/TOMBOY",
+        "url": "0wezH4MAncY"
+        },
+        {
+        "singer": "지코 ",
+        "title": "아무노래\/",
+        "url": "AAOyOZ3GeZ0"
+        }
+        ],
     "middle":[        
-        {"url": "haCpjUXIhrI",
-        "title":["Ditto"],
-        "singer":["뉴진스"]},
-        {"url": "hc32lb0po9U",
-        "title":["OMG"],
-        "singer":["뉴진스"]},
-        {"url": "a1r2PX8uwPg",
-        "title":["a1r2PX8uwPg"],
-        "singer":["뉴진스"]}
+            {
+            "singer": "뉴진스 ",
+            "title": "\/Ditto",
+            "url": "haCpjUXIhrI"
+            },
+            {
+            "singer": "뉴진스 ",
+            "title": "\/OMG",
+            "url": "hc32lb0po9U"
+            },
+            {
+            "singer": "뉴진스 ",
+            "title": "\/Hipe Boy",
+            "url": "a1r2PX8uwPg"
+            },
+            {
+            "singer": "아이브 ",
+            "title": "\/After LIKE",
+            "url": "CVxTT38_J4c"
+            },
+            {
+            "singer": "아이브 ",
+            "title": "\/LOVE DIVE",
+            "url": "l-jZOXa7gQY"
+            },
+            {
+            "singer": "블랙핑크 BLACKPINK",
+            "title": "\/Pink Venom",
+            "url": "3or3dp3qNQU"
+            },
+            {
+            "singer": "블랙핑크 BLACKPINK",
+            "title": "\/Shut Down",
+            "url": "JDRyqUx1X8M"
+            },
+            {
+            "singer": "비오 BE’O",
+            "title": "자격지심\/",
+            "url": "pGJNp7qwKk4"
+            },
+            {
+            "singer": "아이유 ",
+            "title": "라일락\/",
+            "url": "W475_MHV_EU"
+            },
+            {
+            "singer": "방탄소년단 BTS",
+            "title": "\/Butter",
+            "url": "jH--Wof3HfQ"
+            },
+            {
+            "singer": "선미 ",
+            "title": "열이올라요\/",
+            "url": "6hDHvn4plpw"
+            },
+            {
+            "singer": "나연 ",
+            "title": "\/POP! (POP)",
+            "url": "P8viALDvZmw"
+            },
+            {
+            "singer": "세븐틴 ",
+            "title": "\/HOT",
+            "url": "Ide2nawCz4Y"
+            },
+            {
+            "singer": "악동뮤지션 ",
+            "title": "낙하\/",
+            "url": "aC9Wq4Yf2vY"
+            }
     ],
     "high":[
         {"url": "iFDUuog1IcI",
-        "title":["블랙맘바"],
-        "singer":["에스파"]},
+        "title":"블랙맘바",
+        "singer":"에스파"},
         {"url": "bMSkW8byD3k",
-        "title":["워너비"],
-        "singer":["있지"]},
+        "title":"워너비",
+        "singer":"있지"},
         {"url": "_PBnU2eWLE4",
-        "title":["빨간 립스틱"],
-        "singer":["이하이"]},
+        "title":"빨간 립스틱",
+        "singer":"이하이"},
         {"url": "_ejbyikx9mA",
-        "title":["Maria"],
-        "singer":["화사"]}
-
+        "title":"\/Maria",
+        "singer":"화사"}
     ]
 
 

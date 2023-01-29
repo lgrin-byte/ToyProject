@@ -11,8 +11,13 @@ import year2020 from '../../year2020'
 
 export default function index() {
     const [isActive, setIsActive] = useState("");
-    const random1 =shuffle(year2020.low);  
-    console.log(random1);
+    const QnAArr=[]
+    const random1 =shuffle(year2020.low).slice(0,3);
+    const random2 =shuffle(year2020.middle).slice(0,5);
+    const random3 =shuffle(year2020.high).slice(0,2);
+
+    console.log(random1,random2,random3);
+    // QnAArr=[...random1,...random2,...random3]
     const handleBtn = (e)=>{
         setIsActive("change") 
     }

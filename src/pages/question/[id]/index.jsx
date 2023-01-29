@@ -22,13 +22,34 @@ import {
     Img,
     Rate,
     MyProgress,
-    StateBar
+    StateBar,
+    TimerImg
 } from './questionStyle'
 import useInterval from '../../../hooks/useInterval'
 import year2020 from '../../../year2020'
+import { shuffle,random } from 'lodash'
 
 
 export default function Question(props) {
+
+    let QnAArr=[]
+    const random1 =shuffle(year2020.low).slice(0,3);
+    const random2 =shuffle(year2020.middle).slice(0,5);
+    const random3 =shuffle(year2020.high).slice(0,2);
+
+    QnAArr=[
+        {singer: '소녀시대 ', title: '포에버원/FOREVER 1', url: '-sAfYm10kuE'},
+        {singer: '지코 ', title: '새삥/', url: 'azaZt7eccnc'},
+        {singer: '지코 ', title: '아무노래/', url: 'AAOyOZ3GeZ0'},
+        {singer: '아이유 ', title: '라일락/', url: 'W475_MHV_EU'},
+        {singer: '블랙핑크 BLACKPINK', title: '/Shut Down', url: 'JDRyqUx1X8M'},
+        {singer: '블랙핑크 BLACKPINK', title: '/Pink Venom', url: '3or3dp3qNQU'},
+        {singer: '나연 ', title: '/POP! (POP)', url: 'P8viALDvZmw'},
+        {singer: '비오 BE’O', title: '자격지심/', url: 'pGJNp7qwKk4'},
+        {url: 'iFDUuog1IcI', title: '블랙맘바', singer: '에스파'},
+        {url: '_PBnU2eWLE4', title: '빨간 립스틱', singer: '이하이'}]
+
+    console.log();
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
     const [playState, setPlayState] = useState();
@@ -38,6 +59,7 @@ export default function Question(props) {
     const [level, setLevel]=useState(0)
     const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(30);
+    
 useInterval(() => {
 
         setSecond(second - 1);
@@ -75,8 +97,11 @@ useInterval(() => {
     }
 
     const handleBtn = () => {
-        setLevel(level+1)
-        setSecond(30)
+
+        if(level<9){
+            setLevel(level+1)
+            setSecond(30)
+        }
     }
 
 useEffect(()=>{
@@ -87,6 +112,15 @@ useEffect(()=>{
         setIsActive("question")
     }
 },[singer, title])
+
+
+    if(second===0){
+        setLevel(level+1)
+        setSecond(30)
+    }
+
+
+
 
     return (
         <div className='question'>
@@ -107,9 +141,10 @@ useEffect(()=>{
                     <Image className="btn_play" src={state["pause"].image} onClick={state["pause"].onClick}/> :
                     <Image className="btn_play" src={state["play"].image} onClick={state["play"].onClick}/> }
                     <Image className="btn_replay" src={state["replay"].image} onClick={state["replay"].onClick}/>
-
+                    {console.log(QnAArr[level])}
                 <YouTube
-                    videoId= {year2020.low[level].url}
+                    
+                    videoId= {QnAArr[level].url}
                     id="yotube"
                     ref={youtubeRef}
                     className="ir"
@@ -151,7 +186,7 @@ useEffect(()=>{
                     <StateBar className='stateBar' width={second}></StateBar>
                 </MyProgress>
                 <Div>
-                    <Image src={timer}/>
+                    <TimerImg className='vibration' time={second} src={timer}/>
                     <p>{second}s</p>
                 </Div>
                 <Cont_Inp>
@@ -164,7 +199,7 @@ useEffect(()=>{
                 </Cont_Inp>
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
-                <Btn href="/question/1990" attr={isActive} onClick={handleBtn}>다음</Btn>
+                <Btn href={level===9? "/result" : "/question/1990"} attr={isActive} onClick={handleBtn}>다음</Btn>
 
 
             </Wrap>
