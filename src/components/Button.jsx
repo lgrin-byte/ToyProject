@@ -49,6 +49,7 @@ const scaleDown = keyframes`
         default:
             return css`
                 border: 1px solid black;
+                background-color: white;
                 
             `;
         }
@@ -69,4 +70,50 @@ export const Btn = styled(Link)`
     } */
 
     ${({ attr }) => setAttr(attr)}
+`;
+
+export const BtnYear = styled.button`
+    height: 60px;
+    width: 329px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* &:hover{
+        border: 1px solid blue;          
+
+    } */
+
+    ${({ attr }) => setAttr(attr)}
+`;
+
+
+export const YearSelectorContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  /* border: 5px solid ${(props) => blue}; */
+`;
+
+export const Label = styled.label`
+    height: 60px;
+    width: 329px;
+    border-radius: 5px;
+    margin-bottom:25px ;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    background-color: white;
+  /* background-color: ${(props) => blue}; */
+`;
+
+export const RadioButton = styled.input`
+  display: none;
+  &:checked + ${Label} {
+    background-color: #EF6363;
+    color: white;
+    
+  }
 `;

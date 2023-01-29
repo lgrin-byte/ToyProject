@@ -98,7 +98,7 @@ useInterval(() => {
     }
 
     const handleBtn = () => {
-
+        
         if(level<9){
             setLevel(level+1)
             setSecond(30)
@@ -203,7 +203,7 @@ useEffect(()=>{
                 </Cont_Inp>
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
-                <Btn href={level===9? "/result" : "/question/1990"} attr={isActive} onClick={handleBtn}>다음</Btn>
+                <Btn href={level===9? "/result" : "/question/1990"} attr={isActive} onClick={handleBtn}>{level===9? "끝!" : "다음"}</Btn>
 
 
 
