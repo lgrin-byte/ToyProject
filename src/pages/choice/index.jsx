@@ -31,7 +31,7 @@ export default function index() {
             <Btn type="button" attr="choice" href="/choice"  onClick={handleBtn}>2010년대</Btn>
             <Btn type="button" attr="choice" href="/choice"  onClick={handleBtn}>2020년대</Btn>
             <Btn type="button" attr="choice" href="/choice"  onClick={handleBtn}>올타임레전드</Btn>
-            <P>전주 10초를 듣고 30초 안에 <br/> 해당 노래의 가수, 노래 제목을<br/>맞히는 방식의 게임입니다.</P>
+            <P>전주 10초를 듣고 30초 안에<br/>노래의 가수, 제목을 맞히는 게임입니다.</P>
             <Btn type="button" href="/question/1990"  attr={isActive}>게임시작</Btn>
 
         </Wrap>
