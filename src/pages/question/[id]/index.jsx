@@ -30,6 +30,7 @@ import year2020 from '../../../year2020'
 import { shuffle,random } from 'lodash'
 
 
+
 export default function Question(props) {
 
     let QnAArr=[]
@@ -59,7 +60,7 @@ export default function Question(props) {
     const [level, setLevel]=useState(0)
     const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(30);
-    
+
 useInterval(() => {
 
         setSecond(second - 1);
@@ -127,6 +128,7 @@ useEffect(()=>{
             <Wrap>
                 <Div type="header">
                     <Img src= {note} alt="" />
+
                     <span className='span'>{level+1}/10</span>
                     <div></div>
                     {arr.map(a=> 
@@ -153,6 +155,7 @@ useEffect(()=>{
                             width: "560",
                             height: "315",
                             playerVars: {
+
                                 // start:80,
                                 end:10,
                                 autoplay: 1, //자동재생 O
@@ -191,6 +194,7 @@ useEffect(()=>{
                 </Div>
                 <Cont_Inp>
                     <Title>가수</Title>
+
                     <Inp type="text" name='singer' onChange={handleAnswer}/>
                 </Cont_Inp>
                 <Cont_Inp>
@@ -200,6 +204,7 @@ useEffect(()=>{
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
                 <Btn href={level===9? "/result" : "/question/1990"} attr={isActive} onClick={handleBtn}>다음</Btn>
+
 
 
             </Wrap>
