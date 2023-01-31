@@ -205,8 +205,6 @@ useEffect(()=>{
 
                 <Btn href={level===9? "/result" : "/question/1990"} attr={isActive} onClick={handleBtn}>{level===9? "끝!" : "다음"}</Btn>
 
-
-
             </Wrap>
         </div>
         
