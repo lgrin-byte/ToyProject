@@ -14,20 +14,33 @@ import Image from 'next/image';
 
     export const vibration = keyframes` 
         from {
-            transform: rotate(5deg);
+            transform: rotate(10deg);
         }
         to {
-            transform: rotate(-5deg);
+            transform: rotate(-10deg);
         }
     `;
-
+    export const vibration2 = keyframes` 
+    from {
+        transform: rotate(15deg);
+    }
+    to {
+        transform: rotate(-15deg);
+    }
+`;
 const styles = css`
-    animation: ${vibration} 0.1s infinite;
+    animation: ${vibration} 0.2s infinite;
+`
+
+const stylesFast = css`
+    animation: ${vibration2} 0.2s infinite;
 `
 
 const setAttr = (time) => {
-    if(time<=10){
+    if(time<=20){
         return styles
+    }else if(time<=10){
+        return stylesFast
     }
 }
 
@@ -41,8 +54,9 @@ export const Wrap = styled.div`
 
 export const Div = styled.div`
     display: flex;
-    margin-bottom: 54px;
+    margin-bottom: 36px;
     justify-content: space-between;
+    align-items: center;
     /* ${".vibration"}{
         animation: 
         ${vibration} 0.1s infinite;
@@ -52,12 +66,16 @@ export const Div = styled.div`
     span{
         margin-left: 22px;
     }
+    p{
+        color: ${(props) => props.time<11?"#EF6363": "black" };
+
+    }
 `;
 
 
 
 export const MyProgress = styled.div`
-    margin: 44px 0 14px;
+    margin: 26px 0 10px;
     width: 328px;
     height:3px;
     background-color:white;        
@@ -71,12 +89,12 @@ export const StateBar = styled.div`
 `;
 
 export const Rate = styled.div`
-    margin-top: 10px;
+    /* margin-top: 6px; */
     width: 8px;
     height: 8px;
     background-color: ${(props) => props.range>props.level?"white": "#EF6363" };
     /* background-color:#EF6363; */
-    
+    margin-left: 10px;
     border-radius: 50%;
 `
 export const TimerImg = styled(Image)`

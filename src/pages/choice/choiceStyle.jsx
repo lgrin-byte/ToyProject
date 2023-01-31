@@ -3,13 +3,15 @@ import Link from "next/link"
 
 export const ChoiceYear = styled.h2`
     text-align: center;
-    margin-bottom: 38px;
+    margin-bottom: 50px;
 `;
 
 export const P = styled.p`
     text-align: center;
     font-size: 16px;
-    margin:25px 0 50px;
+    letter-spacing: -0.3px;
+
+    margin:26px 0 21px;
 `;
 
 
@@ -19,6 +21,6 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
-    padding-top: 3rem;
+    padding-top: 97px;
     
 `;

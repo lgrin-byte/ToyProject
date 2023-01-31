@@ -4,20 +4,21 @@ import Link from "next/link"
 
 export const Wrap = styled.div`
     width: 329px;
-    /* height: 720px; */
-    /* @media ${props => props.theme.tablet} {
-    width: 100%;
-    margin: 0 auto;
-} */
-
-
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
-    padding-top: 80px;
+    padding-top: 67px;
     text-align: center;
     justify-content: space-around;
+    ${'.info'}{
+        font-size: 15px;
+        margin: 0 0 13px 3px;
+        line-height:54px;
+        letter-spacing: -0.8px;
+        font-style: normal;
+        color: #3F3F3F;
 
+    }
 `;
 
 
