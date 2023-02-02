@@ -25,6 +25,10 @@ import {
     StateBar,
     TimerImg
 } from './questionStyle'
+import RefreshModal from '../../../components/modal/RefreshModal'
+import useCustomModal from "../../../hooks/useCustomModal";
+import ModalPortal from "../../../components/modal/ModalPortal";
+
 import useInterval from '../../../hooks/useInterval'
 import year2020 from '../../../year2020'
 import { shuffle,random } from 'lodash'
@@ -53,7 +57,7 @@ export default function Question(props) {
 //         {url: 'iFDUuog1IcI', title: '블랙맘바', singer: '에스파'},
 //         {url: '_PBnU2eWLE4', title: '빨간 립스틱', singer: '이하이'}]
 
-    console.log(count.music);
+
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
     const [playState, setPlayState] = useState();
@@ -63,13 +67,25 @@ export default function Question(props) {
     const [level, setLevel]=useState(1)
     // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(30);
-
+    const {
+        modalOpen,
+        setModalOpen,
+        showModal,
+    } = useCustomModal();
     useEffect(
         ()=>{
-            if(level===1){
-                youtubeRef.current.updateVideo();
-                console.log("해?");
 
+            if(level===1 ){
+                if(count.music.length!==0){
+                    console.log(count.music);
+                    youtubeRef.current.updateVideo();}
+                else{
+                    Router.push("/")
+
+                }
+
+            }else if(!youtubeRef.current.updateVideo()){
+            
             }
         },[]
 
@@ -104,8 +120,8 @@ useInterval(() => {
         // Input을 체크해서 state를 변경하는 함수.
         if (e.target.name === "singer") setSinger(e.target.value); 
         else if (e.target.name === "songName") setTitle(e.target.value);
-        console.log(singer);
-        console.log(title);
+        // console.log(singer);
+        // console.log(title);
 
         // (singer&title) ? setIsActive("change") : setIsActive("question")
     }
@@ -147,6 +163,22 @@ useEffect(()=>{
         setSinger("")
         setTitle("")
     },[level])
+// 새로고침 막기 변수
+const preventClose = (e) => {
+    e.preventDefault();
+    e.returnValue = ""; // chrome에서는 설정이 필요해서 넣은 코드
+}
+
+// 브라우저에 렌더링 시 한 번만 실행하는 코드
+useEffect(() => {
+    (() => {
+        window.addEventListener("beforeunload", preventClose);    
+    })();
+
+    return () => {
+        window.removeEventListener("beforeunload", preventClose);
+    };
+},[]);
 
 
 
@@ -192,12 +224,13 @@ useEffect(()=>{
                         setPlayEvent(e)
                         setPlayState(e.data);
                         console.log("플레이",e.data);
+                        console.log("",count.music[level])
                         
                     }}
                     onPause={(e)=> {
                         console.log(e);
                         setPlayState(e.data);
-                        console.log("일정",e.data);
+                        console.log("일시정지",e.data);
 
                     }}   
                     onEnd={(e)=>{
@@ -227,7 +260,14 @@ useEffect(()=>{
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
                 <Btn href={level===10? "/result" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
-
+                <button onClick={showModal}>모달</button>
+            <ModalPortal>
+                {modalOpen && 
+                    <RefreshModal type="question"
+                            modalOpen={modalOpen}
+                            setModalOpen={setModalOpen} 
+                            />}    
+            </ModalPortal>  
 
             </Wrap>
         </div>

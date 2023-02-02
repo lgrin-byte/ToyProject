@@ -1,14 +1,22 @@
 import {
     Wrap,
     H,
+    HB,
     Image,
-    Input
+    Input,
+    ImageMain,
+    WrapMain
 } from './mainStyle'
 import {Btn} from '../components/Button'
+import Modal from '../components/modal/Modal'
+import useCustomModal from "../hooks/useCustomModal";
+import ModalPortal from "../components/modal/ModalPortal";
+
 import { useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment,login } from "./count/counterSlice";
 import speaker from '../assets/images/speaker.png'
+import main from '../assets/images/main.png'
 import {
     // Div,
     Ment,
@@ -25,6 +33,11 @@ export default function index() {
     const [isActive, setIsActive] = useState();
     const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
+    const {
+        modalOpen,
+        setModalOpen,
+        showModal,
+    } = useCustomModal();
 
     const handleNickname = (e)=>{
         console.log(e.target.value);
@@ -47,8 +60,20 @@ export default function index() {
             </DivRate>
         </Div>
             <p className='info'>(게임진행을 위해 소리를 켜주세요!)</p>
-            {/* <H>무슨 노래 <br/> 듣고 계세요?</H> */}
-            <Image>일러스트</Image>
+            <WrapMain>
+                <ImageMain src={main} alt=""/>
+                <H>무슨 노래 <br/> 듣고 계세요?</H>
+                <HB>무슨 노래 <br/> 듣고 계세요?</HB>
+                
+            </WrapMain>
+            <button onClick={showModal}>모달</button>
+            <ModalPortal>
+                {modalOpen && 
+                    <Modal 
+                            modalOpen={modalOpen}
+                            setModalOpen={setModalOpen} 
+                            />}    
+            </ModalPortal>  
             <p className='start'>닉네임 입력하기</p>
             <Input type="text" id='' onChange={handleNickname}/>
             <Btn href="/choice" attr={isActive} >
