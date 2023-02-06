@@ -8,6 +8,9 @@ import {Btn, YearSelectorContainer, Label, RadioButton } from '../../components/
 import { useState } from 'react'
 import { shuffle,random } from 'lodash'
 import year2020 from '../../year2020'
+import year2010 from '../../year2010'
+import year2000 from '../../year2000'
+import year1990 from '../../year1990'
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment,login } from "../count/counterSlice";
 import { useRouter } from 'next/router'
@@ -54,15 +57,15 @@ export default function index() {
                     resultYear=year2020;
                     setMusicImg(year2020img);}
                 else if(selectedYear[0]==="2010년대"){
-                    resultYear=year2020;
+                    resultYear=year2010;
                     setMusicImg(year2010img);}
 
                 else if(selectedYear[0]==="2000년대"){
-                    resultYear=year2020;
+                    resultYear=year2000;
                     setMusicImg(year2000img);}
 
                 else if(selectedYear[0]==="1990년대"){
-                    resultYear=year2020;
+                    resultYear=year1990;
                     setMusicImg(year1990img);}
                 
                 const random1 =shuffle(resultYear.low).slice(0,3);
@@ -105,7 +108,7 @@ export default function index() {
             <P>전주 10초를 듣고 30초 안에<br/>노래의 가수, 제목을 맞히는 게임입니다.</P>
             <Btn type="button" href={isHref}  attr={isActive} onClick={()=>{
                 // router.replace('/')
-                dispatch(login({ name: count.name ,music : musicArr,musicImg}))
+                dispatch(login({ name: count.name ,music : musicArr,musicImg, score:0}))
             }}>게임시작</Btn>
         </Wrap>
     </div>

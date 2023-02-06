@@ -35,29 +35,19 @@ import { shuffle,random } from 'lodash'
 import Link from 'next/link';
 import Router from 'next/router';
 import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment,login } from "../../count/counterSlice";
 
 
 export default function Question(props) {
     const count = useSelector((state) => state.user.value);
+    const dispatch = useDispatch();
 
     // let count.music=[]
     const random1 =shuffle(year2020.low).slice(0,3);
     const random2 =shuffle(year2020.middle).slice(0,5);
     const random3 =shuffle(year2020.high).slice(0,2);
 
-// const arr=[
-//         {singer: '소녀시대 ', title: '포에버원/FOREVER 1', url: '-sAfYm10kuE'},
-//         {singer: '지코 ', title: '새삥/', url: 'azaZt7eccnc'},
-//         {singer: '지코 ', title: '아무노래/', url: 'AAOyOZ3GeZ0'},
-//         {singer: '아이유 ', title: '라일락/', url: 'W475_MHV_EU'},
-//         {singer: '블랙핑크 BLACKPINK', title: '/Shut Down', url: 'JDRyqUx1X8M'},
-//         {singer: '블랙핑크 BLACKPINK', title: '/Pink Venom', url: '3or3dp3qNQU'},
-//         {singer: '나연 ', title: '/POP! (POP)', url: 'P8viALDvZmw'},
-//         {singer: '비오 BE’O', title: '자격지심/', url: 'pGJNp7qwKk4'},
-//         {url: 'iFDUuog1IcI', title: '블랙맘바', singer: '에스파'},
-//         {url: '_PBnU2eWLE4', title: '빨간 립스틱', singer: '이하이'}]
-
-
+    const answerArr = []
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
     const [playState, setPlayState] = useState();
@@ -131,10 +121,41 @@ useInterval(() => {
         if(level<10){
             setLevel(level+1)
             setSecond(30)
+            handleCheck()
         }
         else{
             // Router.replace('/')
         }
+    }
+const handleCheck = ()=>{
+    // answerArr.push({title, singer})
+    const answerTitle=count.music[level-1].title.split("/")
+    const answerSinger=count.music[level-1].singer.split("/")
+    let 숫자=0
+    for (let i of answerTitle){
+        i=i.toLowerCase().split(' ').join('');
+        console.log(answerTitle,":",i);
+        if(title.toLowerCase().split(' ').join('')=== i  ){
+                숫자+=1
+                break
+            }
+        }
+    
+    for (let j of answerSinger){
+        j=j.toLowerCase().split(' ').join('');
+        console.log(j);
+        if(singer.toLowerCase().split(' ').join('') === j ){
+            console.log("정답입니다");
+            숫자+=10
+            break
+        }}
+        if(숫자===11){
+            let score=count.score+1
+            console.log(score);
+            dispatch(login({ name: count.name ,music : count.music,musicImg:count.musicImg, score:score}))
+
+        }
+    console.log(숫자);
     }
 
 useEffect(()=>{
@@ -149,6 +170,7 @@ useEffect(()=>{
     if(second===0){
         setLevel(level+1)
         setSecond(30)
+        handleCheck()
         
     }
 
@@ -224,7 +246,8 @@ useEffect(() => {
                         setPlayEvent(e)
                         setPlayState(e.data);
                         console.log("플레이",e.data);
-                        console.log("",count.music[level])
+                        console.log("",count.music[level-1].title)
+                        console.log("",count.music[level-1].singer)
                         
                     }}
                     onPause={(e)=> {
