@@ -107,14 +107,65 @@ export const Btn= styled.button`
 `
 
 
-// @keyframes fadeInUp {
-//     0% {
-//         opacity: 0;
-//         transform: translate3d(0, 100%, 0);
-//     }
-//     100% {
-//         opacity: 1;
-//         transform: translateZ(0);
-//     }
-// }
 
+
+
+export const TitleBox= styled.div`
+    margin: 20px 20px 23px;
+    ${".contMargin"}{
+        margin: 25px;
+
+    }
+
+`
+export const PlayBox= styled.div`
+    width: 290px;
+    height: auto;
+    font-size: 15px;
+    line-height: 20px;
+    background: #FAF6EF;
+    margin-top: -6px;
+    border: 3px solid #E5DEF5;
+    padding: 18px 10px 20px;
+    text-align: center;
+
+`
+
+export const UlModal = styled.ul`
+    /* list-style-type: square; */
+    /* list-style: ; */
+    display: flex;
+    flex-direction: column;
+    padding-left: 23px;
+    text-align: start;
+`; 
+
+export const LiModal = styled.li`
+    list-style-type: square;
+    margin: 10px 0;
+    /* &::before{ */
+        color:  #EF6363;;
+        font-size: 20px;
+    /* } */
+    /* list-style: ; */
+    ${"p"}{
+        color: black;
+        font-size: 15px;
+    }
+    &:first-child{
+        margin-top: 5px;
+    }
+
+    &:last-child{
+        margin: 0;
+    }
+
+`; 
+export const ExplainImg= styled(Image)`
+    margin: 3px 0 10px;
+    margin-left: -12px;
+`
+
+export const RedSpan= styled.span`
+    color: #FF2323;
+`
