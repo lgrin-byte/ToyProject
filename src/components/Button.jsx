@@ -42,6 +42,7 @@ const scaleDown = keyframes`
         case 'empty':
             return css`
                 border: 1px solid black;
+                background-color: white;
                 animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
             `;
@@ -72,7 +73,7 @@ export const Btn = styled(Link)`
       background-color: #EF6363;
             color: white;
             animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
+            border: none;
     }
     
 
@@ -125,3 +126,17 @@ export const RadioButton = styled.input`
     
   }
 `;
+
+export const ModalBtn = styled.button`
+  height: 44px;
+  width: 135px;
+  font-size: 20px;
+  background: #E5DEF5;
+  border: 3px solid #FFFFFF;
+  border-radius: 5px;
+  &:active{
+    background: #af8ff9;
+    animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  }
+`

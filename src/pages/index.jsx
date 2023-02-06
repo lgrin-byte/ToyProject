@@ -7,7 +7,7 @@ import {
     ImageMain,
     WrapMain
 } from './mainStyle'
-import {Btn} from '../components/Button'
+import {Btn, ModalBtn} from '../components/Button'
 import Modal from '../components/modal/Modal'
 import useCustomModal from "../hooks/useCustomModal";
 import ModalPortal from "../components/modal/ModalPortal";
@@ -64,9 +64,9 @@ export default function index() {
                 <ImageMain src={main} alt=""/>
                 <H>무슨 노래 <br/> 듣고 계세요?</H>
                 <HB>무슨 노래 <br/> 듣고 계세요?</HB>
-                
+                <ModalBtn onClick={showModal}>게임규칙</ModalBtn>
             </WrapMain>
-            <button onClick={showModal}>모달</button>
+
             <ModalPortal>
                 {modalOpen && 
                     <Modal 

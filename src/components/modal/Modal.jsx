@@ -1,7 +1,12 @@
 import React, {useEffect, useRef} from 'react'
 import style from "./modal.module.css"
-import { Back, WrapModal,CancelBar,CloseSpan,Btn,CloseBtn } from './ModalStyle';
-import 나가기 from '../..//assets/images/나가기.svg'
+import { Back, WrapModal,CancelBar,CloseSpan,Btn,CloseBtn,TitleBox, PlayBox, UlModal, LiModal ,ExplainImg, RedSpan} from './ModalStyle';
+import 나가기 from '../../assets/images/나가기.svg'
+import title from '../../assets/images/titleBox.png'
+import alert from '../../assets/images/alert.png'
+import example from '../../assets/images/example.png'
+import Image from 'next/image';
+
 
 export default function Modal({type, modalOpen, setModalOpen, handleModal}) {
 
@@ -51,9 +56,28 @@ export default function Modal({type, modalOpen, setModalOpen, handleModal}) {
                     <CancelBar src={나가기} width="12" height="12" onClick= {closeModal}> 
                     </CancelBar>
                 </CloseBtn>
-                {   
+                <TitleBox>
+                    <Image src={title}/>
+                    <PlayBox><RedSpan>전주 10초</RedSpan>를 듣고 <RedSpan>제한시간 30초</RedSpan> 안에 <br/><RedSpan>가수, 제목</RedSpan>을 입력해주세요.</PlayBox>
+                    <div className='contMargin'></div>
+                    <Image src={alert}/>
+                    <PlayBox>
+                        <UlModal>
 
-                }
+                            <LiModal><p>전주 10초는 다시듣기 가능합니다.</p></LiModal>
+                            <LiModal><p>‘새로고침, 뒤로가기’ 클릭 시<br/>
+                                메인화면으로 이동하게 됩니다.</p></LiModal>
+                            <LiModal><p>맞춤법이 다를시 오답처리됩니다.</p></LiModal>
+                            <LiModal><p>‘영어로 적어주세요'문구가 있는 칸은 <RedSpan>영문,숫자로만 기입</RedSpan>해주세요.<br/>
+                            <RedSpan>(한글 작성시 오답처리됩니다.)</RedSpan></p>
+                                <ExplainImg src={example}/>
+                                </LiModal>
+                            <LiModal><p>띄어쓰기, 특수문자, 대소문자는<br/>
+                                오답처리에 반영되지 않습니다.</p></LiModal>
+                        </UlModal>
+                    </PlayBox>
+                </TitleBox>
+
             </WrapModal>
         </Back>
     )
