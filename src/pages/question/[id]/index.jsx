@@ -38,6 +38,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment,login } from "../../count/counterSlice";
 
 
+
 export default function Question(props) {
     const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
@@ -80,6 +81,7 @@ export default function Question(props) {
         },[]
 
     )
+
 useInterval(() => {
 
         setSecond(second - 1);
@@ -209,7 +211,9 @@ useEffect(() => {
             <Wrap>
                 <Div type="header">
                     <Img src= {note} alt="" />
+
                     <span className='span'>{level}/10</span>
+
                     <div></div>
                     {count.music.map((a, i)=> 
                     
@@ -282,6 +286,7 @@ useEffect(() => {
                 </Cont_Inp>
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
+
                 <Btn href={level===10? "/result" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
                 <button onClick={showModal}>모달</button>
             <ModalPortal>
@@ -291,6 +296,7 @@ useEffect(() => {
                             setModalOpen={setModalOpen} 
                             />}    
             </ModalPortal>  
+
 
             </Wrap>
         </div>
