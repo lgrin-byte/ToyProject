@@ -1,8 +1,6 @@
-
-
 {
     "low":[
-            {
+        {
             "singer": "포미닛\/4minute",
             "title": "핫이슈\/Hot Issue",
             "url": "aYVIvd68Ka0"
@@ -28,7 +26,7 @@
             "url": "FWTfKpZ0VWU"
             },
             {
-            "singer": "브라운 아이드걸스 (아이즈는 오답!)\/Brown Eyed Girls",
+            "singer": "브라운 아이드걸스\/Brown Eyed Girls",
             "title": "아브라카다브라",
             "url": "dWsWbd7xauA"
             },
@@ -54,18 +52,19 @@
             },
             {
             "singer": "동방신기\/TVXQ",
-            "title": "풍선",
+            "title": "풍선\/",
             "url": "H0MQJfgjl3o"
-            }],
-            "middle":[
-            {
+            }
+        ],
+    "middle":[        
+        {
             "singer": "SG워너비\/SG WANNABE",
             "title": "라라라",
             "url": "94UMXIWJgsQ"
             },
             {
             "singer": "쥬얼리\/Jewelry",
-            "title": "니가 참 좋아\/",
+            "title": "니가 참 좋아",
             "url": "10P5K8F-BYA"
             },
             {
@@ -90,7 +89,7 @@
             },
             {
             "singer": "소찬휘",
-            "title": "\/Tears",
+            "title": "Tears",
             "url": "N7x1HC0bShw"
             },
             {
@@ -135,16 +134,17 @@
             },
             {
             "singer": "카라",
-            "title": "미스터\/Mr/Mister",
+            "title": "미스터\/Mr, Mister",
             "url": "LI-CzudcLGw"
             },
             {
             "singer": "백지영",
             "title": "사랑안해",
             "url": "MLk5T56-iY0"
-            }],
-            "high":
-            [{
+            }
+    ],
+    "high":[
+        {
             "singer": "브라운아이즈\/Brown Eyes",
             "title": "벌써일년",
             "url": "-sVo6NWwK_o"
@@ -174,5 +174,7 @@
             "title": "멍",
             "url": "N7VBSaZ-jKQ"
             }
-        ]
+    ]
+
+
 }

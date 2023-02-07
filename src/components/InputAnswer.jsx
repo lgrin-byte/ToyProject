@@ -14,6 +14,8 @@ export const Title = styled.span`
     text-align: center;
     line-height: 50px;
     background-color:#D4CCE9;
+   color: #5D5B61;
+   font-size: 18px;
 `;
 
 export const Inp = styled.input`

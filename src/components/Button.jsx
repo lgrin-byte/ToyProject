@@ -32,7 +32,7 @@ const scaleDown = keyframes`
             return css`
             background-color: #EF6363;
             color: white;
-            animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            /* animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
             `;
         case 'choice':
             return css`
@@ -42,6 +42,7 @@ const scaleDown = keyframes`
         case 'empty':
             return css`
                 border: 1px solid black;
+                background-color: white;
                 animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
             `;
@@ -68,6 +69,13 @@ export const Btn = styled(Link)`
         border: 1px solid blue;          
 
     } */
+    &:active{
+      background-color: #EF6363;
+            color: white;
+            animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            border: none;
+    }
+    
 
     ${({ attr }) => setAttr(attr)}
 `;
@@ -101,7 +109,7 @@ export const Label = styled.label`
     height: 60px;
     width: 329px;
     border-radius: 5px;
-    margin-bottom:25px ;
+    margin-bottom:22px ;
     display: inline-block;
     text-align: center;
     line-height: 60px;
@@ -111,9 +119,24 @@ export const Label = styled.label`
 
 export const RadioButton = styled.input`
   display: none;
+  
   &:checked + ${Label} {
     background-color: #EF6363;
     color: white;
     
   }
 `;
+
+export const ModalBtn = styled.button`
+  height: 44px;
+  width: 135px;
+  font-size: 20px;
+  background: #E5DEF5;
+  border: 3px solid #FFFFFF;
+  border-radius: 5px;
+  &:active{
+    background: #af8ff9;
+    animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  }
+`

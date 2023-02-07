@@ -8,23 +8,42 @@ import {Btn, YearSelectorContainer, Label, RadioButton } from '../../components/
 import { useState } from 'react'
 import { shuffle,random } from 'lodash'
 import year2020 from '../../year2020'
+import year2010 from '../../year2010'
+import year2000 from '../../year2000'
+import year1990 from '../../year1990'
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment,login } from "../count/counterSlice";
+import { useRouter } from 'next/router'
+import year2020img from '../../assets/images/year2020.png'
+import year2010img from '../../assets/images/year2010.png'
+import year2000img from '../../assets/images/year2000.png'
+import year1990img from '../../assets/images/year1990.png'
+
 
 export default function index() {
+    const count = useSelector((state) => state.user.value);
     const [isActive, setIsActive] = useState("");
-    const [isChoice, setIsChoice] = useState("");
+    const [isHref, setIsHref] = useState("");
     const [selectedYear, setSelectedYear] = useState();
-    // const QnAArr=[]
+    const dispatch = useDispatch();
+    const [musicArr, setMusicArr]=useState([]);
+    const [musicImg, setMusicImg]=useState();
     const random1 =shuffle(year2020.low).slice(0,3);
     const random2 =shuffle(year2020.middle).slice(0,5);
     const random3 =shuffle(year2020.high).slice(0,2);
-    const list=["2020년대", "2010년대", "2000년대", "1990년대", "All Time"]
+    const list=["2020년대", "2010년대", "2000년대", "1990년대", "1990-2020 올타임"]
     // console.log(random1,random2,random3);
     // QnAArr=[...random1,...random2,...random3]
+    const router = useRouter()
+
     const onChange = (e) => {
         const { value } = e.target;
         const selected = list.filter((year) => year === value);
         if (selected) {
         setSelectedYear(selected);
+        setIsActive("change")
+        setIsHref(`/question/${selected}`)
+
         }
 
     };
@@ -34,26 +53,31 @@ export default function index() {
         if(selectedYear ){
             console.log(selectedYear);
             if(selectedYear[0].length===6){
-                if(selectedYear[0]==="2020년대")
+                if(selectedYear[0]==="2020년대"){
                     resultYear=year2020;
-                else if(selectedYear[0]==="2010년대")
-                    resultYear=year2020;
-                else if(selectedYear[0]==="2000년대")
-                    resultYear=year2020;
-                else if(selectedYear[0]==="1990년대")
-                    resultYear=year2020;
+                    setMusicImg(year2020img);}
+                else if(selectedYear[0]==="2010년대"){
+                    resultYear=year2010;
+                    setMusicImg(year2010img);}
+
+                else if(selectedYear[0]==="2000년대"){
+                    resultYear=year2000;
+                    setMusicImg(year2000img);}
+
+                else if(selectedYear[0]==="1990년대"){
+                    resultYear=year1990;
+                    setMusicImg(year1990img);}
                 
                 const random1 =shuffle(resultYear.low).slice(0,3);
                 const random2 =shuffle(resultYear.middle).slice(0,5);
                 const random3 =shuffle(resultYear.high).slice(0,2);
-                let QnAArr=[...random1,...random2,...random3]
-                console.log(QnAArr);
+                setMusicArr([...random1,...random2,...random3])
+
             }else{
                 const random1 =shuffle([...year2020.low,...year2020.low,...year2020.low]).slice(0,3);
                 const random2 =shuffle([...year2020.middle,...year2020.middle,...year2020.middle]).slice(0,5);
                 const random3 =shuffle([...year2020.high,...year2020.high,...year2020.high]).slice(0,2);
-                let QnAArr=[...random1,...random2,...random3]
-                console.log(QnAArr);
+                setMusicArr([...random1,...random2,...random3])
     
             }
 
@@ -82,7 +106,10 @@ export default function index() {
         ))}
         </YearSelectorContainer>
             <P>전주 10초를 듣고 30초 안에<br/>노래의 가수, 제목을 맞히는 게임입니다.</P>
-            <Btn type="button" href="/question/1990"  attr={isActive}>게임시작</Btn>
+            <Btn type="button" href={isHref}  attr={isActive} onClick={()=>{
+                // router.replace('/')
+                dispatch(login({ name: count.name ,music : musicArr,musicImg, score:0}))
+            }}>게임시작</Btn>
         </Wrap>
     </div>
     )

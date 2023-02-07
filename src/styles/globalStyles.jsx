@@ -67,7 +67,7 @@ body {
     line-height: 1.4;
     /* background-color: ${props => props.theme.mainColor}; */
     /* background-color: ${(props) => props.theme.bgColor}; */
-    /* background-color: var(--light-purple); */
+    background-color: var(--light-purple);
     font-family: var(--font);
     font-size: 20px;
     box-shadow: 0 0 10px var(--deep-gray);

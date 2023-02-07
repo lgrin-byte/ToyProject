@@ -4,7 +4,6 @@ export const Player = styled.div`
     width: 327px;
     height: 223px;
     /* margin: 30px; */
-    background-color: purple;
     position: relative;
     ${".btn_play"}{
         position: absolute;
