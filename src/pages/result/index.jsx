@@ -8,10 +8,12 @@ import link from '../../assets/images/link.png'
 import download from '../../assets/images/download.png'
 import facebook from '../../assets/images/facebook.png'
 import Image from 'next/image';
-
+import useCopyClipBoard from '../../hooks/useCopyClipBoard';
 
 export default function Index() {
     const count = useSelector((state) => state.user.value);
+    const [isCopy, onCopy] = useCopyClipBoard();
+    const text="복사"
     const btnShare = [
         [download,"이미지저장"],
         [link, "링크복사"],
@@ -20,6 +22,12 @@ export default function Index() {
         [facebook, "페이스북"]
 
     ]
+
+
+    const handleCopyClipBoard = () => {
+      onCopy(text);
+    };
+
     return (
         <div>
             <Wrap>
@@ -45,7 +53,7 @@ export default function Index() {
                     
                 </ContYear>
                 <YearTitle> 
-                <H>{count.score}개</H>
+                <H onClick={() => handleCopyClipBoard('복사된 텍스트')}>{count.score}개</H>
                 <HB>{count.score}개</HB>
                 
                 </YearTitle>
@@ -60,11 +68,12 @@ export default function Index() {
                 <ContYear attr="cont_share">
                 {btnShare.map(a=>
                     <ContYear attr="share">
-                        <Image src={a[0]}/>
+                        <Image src={a[0]} />
                         <Share>{a[1]}</Share>
                     </ContYear>
                 )}
                 </ContYear>
+                {isCopy && <span>복사 완료!!</span>}
                 <Btn type="button" href="/">처음으로 돌아가기</Btn>
             </Wrap>
         </div>
