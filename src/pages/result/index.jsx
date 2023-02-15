@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Wrap, H,HB, Input ,ContYear,Box, YearTitle,Story, Share,Back} from "./resultStyle";
 import { useSelector } from "react-redux";
 import {Btn} from '../../components/Button'
@@ -9,6 +9,7 @@ import download from '../../assets/images/download.png'
 import facebook from '../../assets/images/facebook.png'
 import Image from 'next/image';
 import useCopyClipBoard from '../../hooks/useCopyClipBoard';
+import Card from "../../components/Card";
 
 export default function Index() {
     const count = useSelector((state) => state.user.value);
@@ -22,7 +23,38 @@ export default function Index() {
         [facebook, "페이스북"]
 
     ]
+        useEffect(() => {
+            if (!Kakao.isInitialized()) {
+                Kakao.init("a5eeb8ae193084c262275b9c23960ce8");
 
+            };
+        }, []);
+    const  onClicFacebook = () => {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=https://naver.com/')
+          }
+    const shareKakao = () => {
+        Kakao.Link.sendDefault({
+        objectType: "feed",
+            content: {
+            title: "무슨노래듣고계세요?",
+            description: "내용은 미저어엉",
+            imageUrl: "kakao",
+            link: {
+                mobileWebUrl: "모바일 url!",
+                androidExecParams: "test",
+            },
+            },
+            buttons: [
+            {
+                title: "웹으로 이동",
+                link: {
+                mobileWebUrl: "공유할 url!",
+                },
+            },
+            ],
+        });
+    }
+  
 
     const handleCopyClipBoard = () => {
       onCopy(text);
@@ -31,6 +63,7 @@ export default function Index() {
     return (
         <div>
             <Wrap>
+                <Card/>
                 <p>'{count.name}'님의 점수는?</p>
                 <ContYear attr="cont">
                 <YearTitle> 
@@ -53,7 +86,7 @@ export default function Index() {
                     
                 </ContYear>
                 <YearTitle> 
-                <H onClick={() => handleCopyClipBoard('복사된 텍스트')}>{count.score}개</H>
+                <H  onClick={onClicFacebook}>{count.score}개</H>
                 <HB>{count.score}개</HB>
                 
                 </YearTitle>
@@ -68,7 +101,7 @@ export default function Index() {
                 <ContYear attr="cont_share">
                 {btnShare.map(a=>
                     <ContYear attr="share">
-                        <Image src={a[0]} />
+                        <Image src={a[0]}/>
                         <Share>{a[1]}</Share>
                     </ContYear>
                 )}

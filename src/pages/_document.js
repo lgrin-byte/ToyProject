@@ -12,9 +12,10 @@ export default class MyDocument extends Document {
         <Html>
             <Head />
             <body>
-            <div id="modal" />
-            <Main />
-            <NextScript/>
+                <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+                <div id="modal" />
+                <Main />
+                <NextScript/>
             
             </body>
         </Html>
