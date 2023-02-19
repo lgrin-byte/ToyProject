@@ -11,8 +11,16 @@ import Image from 'next/image';
 import useCopyClipBoard from '../../hooks/useCopyClipBoard';
 import Card from "../../components/Card";
 
+import {useRef} from 'react';
+// import './card.css';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+
+
 export default function Index() {
     const count = useSelector((state) => state.user.value);
+    const inputRef = useRef(null);
+
     const [isCopy, onCopy] = useCopyClipBoard();
     const text="복사"
     const btnShare = [
@@ -38,7 +46,7 @@ export default function Index() {
             content: {
             title: "무슨노래듣고계세요?",
             description: "내용은 미저어엉",
-            imageUrl: "kakao",
+            imageUrl: "/favicon.ico",
             link: {
                 mobileWebUrl: "모바일 url!",
                 androidExecParams: "test",
@@ -59,49 +67,25 @@ export default function Index() {
     const handleCopyClipBoard = () => {
       onCopy(text);
     };
-
+//    const cardRef = useRef();
+    const onDownloadBtn = () => {
+      const card = inputRef.current;
+      domtoimage
+        .toBlob(card)
+        .then((blob) => {
+          saveAs(blob, 'card.png');
+        });
+    };
     return (
         <div>
             <Wrap>
-                <Card/>
-                <p>'{count.name}'님의 점수는?</p>
-                <ContYear attr="cont">
-                <YearTitle> 
-                <H>2020s</H>
-                <HB>2020s</HB>
+                <Card  ref={inputRef}/>
                 
-                </YearTitle>
-                <ContYear attr="effect">
-                {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((a, i)=> 
-                    <Box></Box>)       }
-                </ContYear>
-                </ContYear>
-                    <Back></Back>
-
-                <ContYear attr="cont">
-                
-                <ContYear attr="score">
-                {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((a, i)=> 
-                    <Box></Box>)       }
-                    
-                </ContYear>
-                <YearTitle> 
-                <H  onClick={onClicFacebook}>{count.score}개</H>
-                <HB>{count.score}개</HB>
-                
-                </YearTitle>
-                </ContYear>
-                {/* <h2>갓 오브 뮤직</h2> */}
-                <Story>
-                    당신의 삶의 유일한 보약은 music..?<br/> 어떻게 이걸 다 맞히죠?<br/>
-                    일반인의 권한으로 한문제도 빠짐 없이<br/>모두 맞혀버린
-                    당신에게는<br/>갓 오브 뮤직 상을 드리고 싶습니다.
-                </Story>
                 <p>공유하기</p>
                 <ContYear attr="cont_share">
                 {btnShare.map(a=>
                     <ContYear attr="share">
-                        <Image src={a[0]}/>
+                        <Image src={a[0]} onClick={onDownloadBtn}/>
                         <Share>{a[1]}</Share>
                     </ContYear>
                 )}
