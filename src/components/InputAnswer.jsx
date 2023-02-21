@@ -1,4 +1,39 @@
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
+
+
+const setAttr = (attr) => {
+    // console.log(attr)
+    switch (attr) {
+    case 'point2020':
+        return css`
+            background-color: ${(props) => props.theme.point2020};
+
+        `;
+    case 'point2010':
+        return css`
+            background-color: ${(props) => props.theme.point2010};
+
+        `;
+    case 'point2000':
+        return css`
+            background-color: ${(props) => props.theme.point2000};
+        `;
+    case 'point1990':
+        return css`
+            background-color: ${(props) => props.theme.point1990};
+        `;
+    case 'pointAll':
+        return css`
+            background-color: ${(props) => props.theme.pointAll};
+        `;
+    // default:
+    //     return css`
+    //         border: 1px solid black;
+    //         background-color: white;
+            
+    //     `;
+    }
+};
 
 export const Cont_Inp = styled.div`
     height: 50px;
@@ -13,7 +48,8 @@ export const Title = styled.span`
     width: 65px;
     text-align: center;
     line-height: 50px;
-    background-color:#D4CCE9;
+    /* background-color:#D4CCE9; */
+    ${({ attr }) => setAttr(attr)}
    color: #5D5B61;
    font-size: 18px;
 `;
