@@ -18,6 +18,7 @@ import year2020img from '../../assets/images/year2020.png'
 import year2010img from '../../assets/images/year2010.png'
 import year2000img from '../../assets/images/year2000.png'
 import year1990img from '../../assets/images/year1990.png'
+import alltimeimg from '../../assets/images/alltime.png'
 
 
 export default function index() {
@@ -26,6 +27,7 @@ export default function index() {
     const [isHref, setIsHref] = useState("");
     const [selectedYear, setSelectedYear] = useState();
     const dispatch = useDispatch();
+    const [musicYear, setMusicYear]=useState();
     const [musicArr, setMusicArr]=useState([]);
     const [musicImg, setMusicImg]=useState();
     const random1 =shuffle(year2020.low).slice(0,3);
@@ -55,17 +57,21 @@ export default function index() {
             if(selectedYear[0].length===6){
                 if(selectedYear[0]==="2020년대"){
                     resultYear=year2020;
+                    setMusicYear('2020')
                     setMusicImg(year2020img);}
                 else if(selectedYear[0]==="2010년대"){
                     resultYear=year2010;
+                    setMusicYear('2010')
                     setMusicImg(year2010img);}
 
                 else if(selectedYear[0]==="2000년대"){
                     resultYear=year2000;
+                    setMusicYear('2000')
                     setMusicImg(year2000img);}
 
                 else if(selectedYear[0]==="1990년대"){
                     resultYear=year1990;
+                    setMusicYear('1990')
                     setMusicImg(year1990img);}
                 
                 const random1 =shuffle(resultYear.low).slice(0,3);
@@ -78,7 +84,8 @@ export default function index() {
                 const random2 =shuffle([...year2020.middle,...year2020.middle,...year2020.middle]).slice(0,5);
                 const random3 =shuffle([...year2020.high,...year2020.high,...year2020.high]).slice(0,2);
                 setMusicArr([...random1,...random2,...random3])
-    
+                setMusicYear('All')
+                setMusicImg(alltimeimg);
             }
 
         }    
@@ -87,7 +94,7 @@ export default function index() {
     },[selectedYear])
     
     return (
-        <div className='question'>
+        <div className={`color${musicYear}`}>
         <Wrap>
             <ChoiceYear>원하는 연도를 선택해주세요</ChoiceYear>
             
@@ -108,7 +115,7 @@ export default function index() {
             <P>전주 10초를 듣고 30초 안에<br/>노래의 가수, 제목을 맞히는 게임입니다.</P>
             <Btn type="button" href={isHref}  attr={isActive} onClick={()=>{
                 // router.replace('/')
-                dispatch(login({ name: count.name ,music : musicArr,musicImg, score:0}))
+                dispatch(login({ name: count.name,year: musicYear,music : musicArr,musicImg, score:0}))
             }}>게임시작</Btn>
         </Wrap>
     </div>
