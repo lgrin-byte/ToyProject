@@ -61,7 +61,7 @@ export const Btn = styled(Link)`
     height: 60px;
     width: 329px;
     border-radius: 5px;
-
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,3 +140,25 @@ export const ModalBtn = styled.button`
 
   }
 `
+export const BtnResult = styled(Link)`
+    height: 54px;
+    width: 329px;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* &:hover{
+        border: 1px solid blue;          
+
+    } */
+    &:active{
+      background-color: #EF6363;
+            color: white;
+            animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            border: none;
+    }
+    
+
+    ${({ attr }) => setAttr(attr)}
+`;
