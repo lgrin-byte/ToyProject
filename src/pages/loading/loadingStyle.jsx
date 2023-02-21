@@ -4,19 +4,19 @@ import styled, {css, keyframes } from 'styled-components';
 
 export const ani = keyframes` 
     to {
-        background-position: -12426px, 0;
+        background-position: -6560px, 0;
     }
 `;
 
 const styles = css`
-    width: 654px;
-    height: 448px;
+    width: 328px;
+    height: 225px;
     /* background-image: url('/css_sprites.png'); */
     background: url('/css_sprites.png') no-repeat 0 0 / auto ;
     /* background-image: url('/css_sprites.png'); 
     background-repeat: no-repeat; */
     /* background-size: 654px 448px; */
-    animation: ${ani} 3s infinite steps(19);
+    animation: ${ani} 3s infinite steps(20);
     animation-fill-mode: forwards;
 `
 
@@ -28,5 +28,8 @@ export const Div=styled.div`
     width: 328px;
     height: 225px;
     background-size: cover;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    margin: 0 auto;
+    /* padding-top: 280px; */
+    
 `
