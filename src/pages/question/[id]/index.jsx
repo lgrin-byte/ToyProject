@@ -23,7 +23,8 @@ import {
     Rate,
     MyProgress,
     StateBar,
-    TimerImg
+    TimerImg,
+    
 } from './questionStyle'
 import RefreshModal from '../../../components/modal/RefreshModal'
 import useCustomModal from "../../../hooks/useCustomModal";
@@ -119,7 +120,8 @@ useInterval(() => {
     }
 
     const handleBtn = () => {
-        
+        dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:3}))
+
         if(level<10){
             setLevel(level+1)
             setSecond(30)
@@ -154,7 +156,7 @@ const handleCheck = ()=>{
         if(숫자===11){
             let score=count.score+1
             console.log(score);
-            dispatch(login({ name: count.name ,music : count.music,musicImg:count.musicImg, score:score}))
+            // dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:score}))
 
         }
     console.log(숫자);
@@ -180,7 +182,8 @@ useEffect(()=>{
         if(level===11){
             
             handleBtn()
-            const targerPage = '/result';
+
+            const targerPage = '/loading';
             Router.push(targerPage);
             // Router.replace('/')
         }
@@ -203,11 +206,11 @@ useEffect(() => {
         window.removeEventListener("beforeunload", preventClose);
     };
 },[]);
-
-
+// console.log(count)
+const classa='question';
 
     return (
-        <div className='question'>
+        <div className={`color${count.year}`}>
             <Wrap>
                 <Div type="header">
                     <Img src= {note} alt="" />
@@ -219,7 +222,8 @@ useEffect(() => {
                     
                         <Rate range={i+1} level={level}></Rate>)
                     }
-                    <span className='span'>2020s</span>
+                {count.year==='All'?<span className='span'>Alltime</span>: 
+                    <span className='span'>{count.year}s</span>}
                 </Div>
                 <Player>
                     <Image src={count.musicImg} alt=""  width= "327" height= "223"/>
@@ -277,25 +281,17 @@ useEffect(() => {
                     <p >{second}s</p>
                 </Div>
                 <Cont_Inp>
-                    <Title>가수</Title>
+                    <Title attr={`point${count.year}`}>가수</Title>
                     <Inp type="text" name='singer' value={singer} onChange={handleAnswer}/>
                 </Cont_Inp>
                 <Cont_Inp>
-                    <Title>제목</Title>
+                    <Title attr={`point${count.year}`}>제목</Title>
                     <Inp type="text" name="songName" value={title} onChange={handleAnswer}/>
                 </Cont_Inp>
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
 
 
-                <Btn href={level===10? "/result" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
-                <button onClick={showModal}>모달</button>
-            <ModalPortal>
-                {modalOpen && 
-                    <RefreshModal type="question"
-                            modalOpen={modalOpen}
-                            setModalOpen={setModalOpen} 
-                            />}    
-            </ModalPortal>  
+                <Btn href={level===10? "/loading" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
 
 
             </Wrap>
