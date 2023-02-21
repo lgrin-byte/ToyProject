@@ -100,6 +100,7 @@ export const WrapMain = styled.div`
 export const Input = styled.input`
     margin: 20px 0 28px;
     padding: 8px;
+    text-align: center;
     font-size: 30px;
     color: black;
     /* -webkit-text-stroke: 2px #EF6363; */
