@@ -1,5 +1,38 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+const setAttr = (attr) => {
+    switch (attr) {
+    case '2020':
+        return css`
+        background-color: white;
+        `;
+    case '2010':
+        return css`
+        background-color: #EF6363;
+        color: white;
+        /* animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+        `;
+    case '2000':
+        return css`
+        background-color: var(--deep-gray);
+        margin-bottom: 25px;
+        `;
+    case '':
+        return css`
+            border: 1px solid black;
+            background-color: white;
+            animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        `;
+    
+    default:
+        return css`
+            border: 1px solid black;
+            background-color: white;
+            
+        `;
+    }
+};
 
 const GlobalStyle = createGlobalStyle`
 
@@ -79,10 +112,23 @@ body {
     height: 1px;
     overflow: hidden;
 }
-.question{
-    background-color: ${props => props.theme.mainColor};
 
+.color2020{
+    background-color: ${props => props.theme.color2020};
 }
+.color2010{
+    background-color: ${props => props.theme.color2010};
+}
+.color2000{
+    background-color: ${props => props.theme.color2000};
+}
+.color1990{
+    background-color: ${props => props.theme.color1990};
+}
+.colorAll{
+    background-color: ${props => props.theme.colorAll};
+}
+
 @media all and (min-width: 720px) {
   html {
     width: 100vw;

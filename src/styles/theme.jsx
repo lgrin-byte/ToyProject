@@ -8,7 +8,16 @@ const size = {
 }
 
 const theme = {
-    mainColor: '#E5DEF5',
+    color2020: '#E5DEF5',
+    point2020: '#D4CCE9',
+    color2010: '#FFE7B1',
+    point2010: '#FFCF66',
+    color2000: '#E1ECAB',
+    point2000: '#DAF25C',
+    color1990: '#C6DFF3',
+    point1990: '#8ABEE8',
+    colorAll:  '#E7E4DD',
+    pointAll:  '#F5DA9A',
     mobile: `(max-width: ${size.mobile})`,
     tablet: `(max-width: ${size.tablet})`,
     laptop: `(max-width: ${size.laptop})`,
