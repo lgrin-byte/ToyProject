@@ -1,97 +1,125 @@
-import React,{ useEffect } from "react";
-import { Wrap, H,HB, Input ,ContYear,Box, YearTitle,Story, Share,Back} from "./resultStyle";
+import React, { useEffect } from "react";
+import {
+    Wrap,
+    H,
+    HB,
+    Input,
+    ContYear,
+    Box,
+    YearTitle,
+    Story,
+    Share,
+    Back,
+    ContAnswer,
+    Answer,
+    AnswerTitle,
+} from "./resultStyle";
 import { useSelector } from "react-redux";
-import {Btn} from '../../components/Button'
-import kakao from '../../assets/images/kakao.png'
-import insta from '../../assets/images/insta.png'
-import link from '../../assets/images/link.png'
-import download from '../../assets/images/download.png'
-import facebook from '../../assets/images/facebook.png'
-import Image from 'next/image';
-import useCopyClipBoard from '../../hooks/useCopyClipBoard';
+import { BtnResult } from "../../components/Button";
+import kakao from "../../assets/images/kakao.png";
+import link from "../../assets/images/link.png";
+import download from "../../assets/images/download.png";
+import facebook from "../../assets/images/facebook.png";
+import Image from "next/image";
+import useCopyClipBoard from "../../hooks/useCopyClipBoard";
 import Card from "../../components/Card";
-
-import {useRef} from 'react';
+import { useRef } from "react";
 // import './card.css';
-import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver';
-
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
+import Router, {useRouter} from 'next/router';
 
 export default function Index() {
     const count = useSelector((state) => state.user.value);
+    console.log(count)
     const inputRef = useRef(null);
-
+    const arrMusic = [];
     const [isCopy, onCopy] = useCopyClipBoard();
-    const text="복사"
-    const btnShare = [
-        [download,"이미지저장"],
-        [link, "링크복사"],
-        [kakao,"카카오톡"],
-        [insta, "인스타그램"],
-        [facebook, "페이스북"]
+    const { query } = useRouter();
+    const text = `http://localhost:3001/result?name=${query.name}&year=${query.year}&score=${query.score}`;
 
-    ]
-        useEffect(() => {
-            if (!Kakao.isInitialized()) {
-                Kakao.init("a5eeb8ae193084c262275b9c23960ce8");
 
-            };
-        }, []);
-    const  onClicFacebook = () => {
-            window.open('https://www.facebook.com/sharer/sharer.php?u=https://naver.com/')
-          }
+    useEffect(() => {
+        if (!Kakao.isInitialized()) {
+            Kakao.init("a5eeb8ae193084c262275b9c23960ce8");
+        }
+    }, []);
+    const onClicFacebook = () => {
+        window.open(
+            `https://www.facebook.com/sharer/sharer.php?u=http://localhost:3001/result?name=${query.name}&year=${query.year}&score=${query.score}/`
+        );
+    };
     const shareKakao = () => {
         Kakao.Link.sendDefault({
-        objectType: "feed",
+            objectType: "feed",
             content: {
-            title: "무슨노래듣고계세요?",
-            description: "내용은 미저어엉",
-            imageUrl: "/favicon.ico",
-            link: {
-                mobileWebUrl: "모바일 url!",
-                androidExecParams: "test",
-            },
-            },
-            buttons: [
-            {
-                title: "웹으로 이동",
+                title: "무슨노래듣고계세요?",
+                description: `당신의 삶의 유일한 보약은 music..?`,
+                imageUrl: "%PUBLIC_URL%/favicon.ico",
                 link: {
-                mobileWebUrl: "공유할 url!",
+                    mobileWebUrl: "모바일 url!",
+                    androidExecParams: "test",
                 },
             },
+            buttons: [
+                {
+                    title: "문제맞추러가보기",
+                    link: {
+                        mobileWebUrl: "공유할 url!",
+                    },
+                },
             ],
         });
-    }
-  
+    };
 
     const handleCopyClipBoard = () => {
-      onCopy(text);
+        onCopy(text);
     };
-//    const cardRef = useRef();
+    //    const cardRef = useRef();
     const onDownloadBtn = () => {
-      const card = inputRef.current;
-      domtoimage
-        .toBlob(card)
-        .then((blob) => {
-          saveAs(blob, 'card.png');
+        const card = inputRef.current;
+        domtoimage.toBlob(card).then((blob) => {
+            saveAs(blob, "card.png");
         });
     };
+
+    const btnShare = [
+        {
+            image: download,
+            title: "이미지저장",
+            handle: onDownloadBtn,
+        },
+        { image: link, title: "링크복사", handle: handleCopyClipBoard },
+        { image: kakao, title: "카카오톡", handle: shareKakao },
+        { image: facebook, title: "페이스북", handle: onClicFacebook },
+    ];
     return (
-        <div>
+        <div className={`color${query.year}`}>
             <Wrap>
-                <Card  ref={inputRef}/>
-                
+                <Card ref={inputRef} year={`color${count.year}`} data={query}/>
+
                 <p>공유하기</p>
                 <ContYear attr="cont_share">
-                {btnShare.map(a=>
-                    <ContYear attr="share">
-                        <Image src={a[0]} onClick={onDownloadBtn}/>
-                        <Share>{a[1]}</Share>
-                    </ContYear>
-                )}
+                    {btnShare.map((a) => (
+                        <ContYear attr="share">
+                            <Image src={a.image} onClick={a.handle} />
+                            <Share>{a.title}</Share>
+                        </ContYear>
+                    ))}
                 </ContYear>
-                {isCopy && <span>복사 완료!!</span>}
-                <Btn type="button" href="/">처음으로 돌아가기</Btn>
+                {/* {isCopy && <span>복사 완료!!</span>} */}
+                {count.year!=="" && <ContAnswer>
+                    <AnswerTitle>정답/출처</AnswerTitle>
+                    {count.music.map((x) => (
+                        <Answer>
+                            {x.singer.split("/")[0]}-{x.title.split("/")[0]}
+                            (https://youtu.be/{x.url})
+                        </Answer>
+                    ))}
+                </ContAnswer>}
+                <BtnResult type="button" href="/">
+                    처음으로 돌아가기
+                </BtnResult>
             </Wrap>
         </div>
     );
