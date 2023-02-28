@@ -46,9 +46,12 @@ const setAttr = (time) => {
 
 export const Wrap = styled.div`
     width: 329px;
-    height: 100vh;
+    /* width: 100vw; */
+    height: 100vh; 
     margin: 0 auto ;
-    padding-top: 70px;
+    padding-top: 60px;
+    /* padding: 70px ; */
+
     
 `;
 
@@ -104,7 +107,7 @@ export const TimerImg = styled(Image)`
 
 export const Img = styled(Image)`
     position: absolute;
-    top: 76px;
+    top: 67px;
 `
 
 export const Btn = styled.button`

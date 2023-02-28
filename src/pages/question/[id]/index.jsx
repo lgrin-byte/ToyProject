@@ -26,7 +26,7 @@ import {
     TimerImg,
     
 } from './questionStyle'
-import RefreshModal from '../../../components/modal/RefreshModal'
+import RefreshModal from '../../../components/modal/FeedbackModal'
 import useCustomModal from "../../../hooks/useCustomModal";
 import ModalPortal from "../../../components/modal/ModalPortal";
 
@@ -120,8 +120,6 @@ useInterval(() => {
     }
 
     const handleBtn = () => {
-        dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:3}))
-
         if(level<10){
             setLevel(level+1)
             setSecond(30)
@@ -156,7 +154,7 @@ const handleCheck = ()=>{
         if(숫자===11){
             let score=count.score+1
             console.log(score);
-            // dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:score}))
+            dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:score}))
 
         }
     console.log(숫자);
@@ -206,9 +204,13 @@ useEffect(() => {
         window.removeEventListener("beforeunload", preventClose);
     };
 },[]);
-// console.log(count)
-const classa='question';
 
+const onKeyPress=(e)=>{
+    if(e.key==='Enter'){
+        focusRef.current.focus();
+    }
+}
+const focusRef = useRef();
     return (
         <div className={`color${count.year}`}>
             <Wrap>
@@ -275,6 +277,7 @@ const classa='question';
                 </Player>
                 <MyProgress>
                     <StateBar className='stateBar' width={second}></StateBar>
+                    
                 </MyProgress>
                 <Div  time={second}>
                     <TimerImg className='vibration' time={second} src={timer} alt=""/>
@@ -282,18 +285,14 @@ const classa='question';
                 </Div>
                 <Cont_Inp>
                     <Title attr={`point${count.year}`}>가수</Title>
-                    <Inp type="text" name='singer' value={singer} onChange={handleAnswer}/>
+                    <Inp type="text" onKeyPress={onKeyPress} name='singer' value={singer} onChange={handleAnswer}/>
                 </Cont_Inp>
                 <Cont_Inp>
                     <Title attr={`point${count.year}`}>제목</Title>
-                    <Inp type="text" name="songName" value={title} onChange={handleAnswer}/>
+                    <Inp type="text" name="songName" ref={focusRef}  value={title} onChange={handleAnswer}/>
                 </Cont_Inp>
                     <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
-
-
                 <Btn href={level===10? "/loading" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
-
-
             </Wrap>
         </div>
         
