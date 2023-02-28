@@ -29,7 +29,7 @@ export default function index() {
   
 
   return (
-    <div className={`color${count.year}`} style={{height:"100vh", padding:"200px"}}>
+    <div className={`color${count.year}`} style={{height:"100vh", paddingTop:"200px"}}>
       <Div>
         <LoadingImg/>
         <Link rel="stylesheet" href="/result" />
