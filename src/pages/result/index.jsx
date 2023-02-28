@@ -13,13 +13,19 @@ import {
     ContAnswer,
     Answer,
     AnswerTitle,
+    ImageFeed,
+    SpanFeed,
+    SpanFeedB,
+    ContBtn
 } from "./resultStyle";
 import { useSelector } from "react-redux";
-import { BtnResult } from "../../components/Button";
+import { BtnResult,BtnContYear } from "../../components/Button";
 import kakao from "../../assets/images/kakao.png";
 import link from "../../assets/images/link.png";
 import download from "../../assets/images/download.png";
 import facebook from "../../assets/images/facebook.png";
+import feedback from "../../assets/images/리뷰.png";
+
 import Image from "next/image";
 import useCopyClipBoard from "../../hooks/useCopyClipBoard";
 import Card from "../../components/Card";
@@ -54,10 +60,10 @@ export default function Index() {
             objectType: "feed",
             content: {
                 title: "무슨노래듣고계세요?",
-                description: `당신의 삶의 유일한 보약은 music..?`,
+                description: `당신의 삶의 유일한 보약은..?`,
                 imageUrl: "%PUBLIC_URL%/favicon.ico",
                 link: {
-                    mobileWebUrl: "모바일 url!",
+                    mobileWebUrl: "https://www.naver.com/",
                     androidExecParams: "test",
                 },
             },
@@ -65,7 +71,7 @@ export default function Index() {
                 {
                     title: "문제맞추러가보기",
                     link: {
-                        mobileWebUrl: "공유할 url!",
+                        mobileWebUrl: "https://www.naver.com/",
                     },
                 },
             ],
@@ -79,7 +85,7 @@ export default function Index() {
     const onDownloadBtn = () => {
         const card = inputRef.current;
         domtoimage.toBlob(card).then((blob) => {
-            saveAs(blob, "card.png");
+            saveAs(blob, `${query.score}'s_card.png`);
         });
     };
 
@@ -102,7 +108,7 @@ export default function Index() {
                 <ContYear attr="cont_share">
                     {btnShare.map((a) => (
                         <ContYear attr="share">
-                            <Image src={a.image} onClick={a.handle} />
+                            <Image src={a.image} onClick={a.handle} style={{cursor:"pointer"}}/>
                             <Share>{a.title}</Share>
                         </ContYear>
                     ))}
@@ -117,9 +123,19 @@ export default function Index() {
                         </Answer>
                     ))}
                 </ContAnswer>}
+
                 <BtnResult type="button" href="/">
                     처음으로 돌아가기
                 </BtnResult>
+                <BtnContYear attr="feedback" href="/feedback" legacyBehavior>
+                    <a target="_blank">
+                        <ContBtn>
+                            <ImageFeed src={feedback}/>
+                            <SpanFeedB>리뷰 작성하기<br/>/보러가기</SpanFeedB>
+                            <SpanFeed>리뷰 작성하기<br/>/보러가기</SpanFeed>
+                        </ContBtn>
+                    </a>
+                </BtnContYear>
             </Wrap>
         </div>
     );

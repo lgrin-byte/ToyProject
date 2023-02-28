@@ -77,14 +77,25 @@ const setAttr = (attr) => {
     case 'cont':
         return css`
     display: flex;
-    
-    
-
-        `;
+    margin-top: 10px;
+    `;
+    case 'feedback':
+        return css`
+    display: flex;
+    position: relative;
+    width: 329px;
+    height: 185px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin:26px auto;
+    cursor: pointer;
+    `;
+        
     case 'cont_share':
         return css`
     display: flex;
-width: 338px;
+    width: 338px;
     justify-content: space-around;
     margin:0 auto 35px;
         `
@@ -98,7 +109,7 @@ width: 338px;
     case 'score':
         return css`
         display: flex;
-        margin-top: 34px;
+        margin-top: 26px;
         align-items: center;
     
             `
@@ -163,7 +174,7 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
-    padding: 39px 0 59px;
+    padding: 33px 0 59px;
     
 `;
 
@@ -211,7 +222,7 @@ export const Box= styled.div`
 
 export const ContYear =styled.div`
     ${({ attr }) => setAttr(attr)}
-        cursor: pointer;
+        /* cursor: pointer; */
 
 ` 
 
@@ -232,9 +243,11 @@ export const Share = styled.span`
 export const ResultImg = styled.div`
     position: absolute;
     width: 340px;
-    height: 282px;
-    left: 10px;
+    height: 333px;
+    left: -5px;
     top: 15px;
+    z-index: 999;
+    background-size: cover;
     /* background-image: url('/result1.png')  ;
      */
     ${({ img }) => setResultImg(img)}
@@ -257,7 +270,7 @@ height: 316px;
 `
 
 export const WrapCard = styled.div`
-    margin: 0 auto;
+    margin: 0 auto 6px;
     text-align: center;
     width:390px;
     height:770px;
@@ -268,7 +281,7 @@ export const WrapCard = styled.div`
 export const ContAnswer = styled.div`
     width: 390px;
     padding: 28px 30px 43px;
-    margin-bottom: 43px;
+    margin:10px 0 43px;
     /* height: 353px; */
     background: rgba(255, 255, 255, 0.5);
     box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
@@ -282,4 +295,44 @@ export const AnswerTitle = styled.h3`
 export const Answer = styled.p`
     font-size: 12px;
     line-height: 20px;
+`
+
+export const ImageFeed = styled(Image)`
+    filter: blur(2.5px);
+    margin-top: -10px;
+
+`
+
+export const SpanFeed = styled.span`
+    position: absolute;
+    font-size: 29px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 61px 70px 64px;
+`
+
+export const SpanFeedB = styled.span`
+    position: absolute;
+    margin: 61px 70px 64px;
+    line-height: 30px;
+    text-align: center;
+    -webkit-text-stroke: 9px black;
+    /* letter-spacing: -1.8px;
+    margin-left: 23px; */
+
+    font-size: 29px;
+    color: black;
+`
+
+export const ContBtn = styled.div`
+    display: flex;
+    position: relative;
+    width: 329px;
+    height: 185px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin:26px auto;
+    cursor: pointer;
 `
