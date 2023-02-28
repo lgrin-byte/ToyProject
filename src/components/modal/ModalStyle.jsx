@@ -3,21 +3,19 @@ import Image from 'next/image';
 
     const setAttr = (type) => {
         switch (type) {
-        case 'question':
+        case 'feedback':
             return css`
-                width: 358px;
+                width: 330px;
                 height: 196px;
-                background-color: white;
-                border-radius: 5px;
-
-                line-height: 0;
-                margin: auto auto 385px;
+                background: #FFFFFF;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.35);
+                border-radius: 10px;
                 animation: fadeInUp 0.5s;
-                    
+                padding: 17px;
+
             `;
 
         default:
-            console.log("djfpd",type);
             return css`
                 width: 329px;
                 height: 659px;
