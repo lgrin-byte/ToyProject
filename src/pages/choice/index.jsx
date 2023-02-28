@@ -12,7 +12,7 @@ import year2010 from '../../year2010'
 import year2000 from '../../year2000'
 import year1990 from '../../year1990'
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment,login } from "../count/counterSlice";
+import {login } from "../count/counterSlice";
 import { useRouter } from 'next/router'
 import year2020img from '../../assets/images/year2020.png'
 import year2010img from '../../assets/images/year2010.png'

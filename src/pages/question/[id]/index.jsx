@@ -36,7 +36,7 @@ import { shuffle,random } from 'lodash'
 import Link from 'next/link';
 import Router from 'next/router';
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment,login } from "../../count/counterSlice";
+import { login } from "../../count/counterSlice";
 
 
 
@@ -277,7 +277,7 @@ const focusRef = useRef();
                 </Player>
                 <MyProgress>
                     <StateBar className='stateBar' width={second}></StateBar>
-                    
+
                 </MyProgress>
                 <Div  time={second}>
                     <TimerImg className='vibration' time={second} src={timer} alt=""/>

@@ -14,7 +14,7 @@ import ModalPortal from "../components/modal/ModalPortal";
 
 import { useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment,login } from "./count/counterSlice";
+import { login } from "./count/counterSlice";
 import speaker from '../assets/images/speaker.png'
 import main from '../assets/images/main.png'
 import {
