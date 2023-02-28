@@ -39,16 +39,17 @@ export const focusScale = keyframes`
 
 export const Wrap = styled.div`
     width: 329px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
     padding-top: 67px;
     text-align: center;
     background-image: url(speaker);
-    justify-content: space-around;
+    /* justify-content: space-around; */
     ${'.info'}{
         font-size: 15px;
-        margin: 0 0 13px 3px;
+        margin: 0px 0 13px 3px;
         line-height:54px;
         letter-spacing: -0.8px;
         font-style: normal;
@@ -98,7 +99,7 @@ export const WrapMain = styled.div`
 `
 
 export const Input = styled.input`
-    margin: 20px 0 28px;
+    margin: 2px 0 30px;
     padding: 8px;
     text-align: center;
     font-size: 30px;
