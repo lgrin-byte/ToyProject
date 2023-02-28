@@ -112,7 +112,7 @@ export default function index() {
             </div>
         ))}
         </YearSelectorContainer>
-            <P>전주 10초를 듣고 30초 안에<br/>노래의 가수, 제목을 맞히는 게임입니다.</P>
+            <P>전주 10초를 듣고 30초 안에<br/>노래의 가수와 제목을 입력해주세요!</P>
             <Btn type="button" href={isHref}  attr={isActive} onClick={()=>{
                 // router.replace('/')
                 dispatch(login({ name: count.name,year: musicYear,music : musicArr,musicImg, score:0}))

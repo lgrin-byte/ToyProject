@@ -11,16 +11,16 @@ export const P = styled.p`
     font-size: 16px;
     letter-spacing: -0.3px;
 
-    margin:26px 0 21px;
+    margin:33px 0 21px;
 `;
 
 
 export const Wrap = styled.div`
-    width: 329px;
+    /* min-width: 390px; */
     height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: 0 auto ;
-    padding-top: 97px;
+    margin: 0 auto;
+    padding: 97px 0 22px;
     
 `;
