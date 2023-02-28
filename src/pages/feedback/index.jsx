@@ -6,7 +6,7 @@ import FeedBack from '../../components/FeedBack';
 import { db } from "../../api/firebaseConfig"; 
 import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed,ContFeed } from './feedbackStyle';
 import btnBack from '../../assets/images/btnBack.png'
-import btnFeedback from '../../assets/images/btnFeedback.png'
+
 import "firebase/firestore"; 
 
 export default function index() {
