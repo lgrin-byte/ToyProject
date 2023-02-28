@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
     render() {
         return (
         <Html>
-            <Head />
+            <Head/>
             <body>
                 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
                 <div id="modal" />
