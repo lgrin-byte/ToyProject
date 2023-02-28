@@ -46,7 +46,7 @@ const scaleDown = keyframes`
                 animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
             `;
-        
+
         default:
             return css`
                 border: 1px solid black;
@@ -58,7 +58,7 @@ const scaleDown = keyframes`
 
 
 export const Btn = styled(Link)`
-    height: 60px;
+    height: 54px;
     width: 329px;
     border-radius: 5px;
     margin: 0 auto;
@@ -109,7 +109,7 @@ export const Label = styled.label`
     height: 60px;
     width: 329px;
     border-radius: 5px;
-    margin-bottom:22px ;
+    margin-bottom:20px ;
     display: inline-block;
     text-align: center;
     line-height: 60px;
@@ -140,6 +140,11 @@ export const ModalBtn = styled.button`
 
   }
 `
+export const BtnContYear = styled(Link)`
+
+                
+`
+
 export const BtnResult = styled(Link)`
     height: 54px;
     width: 329px;
