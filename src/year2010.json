@@ -1,178 +1,185 @@
-
-
 {
-    "low":[
-            {
-            "singer": "포미닛\/4minute",
-            "title": "핫이슈\/Hot Issue",
-            "url": "aYVIvd68Ka0"
-            },
-            {
-            "singer": "거북이",
-            "title": "빙고\/Bingo",
-            "url": "S66dYJMM0Wk"
-            },
-            {
-            "singer": "빅뱅\/BIGBANG",
-            "title": "거짓말",
-            "url": "Hy0W7AqDC_c"
-            },
-            {
-            "singer": "슈퍼주니어\/SUPER JUNIOR",
-            "title": "쏘리쏘리\/sorry sorry",
-            "url": "961H1fUxCMQ"
-            },
-            {
-            "singer": "다비치",
-            "title": "8282",
-            "url": "FWTfKpZ0VWU"
-            },
-            {
-            "singer": "브라운 아이드걸스\/Brown Eyed Girls",
-            "title": "아브라카다브라",
-            "url": "dWsWbd7xauA"
-            },
-            {
-            "singer": "원더걸스\/Wonder Girls",
-            "title": "텔미\/Tell me",
-            "url": "-ikYiWp0H5g"
-            },
-            {
-            "singer": "손담비",
-            "title": "토요일 밤에",
-            "url": "ePpiBWiDS24"
-            },
-            {
-            "singer": "이효리",
-            "title": "유고걸\/U Go Girl",
-            "url": "epQBOq_WGPI"
-            },
-            {
-            "singer": "동방신기\/TVXQ",
-            "title": "주문\/Mirotic",
-            "url": "X8mRqGRJeDw"
-            },
-            {
-            "singer": "동방신기\/TVXQ",
-            "title": "풍선",
-            "url": "H0MQJfgjl3o"
-            }],
-            "middle":[
-            {
-            "singer": "SG워너비\/SG WANNABE",
-            "title": "라라라",
-            "url": "94UMXIWJgsQ"
-            },
-            {
-            "singer": "쥬얼리\/Jewelry",
-            "title": "니가 참 좋아\/",
-            "url": "10P5K8F-BYA"
-            },
-            {
-            "singer": "자두\/더자두",
-            "title": "김밥",
-            "url": "prTlJcipGbo"
-            },
-            {
-            "singer": "박명수",
-            "title": "바다의 왕자",
-            "url": "9VaMWn3NL0M"
-            },
-            {
-            "singer": "체리필터\/cherryfilter",
-            "title": "낭만고양이",
-            "url": "oSlqhkPa3no"
-            },
-            {
-            "singer": "백지영",
-            "title": "내귀에캔디",
-            "url": "fE3wlJoBenc"
-            },
-            {
-            "singer": "소찬휘",
-            "title": "\/Tears",
-            "url": "N7x1HC0bShw"
-            },
-            {
-            "singer": "김아중",
-            "title": "마리아\/Maria",
-            "url": "vSkXfrJtbAw"
-            },
-            {
-            "singer": "원더걸스\/Wonder Girls",
-            "title": "노바디\/Nobody",
-            "url": "L1nf1kXGRLA"
-            },
-            {
-            "singer": "원더걸스\/Wonder Girls",
-            "title": "쏘핫\/ 소핫\/So hot",
-            "url": "rlUcrMEUefg"
-            },
-            {
-            "singer": "SS501",
-            "title": "내 머리가 나빠서",
-            "url": "WJCoH47PaA8"
-            },
-            {
-            "singer": "김범수",
-            "title": "보고싶다",
-            "url": "wqTar22rJKE"
-            },
-            {
-            "singer": "다비치",
-            "title": "사랑과 전쟁",
-            "url": "y_T3_wWyXdo"
-            },
-            {
-            "singer": "애프터스쿨\/After school",
-            "title": "디바",
-            "url": "6wkmKQm2SeI"
-            },
-            {
-            "singer": "유키스\/U-KISS",
-            "title": "만만하니",
-            "url": "0D0tGuxxCxs"
-            },
-            {
-            "singer": "카라",
-            "title": "미스터\/Mr/Mister",
-            "url": "LI-CzudcLGw"
-            },
-            {
-            "singer": "백지영",
-            "title": "사랑안해",
-            "url": "MLk5T56-iY0"
-            }],
-            "high":
-            [{
-            "singer": "브라운아이즈\/Brown Eyes",
-            "title": "벌써일년",
-            "url": "-sVo6NWwK_o"
-            },
-            {
-            "singer": "버즈\/Buzz",
-            "title": "가시",
-            "url": "jednbOpzFP4"
-            },
-            {
-            "singer": "린",
-            "title": "사랑했잖아",
-            "url": "dXJnN9uP2o4"
-            },
-            {
-            "singer": "윤도현",
-            "title": "사랑했나봐",
-            "url": "4OSu1MsKaZw"
-            },
-            {
-            "singer": "김종국",
-            "title": "사랑스러워",
-            "url": "3Z23xRLmTe4"
-            },
-            {
-            "singer": "김현정",
-            "title": "멍",
-            "url": "N7VBSaZ-jKQ"
-            }
-        ]
+    "low":[   {
+        "singer": "아이유\/IU",
+        "title": "좋은날",
+        "url": "9X5Kcr8hXmI"
+    },
+    {
+        "singer": "미쓰에이\/miss A",
+        "title": "Bad Girl Good Girl",
+        "url": "OFB54IHcOd4"
+    },
+    {
+        "singer": "소녀시대",
+        "title": "오\/oh!",
+        "url": "5r6M-c3_7YA"
+    },
+    {
+        "singer": "씨엔블루\/CNBLUE",
+        "title": "외톨이야",
+        "url": "anlOHlMn41g"
+    },
+    {
+        "singer": "자이언티\/Zion.T",
+        "title": "양화대교",
+        "url": "uLUvHUzd4UA"
+    },
+    {
+        "singer": "태양",
+        "title": "눈코입",
+        "url": "Bjm920Fyo34"
+    },
+    {
+        "singer": "에일리",
+        "title": "첫눈처럼 너에게 가겠다",
+        "url": "6rS7OUGXUik"
+    },
+    {
+        "singer": "지드래곤\/G DRAGON",
+        "title": "크레용\/Crayon",
+        "url": "wF1uBnSqMmw"
+    },
+    {
+        "singer": "싸이\/PSY",
+        "title": "강남스타일",
+        "url": "QOdz4tL1pmc"
+    },
+    {
+        "singer": "투애니원\/2NE1",
+        "title": "내가 제일 잘나가",
+        "url": "rrZxGvUSeAE"
+    },
+    {
+        "singer": "다비치",
+        "title": "안녕이라고 말하지마",
+        "url": "SGmnGLN-6YU"
+    },
+    {
+        "singer": "투에이엠\/2PM",
+        "title": "heartbeat",
+        "url": "qxSUfjioFg8"
+    }],
+    "middle":[
+    {
+        "singer": "아이콘\/IKON",
+        "title": "사랑을 했다",
+        "url": "8pahVbnQhfA"
+    },
+    {
+        "singer": "로이킴\/Roy Kim",
+        "title": "봄봄봄",
+        "url": "jYH5zMINQ9E"
+    },
+    {
+        "singer": "아이유\/IU",
+        "title": "금요일에 만나요",
+        "url": "dTPVMPE-DCE"
+    },
+    {
+        "singer": "비원에이포\/B1A4",
+        "title": "이게 무슨 일이야",
+        "url": "mKftFjxtsTw"
+    },
+    {
+        "singer": "프라이머리",
+        "title": "자니",
+        "url": "VX7w5fwdMkI"
+    },
+    {
+        "singer": "아이유",
+        "title": "삐삐",
+        "url": "6k9kV6UkqK4"
+    },
+    {
+        "singer": "레드벨벳\/Red Velvet",
+        "title": "행복\/해피니스\/Happiness",
+        "url": "B7qh8lXrxss"
+    },
+    {
+        "singer": "아이유",
+        "title": "밤편지",
+        "url": "6744glqD6lk"
+    },
+    {
+        "singer": "블락비\/Block B",
+        "title": "난리나",
+        "url": "88RYwxOQOEA"
+    },
+    {
+        "singer": "샤이니\/SHINee",
+        "title": "셜록",
+        "url": "ehqVxQ7wzbY"
+    },
+    {
+        "singer": "아이유\/IU",
+        "title": "하루끝\/",
+        "url": "gJtNx3P02Z4"
+    },
+    {
+        "singer": "시크릿\/secret",
+        "title": "샤이보이\/Shy Boy",
+        "url": "9iMFkd2yf_Y"
+    },
+    {
+        "singer": "처진달팽이",
+        "title": "압구정 날라리",
+        "url": "N1BkWb5xXK8"
+    },
+    {
+        "singer": "에이핑크\/Apink",
+        "title": "몰라요\/",
+        "url": "VPbk_DoVIVI"
+    },
+    {
+        "singer": "아이유\/IU",
+        "title": "너랑나\/",
+        "url": "rRJOMckXO_U"
+    },
+    {
+        "singer": "투피엠\/2AM",
+        "title": "죽어도 못보내",
+        "url": "-sGpjQxIdg4"
+    },
+    {
+        "singer": "엑소\/EXO",
+        "title": "늑대와 미녀",
+        "url": "nViHrml-LtU"
+    }],
+    "high":[
+    {
+        "singer": "소녀시대",
+        "title": "훗\/hoot",
+        "url": "bhF5HQSrNag"
+    },
+    {
+        "singer": "세븐틴\/Seventeen",
+        "title": "예쁘다\/",
+        "url": "hLf0j1WD5BY"
+    },
+    {
+        "singer": "트와이스\/Twice",
+        "title": "티티\/TT",
+        "url": "J9b7gveF_tQ"
+    },
+    {
+        "singer": "여자친구",
+        "title": "시간을 달려서",
+        "url": "u5HbBIcJFmM"
+    },
+    {
+        "singer": "제국의 아이들\/ZE:A",
+        "title": "후유증",
+        "url": "r6zP7nCShtc"
+    },
+    {
+        "singer": "에일리",
+        "title": "보여줄게",
+        "url": "MCEcWcIww5k"
+    },
+    {
+        "singer": "비스트\/Beast\/B2ST",
+        "title": "비가 오는 날엔",
+        "url": "NY47mqz4yCg"
+    }
+]
 }
