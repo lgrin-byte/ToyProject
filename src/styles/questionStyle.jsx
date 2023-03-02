@@ -47,7 +47,7 @@ const setAttr = (time) => {
 export const Wrap = styled.div`
     width: 329px;
     /* width: 100vw; */
-    height: 100vh; 
+    min-height: 100vh; 
     margin: 0 auto ;
     padding-top: 60px;
     /* padding: 70px ; */
