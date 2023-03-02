@@ -12,7 +12,8 @@ import {Btn} from '../../../components/Button'
 import {
     Cont_Inp,
     Title,
-    Inp
+    Inp,
+    MentEng
 } from '../../../components/InputAnswer'
 import {Player} from '../../../components/Youtube'
 import {
@@ -157,7 +158,8 @@ const handleCheck = ()=>{
             dispatch(login({ name: count.name ,music : count.music, year:count.year,musicImg:count.musicImg, score:score}))
 
         }
-    console.log(숫자);
+    console.log('ANTIFRAGILE bad girl good girl heartbeat 8282'.includes(count.music[level-1].title));
+    'ANTIFRAGILE bad girl good girl heartbeat 8282'.includes(count.music[level-1].title)
     }
 
 useEffect(()=>{
@@ -287,11 +289,13 @@ const focusRef = useRef();
                     <Title attr={`point${count.year}`}>가수</Title>
                     <Inp type="text" onKeyPress={onKeyPress} name='singer' value={singer} onChange={handleAnswer}/>
                 </Cont_Inp>
+                {'SS501 SES HOT'.includes(count.music[level-1].title)&&<MentEng>*(제목)영어/숫자로 적어주세요.</MentEng>}
                 <Cont_Inp>
                     <Title attr={`point${count.year}`}>제목</Title>
                     <Inp type="text" name="songName" ref={focusRef}  value={title} onChange={handleAnswer}/>
                 </Cont_Inp>
-                    <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
+                {'ANTIFRAGILE bad girl good girl heartbeat 8282'.includes(count.music[level-1].title)&&<MentEng>*(제목)영어/숫자로 적어주세요.</MentEng>}
+                <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
                 <Btn href={level===10? "/loading" : "#"} attr={isActive} onClick={handleBtn}>{level===10? "끝!" : "다음"}</Btn>
             </Wrap>
         </div>

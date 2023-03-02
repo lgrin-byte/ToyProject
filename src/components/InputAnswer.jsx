@@ -41,7 +41,7 @@ export const Cont_Inp = styled.div`
     border-radius: 50px;
     display: flex;
     overflow: hidden;
-    margin: 24px 0;
+    margin: 24px 0 0;
 `;
 
 export const Title = styled.span`
@@ -61,3 +61,10 @@ export const Inp = styled.input`
     font-family: var(--font);
     font-size: 18px;
 `;
+
+export const MentEng = styled.p`
+    margin: 5px auto -24px ;
+    text-align: center;
+    font-size: 14px;
+    color: #EF6363;
+`
