@@ -242,7 +242,7 @@ export const ResultImg = styled.div`
     width: 370px;
     height: 353px;
     /* 740 × 706 */
-    left: -15px;
+    left: 15px;
     top: 5px;
     z-index: 999;
     background-size: cover;

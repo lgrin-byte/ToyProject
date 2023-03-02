@@ -40,7 +40,7 @@ useEffect(()=>{
         결과.forEach((doc)=>{
         
         if(doc.data().secret){
-            arr.push({...doc.data(),name:"비밀유저",comment:"비밀댓글입니다."})
+            arr.push({...doc.data(),nickname:"비밀유저",comment:"비밀댓글입니다."})
         }
         //         arr.push(doc.data())
         else{arr.push(doc.data())}
