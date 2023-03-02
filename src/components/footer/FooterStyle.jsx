@@ -2,8 +2,7 @@ import styled,{css} from 'styled-components';
 
 
 export const ContFooter = styled.div`
-position: fixed;
-bottom: 0;
+
 height: 221px;
 background: #2D294B;
 font-family: 'Apple SD Gothic Neo';
