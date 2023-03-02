@@ -39,7 +39,7 @@ export const focusScale = keyframes`
 
 export const Wrap = styled.div`
     width: 329px;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0 auto ;

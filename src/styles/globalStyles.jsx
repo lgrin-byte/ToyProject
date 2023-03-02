@@ -29,7 +29,8 @@ const setAttr = (attr) => {
     
     default:
         return css`
-
+            border: 1px solid black;
+            background-color: white;
             
         `;
     }
@@ -90,12 +91,12 @@ img{
 html {
     min-width: 390px;
     
-    /* height: 100%; */
+    height: 100vh;
     /* background-color: var(--light-gray); */
     margin: 0 auto ;
 }
 body {
-    ${( attr ) => setAttr(attr)}
+
     /* width: 100%; */
     position: relative;
     /* height: 100%; */
@@ -118,21 +119,21 @@ body {
 
 .color2020{
     background-color: ${props => props.theme.color2020};
-    /* height: 100%; */
+    height: 100%;
 }
 .color2010{
     background-color: ${props => props.theme.color2010};
-    /* height: 100%; */
+    height: 100%;
 
 }
 .color2000{
     background-color: ${props => props.theme.color2000};
-    /* height: 100%; */
+    height: 100%;
 
 }
 .color1990{
     background-color: ${props => props.theme.color1990};
-    height: 100vh;
+    height: 100%;
 
 }
 .colorAll{
