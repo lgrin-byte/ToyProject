@@ -1,8 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle,css } from 'styled-components';
 import reset from 'styled-reset';
 const setAttr = (attr) => {
+    console.log(attr);
     switch (attr) {
     case '2020':
+
         return css`
         background-color: white;
         `;
@@ -27,8 +29,7 @@ const setAttr = (attr) => {
     
     default:
         return css`
-            border: 1px solid black;
-            background-color: white;
+
             
         `;
     }
@@ -89,11 +90,12 @@ img{
 html {
     min-width: 390px;
     
-    height: 100vh;
+    height: 100%;
     /* background-color: var(--light-gray); */
     margin: 0 auto ;
 }
 body {
+    ${( attr ) => setAttr(attr)}
     /* width: 100%; */
     position: relative;
     /* height: 100%; */
