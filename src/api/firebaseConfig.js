@@ -19,8 +19,8 @@ const firebaseConfig = {
 // Initialize Firebase
 if (!firebase.apps.length) {
 
-  const app =firebase.initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+  const analytics = firebase.analytics();
 
 } else {
 
