@@ -90,8 +90,8 @@ img{
 }
 html {
     min-width: 390px;
-    
     height: 100vh;
+    min-height: 844px;
     /* background-color: var(--light-gray); */
     margin: 0 auto ;
 }
