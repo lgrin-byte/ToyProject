@@ -27,9 +27,11 @@ import styled, {css, keyframes } from 'styled-components';
 
 export const BtnBack = styled(Image)`
     cursor: pointer;
+    margin-left: 35px;
 `;
 
 export const Wrap = styled.div`
+max-width: 450px;
     margin: 0 auto;
     padding: 48px 23px;
     display: flex;
@@ -47,25 +49,42 @@ export const Title = styled.h2`
 export const BtnFeedback = styled.button`
     width: 207px;
     height: 50px;
-    
+    position: relative;
     background: ${(props) => props.theme.mainColor};
     opacity: ${(props) => props.attr&& 0.5};
     /* background: ${(props)=>{ props.attr?props.theme.mainColor:props.theme.gray}}; */
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     margin: 0 auto;
+    text-align: end;
+    padding-right: 27px;
     font-size: 20px;
     line-height: 30px;
-    letter-spacing: -0.24px;
+    letter-spacing: -0.5px;
     color: #FFFFFF;
-    margin-bottom: 54px;
+    margin-bottom: 45px;
+    ${'img'}{
+        position: absolute;
+        margin: 5px 25px  ;
+        
+    }
 
 `;
 
 export const ContFeed = styled.div`
     overflow-y: scroll;
-
-    height: 600px;
+    height: 62vh;
+    &::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+    border-radius: 6px;
+    border: 1px solid #6e6b651c;
+    background: #fff8ec;
+  }
+  &::-webkit-scrollbar-thumb {
+    background:  #d6d6d6;
+    border-radius: 6px;
+  }
 `
 
 export const WrapFeed = styled.div`
@@ -95,10 +114,10 @@ export const Feed = styled.div`
     background: #FFFFFF;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    padding: 8px 15px;
+    padding: 10px 15px;
     font-weight: 400;
     font-size: 15px;
-    line-height: 20px;
+    line-height: 23px;
     letter-spacing: -0.24px;
     /* color: ${(props) => props.time<11?"#EF6363": "black" }; */
     /* color: aliceblue; */
