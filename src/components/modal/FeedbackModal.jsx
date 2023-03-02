@@ -12,6 +12,7 @@ export default function FeedbackModal({type, modalOpen, setModalOpen, handleModa
     const [isActive, setIsActive] = useState();
     const [isSecret, setIsSecret] = useState(false);
     const onChange = ({ target }) => {target.checked ? setIsSecret(true) : setIsSecret(false);}; 
+    const focusRef = useRef();
 
     // 모달 끄기 
     const closeModal = () => {
@@ -58,7 +59,11 @@ export default function FeedbackModal({type, modalOpen, setModalOpen, handleModa
 
 
     },[name, comment])
-    
+    const onKeyPress=(e)=>{
+        if(e.key==='Enter'){
+            focusRef.current.focus();
+        }
+    }
     const addData = () => {
         const now = new Date();
         const year = (now.getFullYear()+"").slice(2,);
@@ -92,13 +97,13 @@ export default function FeedbackModal({type, modalOpen, setModalOpen, handleModa
             <Wrap  ref={modalRef}>
             <WrapModal type={type} >
                 <Cont>
-                    <Input type="text" name='name' value={name} onChange={handleFeedback}  maxLength={7} placeholder='닉네임을 입력해주세요.'/>
+                    <Input type="text" name='name' value={name} onChange={handleFeedback} onKeyPress={onKeyPress} maxLength={7} placeholder='닉네임을 입력해주세요.'/>
                     <CheckBox>
                         <input type="checkbox" id="secret"  onClick={onChange}/>
                         <label htmlFor="secret" onClick={onChange} >비밀글</label>
                     </CheckBox>
                 </Cont>
-                <Comment id="comment" name='comment' value={comment} onChange={handleFeedback} cols="30"  maxLength={100} rows="5" placeholder='내용을 작성해주세요'></Comment>
+                <Comment id="comment" name='comment' value={comment}  ref={focusRef}  onChange={handleFeedback} cols="30"  maxLength={100} rows="5" placeholder='내용을 작성해주세요'></Comment>
             </WrapModal>
             <BtnSubmit attr={isActive} onClick={addData}>올리기</BtnSubmit>
             </Wrap>
