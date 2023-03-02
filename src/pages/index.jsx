@@ -11,8 +11,9 @@ import { Btn, ModalBtn } from "../components/Button";
 import Modal from "../components/modal/Modal";
 import useCustomModal from "../hooks/useCustomModal";
 import ModalPortal from "../components/modal/ModalPortal";
+import {db } from "../api/firebaseConfig"; 
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../hooks/count/counterSlice";
 import speaker from "../assets/images/speaker.png";
@@ -28,6 +29,7 @@ import {
 } from "../styles/questionStyle";
 import { Div, DivRate } from "../components/Div";
 import ImageNext from "next/image";
+import "firebase/firestore"; 
 
 export default function index() {
     const [isActive, setIsActive] = useState();
@@ -35,6 +37,12 @@ export default function index() {
     const dispatch = useDispatch();
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
 
+    useEffect(()=>{
+        db.collection('feedback').get().then((결과)=>{
+            let arr=[]
+            console.log(arr);
+        })
+    },[])
     const handleNickname = (e) => {
         console.log(e.target.value);
         e.target.value ? setIsActive("change") : setIsActive("empty");
