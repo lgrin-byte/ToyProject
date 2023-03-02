@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import {LoadingImg, Div} from './loadingStyle'
+import {LoadingImg, Div} from '../../styles/loadingStyle'
 // import speaker from '../../../public/css_sprites.png'
 // import speaker from '/css_sprites.png'
 import Link from 'next/link';

@@ -16,10 +16,10 @@ import {
     ImageFeed,
     SpanFeed,
     SpanFeedB,
-    ContBtn
-} from "./resultStyle";
+    ContBtn,
+} from "../../styles/resultStyle";
 import { useSelector } from "react-redux";
-import { BtnResult,BtnContYear } from "../../components/Button";
+import { BtnResult, BtnContYear } from "../../components/Button";
 import kakao from "../../assets/images/kakao.png";
 import link from "../../assets/images/link.png";
 import download from "../../assets/images/download.png";
@@ -33,17 +33,16 @@ import { useRef } from "react";
 // import './card.css';
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
-import Router, {useRouter} from 'next/router';
+import Router, { useRouter } from "next/router";
 
 export default function Index() {
     const count = useSelector((state) => state.user.value);
-    console.log(count)
+    console.log(count);
     const inputRef = useRef(null);
     const arrMusic = [];
     const [isCopy, onCopy] = useCopyClipBoard();
     const { query } = useRouter();
     const text = `http://localhost:3001/result?name=${query.name}&year=${query.year}&score=${query.score}`;
-
 
     useEffect(() => {
         if (!Kakao.isInitialized()) {
@@ -102,27 +101,33 @@ export default function Index() {
     return (
         <div className={`color${query.year}`}>
             <Wrap>
-                <Card ref={inputRef} year={`color${count.year}`} data={query}/>
+                <Card ref={inputRef} year={`color${count.year}`} data={query} />
 
                 <p>공유하기</p>
                 <ContYear attr="cont_share">
                     {btnShare.map((a) => (
                         <ContYear attr="share">
-                            <Image src={a.image} onClick={a.handle} style={{cursor:"pointer"}}/>
+                            <Image
+                                src={a.image}
+                                onClick={a.handle}
+                                style={{ cursor: "pointer" }}
+                            />
                             <Share>{a.title}</Share>
                         </ContYear>
                     ))}
                 </ContYear>
                 {/* {isCopy && <span>복사 완료!!</span>} */}
-                {count.year!=="" && <ContAnswer>
-                    <AnswerTitle>정답/출처</AnswerTitle>
-                    {count.music.map((x) => (
-                        <Answer>
-                            {x.singer.split("/")[0]}-{x.title.split("/")[0]}
-                            (https://youtu.be/{x.url})
-                        </Answer>
-                    ))}
-                </ContAnswer>}
+                {count.year !== "" && (
+                    <ContAnswer>
+                        <AnswerTitle>정답/출처</AnswerTitle>
+                        {count.music.map((x) => (
+                            <Answer>
+                                {x.singer.split("/")[0]}-{x.title.split("/")[0]}
+                                (https://youtu.be/{x.url})
+                            </Answer>
+                        ))}
+                    </ContAnswer>
+                )}
 
                 <BtnResult type="button" href="/">
                     처음으로 돌아가기
@@ -130,9 +135,17 @@ export default function Index() {
                 <BtnContYear attr="feedback" href="/feedback" legacyBehavior>
                     <a target="_blank">
                         <ContBtn>
-                            <ImageFeed src={feedback}/>
-                            <SpanFeedB>리뷰 작성하기<br/>/보러가기</SpanFeedB>
-                            <SpanFeed>리뷰 작성하기<br/>/보러가기</SpanFeed>
+                            <ImageFeed src={feedback} />
+                            <SpanFeedB>
+                                리뷰 작성하기
+                                <br />
+                                /보러가기
+                            </SpanFeedB>
+                            <SpanFeed>
+                                리뷰 작성하기
+                                <br />
+                                /보러가기
+                            </SpanFeed>
                         </ContBtn>
                     </a>
                 </BtnContYear>

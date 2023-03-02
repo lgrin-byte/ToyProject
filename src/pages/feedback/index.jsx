@@ -4,7 +4,7 @@ import useCustomModal from "../../hooks/useCustomModal";
 import ModalPortal from "../../components/modal/ModalPortal";
 import FeedBack from '../../components/FeedBack';
 import { db } from "../../api/firebaseConfig"; 
-import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed, ContFeed ,BtnFeed} from './feedbackStyle';
+import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed, ContFeed ,BtnFeed} from '../../styles/feedbackStyle';
 import btnBack from '../../assets/images/btnBack.png'
 import btnFeedback from '../../assets/images/btnFeedback.png'
 import "firebase/firestore"; 
