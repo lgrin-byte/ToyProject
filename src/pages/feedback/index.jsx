@@ -4,10 +4,11 @@ import useCustomModal from "../../hooks/useCustomModal";
 import ModalPortal from "../../components/modal/ModalPortal";
 import FeedBack from '../../components/FeedBack';
 import { db } from "../../api/firebaseConfig"; 
-import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed,ContFeed } from './feedbackStyle';
+import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed, ContFeed } from './feedbackStyle';
 import btnBack from '../../assets/images/btnBack.png'
-
+import btnFeedback from '../../assets/images/btnFeedback.png'
 import "firebase/firestore"; 
+import Image from 'next/image';
 
 export default function index() {
 const arr = [
@@ -39,7 +40,7 @@ useEffect(()=>{
         결과.forEach((doc)=>{
         
         if(doc.data().secret){
-            arr.push({...doc.data(),nickname:"비밀유저",comment:"비밀댓글입니다."})
+            arr.push({...doc.data(),name:"비밀유저",comment:"비밀댓글입니다."})
         }
         //         arr.push(doc.data())
         else{arr.push(doc.data())}
@@ -62,6 +63,7 @@ useEffect(()=>{
         <BtnBack src={btnBack} alt="" onClick={()=>window.close()}/>
         <Title>피드백을 남겨주세요!</Title>
         <BtnFeedback onClick={showModal} attr={modalOpen}>
+            <Image src={btnFeedback} />
             리뷰 작성하기</BtnFeedback>
         <ModalPortal>
                 {modalOpen && 
@@ -72,20 +74,20 @@ useEffect(()=>{
                             />}    
             </ModalPortal>  
         <ContFeed>
-        {array.map((a,i)=>
-            <WrapFeed  key={i}>
-                <Nickname>
-                    <p>{a.nickname}</p>
-                    <span>{a.datetime}</span>
-                </Nickname>
-                <Feed attr={a.secret}>
-                    {a.comment}
-                </Feed>
-            </WrapFeed>
-        )}         
-         {/* <FeedBack/> */}
+            {array.map((a,i)=>
+                <WrapFeed  key={i}>
+                    <Nickname>
+                        <p>{a.nickname}</p>
+                        <span>{a.datetime}</span>
+                    </Nickname>
+                    <Feed attr={a.secret}>
+                        {a.comment}
+                    </Feed>
+                </WrapFeed>
+            )}         
 
         </ContFeed>
+         {/* <FeedBack/> */}
         </Wrap>
     </div>
   )
