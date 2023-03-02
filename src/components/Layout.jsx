@@ -11,7 +11,7 @@ export default function Layout({children}) {
                 <meta name="og:site_name" content="무슨노래듣고계세요?" />
                 <meta name="og:title" content="무슨노래듣고계세요?" />
                 <meta name="og:type" content="website" />
-                <meta name="og:description" content="웹 페이지 상세 설명 (ex. SWYG에서 다양한 메타 콘텐츠와 개발자를 만나보세요.)"/>
+                <meta name="og:description" content="시대별로 (1990년대, 2000년대 등) 유행했던 노래의 전주를 들려주면 사용자가 제한 시간안에 노래 가수와 제목을 맞히고 최종적으로 맞힌 개수까지 알려주는 게임입니다.)"/>
                 {/* <meta name="og:url" content="" /> */}
                 {/* <meta name="og:image" content="" /> */}
             </Head>
