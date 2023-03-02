@@ -8,10 +8,12 @@ export default function Layout({children}) {
         <>
             <Head>
                 <title>무슨노래듣고계세요?</title>
-<meta property="og:title" content="기록하는 삶📚" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jiineeee.tistory.com/" />
-<meta property="og:image" content="https://i1.daumcdn.net/thumb/C264x200/?fname=https://tistory2.daumcdn.net/tistory/3454287/skinCover/199033df9674456f9121c367ba463d76" />
+                <meta name="og:site_name" content="무슨노래듣고계세요?" />
+                <meta name="og:title" content="무슨노래듣고계세요?" />
+                <meta name="og:type" content="website" />
+                <meta name="og:description" content="웹 페이지 상세 설명 (ex. SWYG에서 다양한 메타 콘텐츠와 개발자를 만나보세요.)"/>
+                {/* <meta name="og:url" content="" /> */}
+                {/* <meta name="og:image" content="" /> */}
             </Head>
             <div>
                 {children}
