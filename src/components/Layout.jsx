@@ -7,6 +7,7 @@ export default function Layout({children}) {
     return (
         <>
             <Head>
+                <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
                 <title>무슨노래듣고계세요?</title>
                 <meta name="og:site_name" content="무슨노래듣고계세요?" />
                 <meta name="og:title" content="무슨노래듣고계세요?" />
