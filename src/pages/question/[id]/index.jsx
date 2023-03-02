@@ -117,8 +117,8 @@ export default function Question(props) {
     };
     const handleCheck = () => {
         // answerArr.push({title, singer})
-        const answerTitle = count.music[level - 1].title.split("/");
-        const answerSinger = count.music[level - 1].singer.split("/");
+        const answerTitle = count.music[level - 1]?.title.split("/");
+        const answerSinger = count.music[level - 1]?.singer.split("/");
         let 숫자 = 0;
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
@@ -153,11 +153,11 @@ export default function Question(props) {
         }
         console.log(
             "ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
-                count.music[level - 1].title
+                count.music[level - 1]?.title
             )
         );
         "ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
-            count.music[level - 1].title
+            count.music[level - 1]?.title
         );
     };
 
@@ -316,7 +316,7 @@ export default function Question(props) {
                         onChange={handleAnswer}
                     />
                 </Cont_Inp>
-                {"SS501 SES HOT".includes(count.music[level - 1].title) && (
+                {"SS501 SES HOT".includes(count.music[level - 1]?.singer) && (
                     <MentEng>*(제목)영어/숫자로 적어주세요.</MentEng>
                 )}
                 <Cont_Inp>
@@ -330,7 +330,7 @@ export default function Question(props) {
                     />
                 </Cont_Inp>
                 {"ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
-                    count.music[level - 1].title
+                    count.music[level - 1]?.title
                 ) && <MentEng>*(제목)영어/숫자로 적어주세요.</MentEng>}
                 <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
                 <Btn
