@@ -61,7 +61,7 @@ export const Btn = styled(Link)`
     min-height: 54px;
     width: 329px;
     border-radius: 5px;
-    margin: 0 auto 20px;
+    margin: 0 auto auto;
     display: flex;
     align-items: center;
     justify-content: center;
