@@ -133,6 +133,7 @@ export const ModalBtn = styled.button`
   font-size: 20px;
   background: #E5DEF5;
   border: 3px solid #FFFFFF;
+  color: black;
   border-radius: 5px;
   &:active{
     background: #af8ff9;
