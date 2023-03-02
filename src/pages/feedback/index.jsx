@@ -4,7 +4,7 @@ import useCustomModal from "../../hooks/useCustomModal";
 import ModalPortal from "../../components/modal/ModalPortal";
 import FeedBack from '../../components/FeedBack';
 import { db } from "../../api/firebaseConfig"; 
-import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed, ContFeed } from './feedbackStyle';
+import { BtnBack, Wrap,Title,BtnFeedback,WrapFeed,Nickname,Feed, ContFeed ,BtnFeed} from './feedbackStyle';
 import btnBack from '../../assets/images/btnBack.png'
 import btnFeedback from '../../assets/images/btnFeedback.png'
 import "firebase/firestore"; 
@@ -63,7 +63,7 @@ useEffect(()=>{
         <BtnBack src={btnBack} alt="" onClick={()=>window.close()}/>
         <Title>피드백을 남겨주세요!</Title>
         <BtnFeedback onClick={showModal} attr={modalOpen}>
-            <Image src={btnFeedback} />
+            <BtnFeed src={btnFeedback} />
             리뷰 작성하기</BtnFeedback>
         <ModalPortal>
                 {modalOpen && 

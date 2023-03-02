@@ -30,6 +30,10 @@ export const BtnBack = styled(Image)`
     margin-left: 35px;
 `;
 
+export const BtnFeed = styled(Image)`
+  
+`;
+
 export const Wrap = styled.div`
 max-width: 450px;
     margin: 0 auto;
