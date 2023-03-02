@@ -118,21 +118,21 @@ body {
 
 .color2020{
     background-color: ${props => props.theme.color2020};
-    height: 100%;
+    height: 300%;
 }
 .color2010{
     background-color: ${props => props.theme.color2010};
-    height: 100%;
+    height: 300%;
 
 }
 .color2000{
     background-color: ${props => props.theme.color2000};
-    height: 100%;
+    height: 300%;
 
 }
 .color1990{
     background-color: ${props => props.theme.color1990};
-    height: 100%;
+    height: 300%;
 
 }
 .colorAll{
