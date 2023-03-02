@@ -58,7 +58,7 @@ const scaleDown = keyframes`
 
 
 export const Btn = styled(Link)`
-    height: 54px;
+    min-height: 54px;
     width: 329px;
     border-radius: 5px;
     margin: 0 auto;
@@ -81,7 +81,7 @@ export const Btn = styled(Link)`
 `;
 
 export const BtnYear = styled.button`
-    height: 60px;
+    min-height: 60px;
     width: 329px;
     border-radius: 5px;
 
@@ -106,7 +106,7 @@ export const YearSelectorContainer = styled.div`
 `;
 
 export const Label = styled.label`
-    height: 60px;
+    min-height: 60px;
     width: 329px;
     border-radius: 5px;
     margin-bottom:20px ;
@@ -146,7 +146,7 @@ export const BtnContYear = styled(Link)`
 `
 
 export const BtnResult = styled(Link)`
-    height: 54px;
+    min-height: 54px;
     width: 329px;
     border-radius: 5px;
     margin: 0 auto;
