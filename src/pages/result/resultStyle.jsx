@@ -109,7 +109,7 @@ const setAttr = (attr) => {
     case 'score':
         return css`
         display: flex;
-        margin-top: 26px;
+        margin-top: -7px;
         align-items: center;
     
             `
@@ -193,9 +193,6 @@ export const YearTitle = styled.div`
 export const H = styled.span`
     position: absolute;
     font-size: 53px;
-    /* color: #E5DEF5; */
-    /* ${({ year }) => setYear(year)} */
-
     color : ${({ year }) => setYear(year)};
     top: 4px;
     left: -6px;
@@ -242,31 +239,26 @@ export const Share = styled.span`
 `
 export const ResultImg = styled.div`
     position: absolute;
-    width: 340px;
-    height: 333px;
-    left: -5px;
-    top: 15px;
+    width: 370px;
+    height: 353px;
+    /* 740 × 706 */
+    left: -15px;
+    top: 5px;
     z-index: 999;
     background-size: cover;
-    /* background-image: url('/result1.png')  ;
-     */
     ${({ img }) => setResultImg(img)}
 
 `
 
 export const Back = styled.div`
-width: 352px;
-height: 316px;
+    width: 370px;
+    height: 359px;
     position: relative;
-    margin: 0 19px;
-    /* background-image: url('/css_sprites.png')  ; */
+    /* margin: 0 19px; */
+    background-size: cover;
+    margin-top: -10px;
+    ${({ img }) => setResultImg(img)}
 
-    /* margin-top: -28px; */
-    /* margin-left: -30px; */
-    /* margin-bottom: -18px; */
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: -4px -4px 6px rgba(255, 255, 255, 0.5), 4px 4px 4px rgba(0, 0, 0, 0.25), inset 2px 2px 9px rgba(90, 90, 90, 0.1);
-    border-radius: 25px;
 `
 
 export const WrapCard = styled.div`
@@ -282,11 +274,10 @@ export const ContAnswer = styled.div`
     width: 390px;
     padding: 28px 30px 43px;
     margin:10px 0 43px;
-    /* height: 353px; */
     background: rgba(255, 255, 255, 0.5);
     box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
 `
-// , Answer, AnswerTitle
+
 export const AnswerTitle = styled.h3`
     font-size: 20px;
     margin-bottom: 14px ;
