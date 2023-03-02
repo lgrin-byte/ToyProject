@@ -90,5 +90,6 @@ export const BtnSubmit = styled.button`
     float: right;
     margin-top: 17px;
     border-radius: 25px;
+    font-size: 15px;
     ${({ attr }) => setAttr(attr)}
 `
