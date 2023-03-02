@@ -56,6 +56,8 @@ const setResultImg = (img) => {
     case 'result4':
         return css`
             background-image:url("/result4.png");
+            width: 370px;
+            height: 369px;
         `
     case 'result5':
         return css`
