@@ -56,7 +56,6 @@ export default function Question(props) {
     useEffect(() => {
 
             if (count.music.length !== 0) {
-                console.log(count.music);
                 youtubeRef.current.updateVideo();
             } else {
                 Router.push("/");
@@ -98,9 +97,6 @@ export default function Question(props) {
         // Input을 체크해서 state를 변경하는 함수.
         if (e.target.name === "singer") setSinger(e.target.value);
         else if (e.target.name === "songName") setTitle(e.target.value);
-        // console.log(singer);
-        // console.log(title);
-
         // (singer&title) ? setIsActive("change") : setIsActive("question")
     };
 
@@ -262,7 +258,6 @@ export default function Question(props) {
                                 setPlayState(e.data);
                             }}
                             onPause={(e) => {
-                                console.log(e);
                                 setPlayState(e.data);
                             }}
                             onEnd={(e) => {

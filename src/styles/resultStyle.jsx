@@ -3,7 +3,6 @@ import Link from "next/link"
 import Image from 'next/image';
 
 const setYear = (year) => {
-    console.log(year)
     switch (year) {
     case 'color2020':
         return css`
@@ -37,7 +36,6 @@ const setYear = (year) => {
 };
 
 const setResultImg = (img) => {
-    console.log(img)
     switch (img) {
     case 'result1':
         return css`

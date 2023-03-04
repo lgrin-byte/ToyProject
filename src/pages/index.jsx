@@ -40,14 +40,11 @@ export default function index() {
     useEffect(()=>{
         db.collection('feedback').get().then((결과)=>{
             let arr=[]
-            console.log(arr);
         })
     },[])
     const handleNickname = (e) => {
-        console.log(e.target.value);
         e.target.value ? setIsActive("change") : setIsActive("empty");
         dispatch(login({ name: e.target.value }));
-        console.log("skdi", count.name);
     };
 
     return (

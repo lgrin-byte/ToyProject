@@ -1,7 +1,6 @@
 import { createGlobalStyle,css } from 'styled-components';
 import reset from 'styled-reset';
 const setAttr = (attr) => {
-    console.log(attr);
     switch (attr) {
     case '2020':
 

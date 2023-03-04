@@ -123,10 +123,6 @@ export const Feed = styled.div`
     font-size: 15px;
     line-height: 23px;
     letter-spacing: -0.24px;
-    /* color: ${(props) => props.time<11?"#EF6363": "black" }; */
-    /* color: aliceblue; */
     color: ${(props) => props.attr? props.theme.gray:"black"}
-        
-        // console.log(props);
-        // props.attr=="true"?"black":"#EF6363"}};
+
 `

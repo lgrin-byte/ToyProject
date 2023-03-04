@@ -9,7 +9,6 @@ export default function useCopyClipBoard() {
     try {
       await navigator.clipboard.writeText(text);
       setIsCopy(true);
-console.log("hh")
       return true;
     } catch (error) {
       console.error(error);

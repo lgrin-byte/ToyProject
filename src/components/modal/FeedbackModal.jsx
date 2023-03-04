@@ -72,8 +72,6 @@ export default function FeedbackModal({type, modalOpen, setModalOpen, handleModa
         var hours = ('0' + now.getHours()).slice(-2); 
         var minutes = ('0' + now.getMinutes()).slice(-2);
         var seconds = ('0' + now.getSeconds()).slice(-2); 
-        console.log(now.getMonth()+1);
-        console.log(now.getDate());
 
         db.collection('feedback').add(
             {nickname: name,

@@ -37,7 +37,6 @@ import Router, { useRouter } from "next/router";
 
 export default function Index() {
     const count = useSelector((state) => state.user.value);
-    console.log(count);
     const inputRef = useRef(null);
     const arrMusic = [];
     const [isCopy, onCopy] = useCopyClipBoard();

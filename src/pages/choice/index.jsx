@@ -40,8 +40,7 @@ export default function index() {
         "1990년대",
         "1990-2020 올타임",
     ];
-    // console.log(random1,random2,random3);
-    // QnAArr=[...random1,...random2,...random3]
+
     const router = useRouter();
 
     const onChange = (e) => {
@@ -57,7 +56,6 @@ export default function index() {
     useEffect(() => {
         let resultYear = "";
         if (selectedYear) {
-            console.log(selectedYear);
             if (selectedYear[0].length === 6) {
                 if (selectedYear[0] === "2020년대") {
                     resultYear = year2020;

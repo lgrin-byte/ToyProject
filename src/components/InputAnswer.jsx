@@ -2,7 +2,6 @@ import styled,{css} from 'styled-components';
 
 
 const setAttr = (attr) => {
-    // console.log(attr)
     switch (attr) {
     case 'point2020':
         return css`

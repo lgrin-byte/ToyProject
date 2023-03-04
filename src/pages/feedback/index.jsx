@@ -36,7 +36,6 @@ const [array, setArray]=useState([]);
 useEffect(()=>{
     db.collection('feedback').get().then((결과)=>{
         let arr=[]
-        console.log(arr);
         결과.forEach((doc)=>{
         
         if(doc.data().secret){
