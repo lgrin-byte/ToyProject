@@ -54,15 +54,13 @@ export default function Question(props) {
     const [second, setSecond] = useState(30);
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
     useEffect(() => {
-        if (level === 1) {
+
             if (count.music.length !== 0) {
                 console.log(count.music);
                 youtubeRef.current.updateVideo();
             } else {
                 Router.push("/");
             }
-        } else if (!youtubeRef.current.updateVideo()) {
-        }
     }, []);
 
     useInterval(
@@ -116,13 +114,11 @@ export default function Question(props) {
         }
     };
     const handleCheck = () => {
-        // answerArr.push({title, singer})
         const answerTitle = count.music[level - 1]?.title.split("/");
         const answerSinger = count.music[level - 1]?.singer.split("/");
         let 숫자 = 0;
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
-            console.log(answerTitle, ":", i);
             if (title.toLowerCase().split(" ").join("") === i) {
                 숫자 += 1;
                 break;
@@ -131,16 +127,13 @@ export default function Question(props) {
 
         for (let j of answerSinger) {
             j = j.toLowerCase().split(" ").join("");
-            console.log(j);
             if (singer.toLowerCase().split(" ").join("") === j) {
-                console.log("정답입니다");
                 숫자 += 10;
                 break;
             }
         }
         if (숫자 === 11) {
             let score = count.score + 1;
-            console.log(score);
             dispatch(
                 login({
                     name: count.name,
@@ -151,14 +144,6 @@ export default function Question(props) {
                 })
             );
         }
-        console.log(
-            "ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
-                count.music[level - 1]?.title
-            )
-        );
-        "ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
-            count.music[level - 1]?.title
-        );
     };
 
     useEffect(() => {
@@ -181,7 +166,6 @@ export default function Question(props) {
 
             const targerPage = "/loading";
             Router.push(targerPage);
-            // Router.replace('/')
         }
         setSinger("");
         setTitle("");
@@ -276,18 +260,13 @@ export default function Question(props) {
                                 e.target.playVideo();
                                 setPlayEvent(e);
                                 setPlayState(e.data);
-                                console.log("플레이", e.data);
-                                console.log("", count.music[level - 1].title);
-                                console.log("", count.music[level - 1].singer);
                             }}
                             onPause={(e) => {
                                 console.log(e);
                                 setPlayState(e.data);
-                                console.log("일시정지", e.data);
                             }}
                             onEnd={(e) => {
                                 setPlayState(e.data);
-                                console.log("끝", e.data);
                                 setPlayEvent();
                                 e.target.stopVideo(0);
                             }}
