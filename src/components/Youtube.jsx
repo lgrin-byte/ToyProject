@@ -15,7 +15,7 @@ export const Player = styled.div`
     }
     ${".btn_replay"}{
         position: absolute;
-        top: 92.42px;
+        top: 90px;
         left: 191px;
         &:hover{
             cursor: pointer;

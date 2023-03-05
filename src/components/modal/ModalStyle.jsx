@@ -18,12 +18,12 @@ import Image from 'next/image';
         default:
             return css`
                 width: 329px;
-                height: 659px;
+                height: 566px;
                 background-color: white;
                 border-radius: 5px;
 
                 line-height: 0;
-                margin: 140px auto auto;
+                margin: 103px auto auto;
                 animation: fadeInUp 0.5s;
                         `;
         }
@@ -35,7 +35,8 @@ export const Back = styled.div`
     bottom: 0;
     right: 0;
     height: 100vh;
-    background-color : rgba(0,0,0,0.2);
+    background: rgba(229, 222, 245, 0.3);
+    backdrop-filter: blur(5px);
     z-index : 100;
     box-sizing: border-box;
     display :flex; 
@@ -53,7 +54,7 @@ export const CloseBtn = styled.div`
     justify-content: flex-end;
     align-items: center;
     font-size: 15px;
-    margin: 23px 20.8px;
+    margin: 23px 20.8px -10px;
     /* span{
         margin-left: 9.2px;
     } */
@@ -111,7 +112,7 @@ export const Btn= styled.button`
 export const TitleBox= styled.div`
     margin: 20px 20px 23px;
     ${".contMargin"}{
-        margin: 25px;
+        margin: 13px;
 
     }
 
@@ -122,9 +123,9 @@ export const PlayBox= styled.div`
     font-size: 15px;
     line-height: 20px;
     background: #FAF6EF;
-    margin-top: -6px;
+    margin-top: -8px;
     border: 3px solid #E5DEF5;
-    padding: 18px 10px 20px;
+    padding: 18px 10px 12px;
     text-align: center;
 
 `
@@ -140,7 +141,7 @@ export const UlModal = styled.ul`
 
 export const LiModal = styled.li`
     list-style-type: square;
-    margin: 10px 0;
+    margin: 4px 0;
     /* &::before{ */
         color:  #EF6363;;
         font-size: 20px;

@@ -174,7 +174,7 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
-    padding: 33px 0 59px;
+    padding: -2px 0 59px;
     
 `;
 

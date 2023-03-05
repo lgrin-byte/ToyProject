@@ -65,5 +65,5 @@ export const MentEng = styled.p`
     margin: 5px auto -24px ;
     text-align: center;
     font-size: 14px;
-    color: #EF6363;
+    color: #FF2323 ;
 `

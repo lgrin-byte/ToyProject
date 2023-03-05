@@ -37,7 +37,7 @@ export const BtnFeed = styled(Image)`
 export const Wrap = styled.div`
 max-width: 450px;
     margin: 0 auto;
-    padding: 48px 23px;
+    padding: 13px 23px;
     display: flex;
     flex-direction: column;
 `;

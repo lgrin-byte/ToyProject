@@ -44,7 +44,7 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto ;
-    padding-top: 67px;
+    padding-top: 32px;
     text-align: center;
     background-image: url(speaker);
     /* justify-content: space-around; */

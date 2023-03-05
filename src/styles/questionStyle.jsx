@@ -49,7 +49,7 @@ export const Wrap = styled.div`
     /* width: 100vw; */
     min-height: 100vh; 
     margin: 0 auto ;
-    padding-top: 60px;
+    padding-top: 25px;
     /* padding: 70px ; */
 
     
