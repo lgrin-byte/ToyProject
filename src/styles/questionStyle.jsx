@@ -107,7 +107,7 @@ export const TimerImg = styled(Image)`
 
 export const Img = styled(Image)`
     position: absolute;
-    top: 67px;
+    top: 32px;
 `
 
 export const Btn = styled.button`

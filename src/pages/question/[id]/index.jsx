@@ -68,7 +68,8 @@ export default function Question(props) {
                 setSecond(second - 1);
             },
             1000,
-            second
+            second,
+            playState
         );
 
     
@@ -95,6 +96,21 @@ export default function Question(props) {
             },
         },
     };
+
+useEffect(()=>{
+    dispatch(
+        login({
+            name: count.name,
+            music: count.music,
+            year: count.year,
+            musicImg: count.musicImg,
+            score: count.score,
+            state:1
+        })
+    );
+
+},[playState])
+
 
     const handleAnswer = (e) => {
         // Input을 체크해서 state를 변경하는 함수.
