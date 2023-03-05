@@ -60,6 +60,16 @@ export const Wrap = styled.div`
 `;
 
 
+export const ImgMain = styled(Image)`
+    position: absolute;
+    animation: ${focusScale} 1s cubic-bezier(0.775, 0.885, 0.32, 1.275) forwards alternate infinite;
+
+width: 291px;
+height: 116px;
+left: 20px;
+top: 100px;
+
+`
 export const H = styled.h1`
     position: absolute;
     font-size: 50px;

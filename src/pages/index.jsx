@@ -6,6 +6,7 @@ import {
     Input,
     ImageMain,
     WrapMain,
+    ImgMain
 } from "../styles/mainStyle";
 import { Btn, ModalBtn } from "../components/Button";
 import Modal from "../components/modal/Modal";
@@ -17,6 +18,7 @@ import { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../hooks/count/counterSlice";
 import speaker from "../assets/images/speaker.png";
+import title from "../assets/images/title.png";
 import main from "../assets/images/main.png";
 import {
     // Div,
@@ -60,12 +62,13 @@ export default function index() {
             <p className="info">(게임진행을 위해 소리를 켜주세요!)</p>
             <WrapMain>
                 <ImageMain src={main} alt="" />
-                <H>
+                {/* <H>
                     무슨 노래 <br /> 듣고 계세요?
                 </H>
                 <HB>
                     무슨 노래 <br /> 듣고 계세요?
-                </HB>
+                </HB> */}
+                <ImgMain src={title}/>
                 <ModalBtn onClick={showModal}>게임규칙</ModalBtn>
             </WrapMain>
 
