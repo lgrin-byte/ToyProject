@@ -24,7 +24,7 @@ useEffect(() => {
         setCustomInterval(id);
         return () => clearInterval(id);//바로바로 클리어를 해주기 때문에 메모리를 차지하지 않는다. 
         }
-    }, [delay,count.state]);
+    }, [count.state]);
 
 useEffect(()=>{
     if(second<=0){
