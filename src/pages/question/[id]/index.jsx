@@ -98,16 +98,19 @@ export default function Question(props) {
     };
 
 useEffect(()=>{
-    dispatch(
-        login({
-            name: count.name,
-            music: count.music,
-            year: count.year,
-            musicImg: count.musicImg,
-            score: count.score,
-            state:1
-        })
-    );
+    if(playState==1){
+
+        dispatch(
+            login({
+                name: count.name,
+                music: count.music,
+                year: count.year,
+                musicImg: count.musicImg,
+                score: count.score,
+                state:1
+            })
+        );
+    }
 
 },[playState])
 
