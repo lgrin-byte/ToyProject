@@ -168,7 +168,7 @@ useEffect(()=>{
                 })
             );
         }else{
-            alert(`오답 정답:${answerTitle}, ${answerSinger}`)
+            // alert(`오답 정답:${answerTitle}, ${answerSinger}`)
         }
     };
 
