@@ -264,7 +264,7 @@ export const Back = styled.div`
 export const WrapCard = styled.div`
     margin: 0 auto 6px;
     text-align: center;
-    width:390px;
+    width:min-content;
     height:770px;
     padding-top:27px;
     background-color : ${({ year }) => setYear(year)};
