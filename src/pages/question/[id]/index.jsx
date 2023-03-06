@@ -333,7 +333,7 @@ useEffect(()=>{
                         onChange={handleAnswer}
                     />
                 </Cont_Inp>
-                {"ANTIFRAGILE bad girl good girl heartbeat 8282".includes(
+                {"ANTIFRAGILE bad girl good girl heartbeat 8282 HOT".includes(
                     count.music[level - 1]?.title
                 ) && <MentEng>*(제목)영어/숫자로만 적어주세요.</MentEng>}
                 <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
