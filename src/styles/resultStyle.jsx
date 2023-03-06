@@ -190,19 +190,39 @@ export const YearTitle = styled.div`
     position:relative;
     
 `
-export const H = styled.span`
-    position: absolute;
-    font-size: 51px;
+export const Hall = styled.span`
+position: absolute;
+    font-size: 50px;
     color : ${({ year }) => setYear(year)};
     top: 4px;
-    left: -8px;
-    letter-spacing: 1.5px;
+    left: -6px;
+    letter-spacing: 2.5px;
+    margin-left: 30px;
+`
+export const HallB = styled.span`
+width: fit-content;
+-webkit-text-stroke: 10px white;
+letter-spacing: -2.3px;
+margin-left: 23px;
+
+    font-size: 53px;
+    color: white;
+
+`
+
+export const H = styled.span`
+    position: absolute;
+    font-size: 53px;
+    color : ${({ year }) => setYear(year)};
+    top: 4px;
+    left: -6px;
+    letter-spacing: 0.6px;
     margin-left: 30px;
 `
 export const HB = styled.span`
--webkit-text-stroke: 9px white;
+-webkit-text-stroke: 10px white;
 letter-spacing: -1.8px;
-margin-left: 20px;
+margin-left: 23px;
 
     font-size: 58px;
     color: white;
@@ -264,7 +284,7 @@ export const Back = styled.div`
 export const WrapCard = styled.div`
     margin: 0 auto 6px;
     text-align: center;
-    width:min-content;
+    width:390px;
     height:770px;
     padding-top:27px;
     background-color : ${({ year }) => setYear(year)};

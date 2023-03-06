@@ -19,6 +19,8 @@ import {
     Share,
     Back,
     ResultImg,
+    Hall,
+    HallB
 } from "../styles/resultStyle";
 import Router, { useRouter } from "next/router";
 
@@ -134,8 +136,8 @@ const Card = React.forwardRef((_, inputRef) => {
                 <YearTitle>
                     {query.year == "All" ? (
                         <>
-                            <H year={`color${query.year}`}>2020s-1990s</H>
-                            <HB>2020s-1990s</HB>
+                            <Hall year={`color${query.year}`}>2020s-1990s</Hall>
+                            <HallB>2020s-1990s</HallB>
                         </>
                     ) : (
                         <>
