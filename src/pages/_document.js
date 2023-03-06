@@ -32,6 +32,9 @@ export default class MyDocument extends Document {
             `,
                 }}
             />
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1919598055512436"
+                    crossorigin="anonymous"></script>
+
             <Head/>
             <body>
                 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>

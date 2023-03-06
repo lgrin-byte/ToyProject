@@ -32,6 +32,8 @@ import {
 import { Div, DivRate } from "../components/Div";
 import ImageNext from "next/image";
 import "firebase/firestore"; 
+import GoogleAd from "../hooks/GoogleAd";
+
 
 export default function index() {
     const [isActive, setIsActive] = useState();
@@ -82,6 +84,7 @@ export default function index() {
             <Btn href="/choice" attr={isActive}>
                 시작하기
             </Btn>
+            <GoogleAd/>
         </Wrap>
     );
 }
