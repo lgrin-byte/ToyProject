@@ -188,21 +188,21 @@ export const Wrap = styled.div`
 export const YearTitle = styled.div`
     margin-left: 10px;
     position:relative;
-
+    
 `
 export const H = styled.span`
     position: absolute;
-    font-size: 53px;
+    font-size: 51px;
     color : ${({ year }) => setYear(year)};
     top: 4px;
-    left: -6px;
-    letter-spacing: 0.6px;
+    left: -8px;
+    letter-spacing: 1.5px;
     margin-left: 30px;
 `
 export const HB = styled.span`
--webkit-text-stroke: 10px white;
+-webkit-text-stroke: 9px white;
 letter-spacing: -1.8px;
-margin-left: 23px;
+margin-left: 20px;
 
     font-size: 58px;
     color: white;
