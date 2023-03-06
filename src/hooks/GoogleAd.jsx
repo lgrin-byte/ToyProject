@@ -27,14 +27,10 @@ class GoogleAd extends React.Component {
     const { children, className, path } = this.props;
     return (
       <div key={path} className={`adsense ${className}`}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="123456"
-          data-ad-slot="123456"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
+        <ins class="adsbygoogle"
+            style={{display:"inline-block",width:"320px",height:"100px"}}
+            data-ad-client="ca-pub-1919598055512436"
+            data-ad-slot="2044520891"></ins>
       </div>
     );
   }
