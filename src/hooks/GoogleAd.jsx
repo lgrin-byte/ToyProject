@@ -1,25 +1,52 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { useEffect } from 'react';
+const initAd = () => {
+  window.onload = function () {
+  (window.adsbygoogle = window.adsbygoogle || []).push({});
+    
+  }
+  // (window.adsbygoogle = window.adsbygoogle || []).push({});
+};
 
-// declare global {
-//   interface Window {
-//     adsbygoogle: any;
-//   }
-// }
+class GoogleAd extends React.Component {
+  componentDidMount() {
+    initAd();
+  }
 
-const GoogleAd = () => {
-  useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({})
-  }, []);
+  shouldComponentUpdate(nextProps) {
+    const { props: { path } } = this;
+    return nextProps.path !== path;
+  }
 
-  return (
-    <div className="googleAd-container">
-      <ins class="adsbygoogle"
-          style="display:inline-block;width:320px;height:100px"
-          data-ad-client="ca-pub-1919598055512436"
-          data-ad-slot="2044520891"></ins>
-    </div>
-  );
+  componentDidUpdate() {
+    initAd();
+  }
+
+  render() {
+    const { children, className, path } = this.props;
+    return (
+      <div key={path} className={`adsense ${className}`}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="123456"
+          data-ad-slot="123456"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+    );
+  }
+}
+
+GoogleAd.propTypes = {
+  path: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+GoogleAd.defaultProps = {
+  className: '',
 };
 
 export default GoogleAd;
