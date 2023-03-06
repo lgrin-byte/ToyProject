@@ -36,6 +36,7 @@ import { login } from "../../../hooks/count/counterSlice";
 export default function Question(props) {
     const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
+    let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
 
     // let count.music=[]
     const random1 = shuffle(year2020.low).slice(0, 3);
@@ -137,7 +138,9 @@ useEffect(()=>{
         let 숫자 = 0;
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
-            if (title.toLowerCase().split(" ").join("") === i) {
+            let resultData = title.toLowerCase().split(" ").join("").replace(reg, "");
+
+            if (resultData === i) {
                 숫자 += 1;
                 break;
             }
@@ -145,13 +148,16 @@ useEffect(()=>{
 
         for (let j of answerSinger) {
             j = j.toLowerCase().split(" ").join("");
-            if (singer.toLowerCase().split(" ").join("") === j) {
+            let resultData2 = singer.toLowerCase().split(" ").join("").replace(reg, "");
+
+            if (resultData2 === j) {
                 숫자 += 10;
                 break;
             }
         }
         if (숫자 === 11) {
             let score = count.score + 1;
+
             dispatch(
                 login({
                     name: count.name,
@@ -161,6 +167,8 @@ useEffect(()=>{
                     score: score,
                 })
             );
+        }else{
+            alert(`오답 정답:${answerTitle}, ${answerSinger}`)
         }
     };
 
