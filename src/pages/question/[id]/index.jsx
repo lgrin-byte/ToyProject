@@ -136,6 +136,9 @@ useEffect(()=>{
         const answerTitle = count.music[level - 1]?.title.split("/");
         const answerSinger = count.music[level - 1]?.singer.split("/");
         let 숫자 = 0;
+        console.log(
+            " Bad Girl Good Girl ANTIFRAGILE heartbeat 8282 HOT".includes(
+                count.music[level - 1]?.title))
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
             let resultData = title.toLowerCase().split(" ").join("").replace(reg, "");
@@ -320,8 +323,8 @@ useEffect(()=>{
                         onChange={handleAnswer}
                     />
                 </Cont_Inp>
-                {"SS501 SES HOT".includes(count.music[level - 1]?.singer) && (
-                    <MentEng>*(제목)영어/숫자로 적어주세요.</MentEng>
+                {"SS501 SES ses HOT H.O.T ".includes(count.music[level - 1]?.singer.split("/")[0]) && (
+                    <MentEng>*(가수)영어/숫자로만 적어주세요.</MentEng>
                 )}
                 <Cont_Inp>
                     <Title attr={`point${count.year}`}>제목</Title>
@@ -333,8 +336,8 @@ useEffect(()=>{
                         onChange={handleAnswer}
                     />
                 </Cont_Inp>
-                {"ANTIFRAGILE bad girl good girl heartbeat 8282 HOT".includes(
-                    count.music[level - 1]?.title
+                {" Bad Girl Good Girl ANTIFRAGILE heartbeat 8282 HOT".includes(
+                    count.music[level - 1]?.title.split("/")[0]
                 ) && <MentEng>*(제목)영어/숫자로만 적어주세요.</MentEng>}
                 <Ment>정확한 철자가 아니면 오답처리 됩니다.</Ment>
                 <Btn

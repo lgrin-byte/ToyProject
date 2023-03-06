@@ -205,7 +205,7 @@ letter-spacing: -1.8px;
 margin-left: 23px;
 
     font-size: 58px;
-    color: black;
+    color: white;
 
 `
 
