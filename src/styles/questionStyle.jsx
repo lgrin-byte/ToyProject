@@ -85,7 +85,7 @@ export const MyProgress = styled.div`
 `;
 
 export const StateBar = styled.div`
-    width:  calc(100/30*${(props)=>props.width}%);
+    width:  calc(100/35*${(props)=>props.width}%);
     /* transition: 0.5s; */
     height:3px;
     background-color: #EF6363;;       

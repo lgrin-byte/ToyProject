@@ -52,12 +52,13 @@ export default function Question(props) {
     const [isActive, setIsActive] = useState("question");
     const [level, setLevel] = useState(1);
     // const arr = [1,2,3,4,5,6,7,8,9,10];
-    const [second, setSecond] = useState(30);
+    const [second, setSecond] = useState(35);
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
     useEffect(() => {
 
             if (count.music.length !== 0) {
                 youtubeRef.current.updateVideo();
+                console.log(count.music);
             } else {
                 // Router.push("/");
             }
@@ -111,6 +112,18 @@ useEffect(()=>{
                 state:1
             })
         );
+    }else if(playState==0){
+
+        dispatch(
+            login({
+                name: count.name,
+                music: count.music,
+                year: count.year,
+                musicImg: count.musicImg,
+                score: count.score,
+                state:0
+            })
+        );
     }
 },[playState])
 
@@ -125,7 +138,7 @@ useEffect(()=>{
     const handleBtn = () => {
         if (level < 10) {
             setLevel(level + 1);
-            setSecond(30);
+            setSecond(35);
             handleCheck();
         } else {
             // Router.replace('/뮻')
@@ -166,7 +179,7 @@ useEffect(()=>{
                     music: count.music,
                     year: count.year,
                     musicImg: count.musicImg,
-                    score: score,
+                    score: score 
                 })
             );
         }else{

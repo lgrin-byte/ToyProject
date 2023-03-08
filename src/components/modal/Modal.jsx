@@ -58,7 +58,7 @@ export default function Modal({type, modalOpen, setModalOpen, handleModal}) {
                 </CloseBtn>
                 <TitleBox>
                     <Image src={title} style={{width: "290px",height: "44px"}}/>
-                    <PlayBox><RedSpan>전주 10초</RedSpan>를 듣고 <RedSpan>제한시간 30초</RedSpan> 안에 <br/><RedSpan>가수, 제목</RedSpan>을 입력해주세요.</PlayBox>
+                    <PlayBox><RedSpan>전주 10초</RedSpan>를 듣고 <RedSpan>제한시간 35초</RedSpan> 안에 <br/><RedSpan>가수, 제목</RedSpan>을 입력해주세요.</PlayBox>
                     <div className='contMargin'></div>
                     <Image src={alert} style={{width: "290px",height: "44px"}}/>
                     <PlayBox>
