@@ -27,7 +27,7 @@ export default function index() {
     const [isHref, setIsHref] = useState("");
     const [selectedYear, setSelectedYear] = useState();
     const dispatch = useDispatch();
-    const [musicYear, setMusicYear] = useState();
+    const [musicYear, setMusicYear] = useState("2020년대");
     const [musicArr, setMusicArr] = useState([]);
     const [musicImg, setMusicImg] = useState();
     const random1 = shuffle(year2020.low).slice(0, 3);
