@@ -56,15 +56,22 @@ export default function Question(props) {
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
     useEffect(() => {
 
-            if (count.music.length !== 0) {
-                youtubeRef.current.updateVideo();
-                console.log(count.music);
-            } else if(level==1){
+if(level==1){
                 // Router.push("/");
-                youtubeRef.current.updateVideo();
-            }
-    }, []);
-    
+                youtubeRef.current.updateVideo();}
+    }, [level]);
+
+    useEffect(() => {
+
+        if (count.music.length !== 0) {
+            youtubeRef.current.updateVideo();
+            console.log(count.music);
+        } else if(level==1){
+            // Router.push("/");
+            youtubeRef.current.updateVideo();
+        }
+}, []);
+
 
         useInterval(
             () => {
@@ -198,7 +205,7 @@ useEffect(()=>{
 
     if (second === 0) {
         setLevel(level + 1);
-        setSecond(30);
+        setSecond(35);
         handleCheck();
     }
 
@@ -235,6 +242,7 @@ useEffect(()=>{
         }
     };
     const focusRef = useRef();
+    
     return (
         <div className={`color${count.year}`}>
             <Wrap>
