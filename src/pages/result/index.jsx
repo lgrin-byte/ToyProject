@@ -41,7 +41,7 @@ export default function Index() {
     const arrMusic = [];
     const [isCopy, onCopy] = useCopyClipBoard();
     const { query } = useRouter();
-    const text = `http://localhost:3001/result?name=${query.name}&year=${query.year}&score=${query.score}`;
+    const text = `http://https://whatisthissong.swygbro.com/result?name=${query.name}&year=${query.year}&score=${query.score}`;
 
     useEffect(() => {
         if (!Kakao.isInitialized()) {

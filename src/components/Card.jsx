@@ -40,7 +40,7 @@ const Card = React.forwardRef((_, inputRef) => {
                 `모두 맞혀버린 당신에게는`,
                 `갓 오브 뮤직 상을 드리고 싶습니다.`,
             ]);
-        } else if (query.score > 8) {
+        } else if (query.score > 6) {
             setResultImg("result2");
             setLevelResult([
                 `이 정도는 껌이지`,
@@ -49,7 +49,7 @@ const Card = React.forwardRef((_, inputRef) => {
                 `음악과 항상 함께하는 life를 즐기는 당신!`,
                 `가요계의 마스터로 임명합니다.`,
             ]);
-        } else if (query.score > 6) {
+        } else if (query.score > 3) {
             setResultImg("result3");
             setLevelResult([
                 `아 분명히 아는 노랜데...`,
@@ -58,7 +58,7 @@ const Card = React.forwardRef((_, inputRef) => {
                 `나름 이 당시 유행곡은 알고있지!`,
                 `그런 당신은 유행에 뒤쳐지지 않는 타입!`,
             ]);
-        } else if (query.score > 2) {
+        } else if (query.score > 0) {
             setResultImg("result4");
             setLevelResult([
                 `내 인생에 가요는`,
