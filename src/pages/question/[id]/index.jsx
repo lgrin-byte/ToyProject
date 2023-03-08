@@ -59,8 +59,9 @@ export default function Question(props) {
             if (count.music.length !== 0) {
                 youtubeRef.current.updateVideo();
                 console.log(count.music);
-            } else {
+            } else if(count.music.length !== 0 && level==1){
                 // Router.push("/");
+                youtubeRef.current.updateVideo();
             }
     }, []);
     
