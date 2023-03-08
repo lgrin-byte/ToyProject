@@ -54,34 +54,6 @@ export default function Question(props) {
     // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
-    useEffect(() => {
-
-if(level==1){
-                // Router.push("/");
-                youtubeRef.current.updateVideo();}
-    }, [level]);
-
-    useEffect(() => {
-
-        if (count.music.length !== 0) {
-            youtubeRef.current.updateVideo();
-            console.log(count.music);
-        } else if(level==1){
-            // Router.push("/");
-            youtubeRef.current.updateVideo();
-        }
-}, []);
-
-
-        useInterval(
-            () => {
-                setSecond(second - 1);
-            },
-            1000,
-            second,
-            playState
-        );
-
     
     const [isStartTimerOn, setIsStartTimerOn] = useState(true);
     const state = {
@@ -106,6 +78,39 @@ if(level==1){
             },
         },
     };
+    useEffect(() => {
+
+        if (count.music.length !== 0) {
+            youtubeRef.current.updateVideo();        
+        } else {
+            // Router.push("/");
+        }
+        if(playState==0 && level==1){
+            youtubeRef.current.updateVideo();        
+
+            dispatch(
+                login({
+                    name: count.name,
+                    music: count.music,
+                    year: count.year,
+                    musicImg: count.musicImg,
+                    score: count.score,
+                    state:1
+                })
+            );
+        }
+}, []);
+
+
+    useInterval(
+        () => {
+            setSecond(second - 1);
+        },
+        1000,
+        second,
+        playState
+    );
+
 
 useEffect(()=>{
     if(playState==1){
@@ -118,18 +123,6 @@ useEffect(()=>{
                 musicImg: count.musicImg,
                 score: count.score,
                 state:1
-            })
-        );
-    }else if(playState==0){
-
-        dispatch(
-            login({
-                name: count.name,
-                music: count.music,
-                year: count.year,
-                musicImg: count.musicImg,
-                score: count.score,
-                state:0
             })
         );
     }
@@ -187,7 +180,8 @@ useEffect(()=>{
                     music: count.music,
                     year: count.year,
                     musicImg: count.musicImg,
-                    score: score 
+                    score: score,
+                    state: 0 
                 })
             );
         }else{
@@ -205,7 +199,7 @@ useEffect(()=>{
 
     if (second === 0) {
         setLevel(level + 1);
-        setSecond(35);
+        setSecond(30);
         handleCheck();
     }
 
@@ -242,7 +236,6 @@ useEffect(()=>{
         }
     };
     const focusRef = useRef();
-    
     return (
         <div className={`color${count.year}`}>
             <Wrap>
