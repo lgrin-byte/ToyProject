@@ -54,6 +54,39 @@ export default function Question(props) {
     // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
+    useEffect(() => {
+
+            if (count.music.length !== 0) {
+                youtubeRef.current.updateVideo();
+            } else {
+                // Router.push("/");
+            }
+            if(playState==0 && level==1){
+
+                setTimeout(() => youtubeRef.current.updateVideo(), 3000);
+                // dispatch(
+                //     login({
+                //         name: count.name,
+                //         music: count.music,
+                //         year: count.year,
+                //         musicImg: count.musicImg,
+                //         score: count.score,
+                //         state:1
+                //     })
+                // );
+            }
+    }, []);
+    
+
+        useInterval(
+            () => {
+                setSecond(second - 1);
+            },
+            1000,
+            second,
+            playState
+        );
+
     
     const [isStartTimerOn, setIsStartTimerOn] = useState(true);
     const state = {
@@ -78,39 +111,6 @@ export default function Question(props) {
             },
         },
     };
-    useEffect(() => {
-
-        if (count.music.length !== 0) {
-            youtubeRef.current.updateVideo();        
-        } else {
-            // Router.push("/");
-        }
-        if(playState==0 && level==1){
-            youtubeRef.current.updateVideo();        
-
-            dispatch(
-                login({
-                    name: count.name,
-                    music: count.music,
-                    year: count.year,
-                    musicImg: count.musicImg,
-                    score: count.score,
-                    state:1
-                })
-            );
-        }
-}, []);
-
-
-    useInterval(
-        () => {
-            setSecond(second - 1);
-        },
-        1000,
-        second,
-        playState
-    );
-
 
 useEffect(()=>{
     if(playState==1){
