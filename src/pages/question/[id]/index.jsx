@@ -59,7 +59,7 @@ export default function Question(props) {
             if (count.music.length !== 0) {
                 youtubeRef.current.updateVideo();
             } else {
-                Router.push("/");
+                // Router.push("/");
             }
     }, []);
     
@@ -112,7 +112,6 @@ useEffect(()=>{
             })
         );
     }
-
 },[playState])
 
 
@@ -129,7 +128,7 @@ useEffect(()=>{
             setSecond(30);
             handleCheck();
         } else {
-            // Router.replace('/')
+            // Router.replace('/뮻')
         }
     };
     const handleCheck = () => {
