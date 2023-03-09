@@ -38,6 +38,8 @@ export default function Question(props) {
     const dispatch = useDispatch();
     let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
 
+
+    
     // let count.music=[]
     const random1 = shuffle(year2020.low).slice(0, 3);
     const random2 = shuffle(year2020.middle).slice(0, 5);
@@ -59,22 +61,9 @@ export default function Question(props) {
             if (count.music.length !== 0) {
                 youtubeRef.current.updateVideo();
             } else {
-                // Router.push("/");
+                Router.push("/");
             }
-            if(playState==0 && level==1){
-
-                setTimeout(() => youtubeRef.current.updateVideo(), 3000);
-                // dispatch(
-                //     login({
-                //         name: count.name,
-                //         music: count.music,
-                //         year: count.year,
-                //         musicImg: count.musicImg,
-                //         score: count.score,
-                //         state:1
-                //     })
-                // );
-            }
+            
     }, []);
     
 
@@ -137,7 +126,7 @@ useEffect(()=>{
     };
 
     const handleBtn = () => {
-        if (level < 10) {
+        if (level < 11) {
             setLevel(level + 1);
             setSecond(35);
             handleCheck();
@@ -173,7 +162,6 @@ useEffect(()=>{
         }
         if (숫자 === 11) {
             let score = count.score + 1;
-
             dispatch(
                 login({
                     name: count.name,
