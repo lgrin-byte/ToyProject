@@ -1,6 +1,4 @@
 import styled, {css, keyframes } from 'styled-components';
-// import speaker from '../../assets/images/css_sprites.png'
-// import Image from 'next/image';
 
 export const ani = keyframes` 
     to {

@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import Link from "next/link"
-import speaker from '../assets/images/speaker.png'
 import Image from 'next/image';
 import {Btn, ModalBtn} from '../components/Button'
 
@@ -46,7 +45,6 @@ export const Wrap = styled.div`
     margin: 0 auto ;
     padding-top: 32px;
     text-align: center;
-    background-image: url(speaker);
     /* justify-content: space-around; */
     ${'.info'}{
         font-size: 15px;

@@ -1,7 +1,5 @@
 import React,{useEffect} from 'react'
 import {LoadingImg, Div} from '../../styles/loadingStyle'
-// import speaker from '../../../public/css_sprites.png'
-// import speaker from '/css_sprites.png'
 import Link from 'next/link';
 import Router, {useRouter} from 'next/router';
 import { useSelector } from "react-redux";
@@ -35,6 +33,5 @@ export default function index() {
         <Link rel="stylesheet" href="/result" />
       </Div>
     </div>
-    // <Img  src={speaker}/>
   )
 }

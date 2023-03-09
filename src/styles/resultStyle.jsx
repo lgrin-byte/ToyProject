@@ -2,6 +2,8 @@ import styled, { keyframes,css } from 'styled-components';
 import Link from "next/link"
 import Image from 'next/image';
 
+
+
 const setYear = (year) => {
     switch (year) {
     case 'color2020':
@@ -39,29 +41,71 @@ const setResultImg = (img) => {
     switch (img) {
     case 'result1':
         return css`
-            background-image:url("/result1.png");
+            background-image:url("/result1.png");  
+            height: 357px; 
+        @media all and (min-width: 720px) {
 
+            background-image:url("/result1.png");   
+            }
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+            /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
+            background-image:url("/low_result1.png");   
+        }}
         `;
     case 'result2':
         return css`
-            background-image:url('/result2.png');
-
+            background-image:url("/low_result2.png");   
+            height: 354px; 
+        @media all and (min-width: 720px) {
+            background-image:url("/result2.png");   
+            }
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+            /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
+            background-image:url("/low_result2.png");   
+        }}
         `;
     case 'result3':
         return css`
-            background-image:url("/result3.png");
+            background-image:url("/low_result3.png");   
+            height: 359px; 
+        @media all and (min-width: 720px) {
+            background-image:url("/result3.png");   
+            }
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+            /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
+            background-image:url("/low_result3.png");   
+        }}
         `;
     case 'result4':
         return css`
-            background-image:url("/result4.png");
-            width: 370px;
-            height: 369px;
-        `
+            background-image:url("/low_result4.png");   
+            height: 361px; 
+        @media all and (min-width: 720px) {
+            background-image:url("/result4.png");   
+            }
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+            /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
+            background-image:url("/low_result4.png");   
+        }}
+        `;
     case 'result5':
         return css`
-            background-image:url('/result5.png');
+            background-image:url("/low_result5.png");   
+            height: 353px; 
+        @media all and (min-width: 720px) {
+            /* height: 400px;  */
+            background-image:url("/result5.png");   
+            }
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+            /* 이 안에 Safari(10.1 이상)에서만 적용할 스타일 작성 */
+            background-image:url("/low_result5.png");   
+        }}
         `;
-
     // default:
     //     return css`
     //         border: 1px solid black;
@@ -209,6 +253,14 @@ margin-left: 23px;
     color: white;
 
 `
+export const Year = styled.span`
+    position: absolute;
+    font-size: 53px;
+    color : ${({ year }) => setYear(year)};
+    top: 4px;
+    left: -6px;
+
+`
 
 export const H = styled.span`
     position: absolute;
@@ -260,7 +312,6 @@ export const Share = styled.span`
 export const ResultImg = styled.div`
     position: absolute;
     width: 370px;
-    height: 353px;
     /* 740 × 706 */
     left: 15px;
     top: 5px;
