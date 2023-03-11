@@ -34,7 +34,7 @@ export default function index() {
     const random2 = shuffle(year2020.middle).slice(0, 5);
     const random3 = shuffle(year2020.high).slice(0, 2);
     const list = [
-        "2020년대",
+        "2020s",
         "2010년대",
         "2000년대",
         "1990년대",

@@ -49,48 +49,47 @@ export default function Index() {
     useEffect(() => {
         if (query.score > 9) {
             setResultImg("result1");
-            setLevelResult([
-                `당신의 삶의 유일한 보약은 music..?`,
-                `어떻게 이걸 다 맞히죠?`,
-                `일반인의 권한으로 한문제도 빠짐 없이`,
-                `모두 맞혀버린 당신에게는`,
-                `갓 오브 뮤직 상을 드리고 싶습니다.`,
+            setLevelResult([`갓 오브 뮤직`,`
+                당신의 삶의 유일한 보약은 music..?
+                어떻게 이걸 다 맞히죠
+                일반인의 권한으로 한문제도 빠짐 없이
+                모두 맞혀버린 당신에게는
+                갓 오브 뮤직 상을 드리고 싶습니다.`
             ]);
         } else if (query.score > 6) {
             setResultImg("result2");
-            setLevelResult([
-                `이 정도는 껌이지`,
-                `내 삶에서 음악은 빼놓을 수 없다.`,
-                `외출할 때 이어폰 챙기는건 필수잖아~`,
-                `음악과 항상 함께하는 life를 즐기는 당신!`,
-                `가요계의 마스터로 임명합니다.`,
-            ]);
+            setLevelResult([`음악은 나의 삶`,
+                `이 정도는 껌이지
+                내 삶에서 음악은 빼놓을 수 없다.
+                외출할 때 이어폰 챙기는건 필수잖아~
+                음악과 항상 함께하는 life를 즐기는 당신!
+                가요계의 마스터로 임명합니다.`]);
         } else if (query.score > 3) {
             setResultImg("result3");
-            setLevelResult([
-                `아 분명히 아는 노랜데...`,
-                `아무리 생각해도 모르겠다...`,
-                `그래도 시대에 뒤쳐지지 않게`,
-                `나름 이 당시 유행곡은 알고있지!`,
-                `그런 당신은 유행에 뒤쳐지지 않는 타입!`,
-            ]);
+            setLevelResult(`유행곡은 아는 정도`,
+                `아 분명히 아는 노랜데...
+                아무리 생각해도 모르겠다...
+                그래도 시대에 뒤쳐지지 않게
+                나름 이 당시 유행곡은 알고있지!
+                그런 당신은 유행에 뒤쳐지지 않는 타입!`,
+            );
         } else if (query.score > 0) {
             setResultImg("result4");
-            setLevelResult([
-                `내 인생에 가요는`,
-                `그렇게 중요하지 않다구^_^;`,
-                `난. 나만의 길을 간다.`,
-                `다 각자 취향의 노래가 있는거지^^`,
-                `(혹은 미디어와 거리를 두는 타입일수도...)`,
+            setLevelResult(
+            [    `나 이런거 잘몰라...`,`내 인생에 가요는
+                그렇게 중요하지 않다구^_^;
+                난. 나만의 길을 간다.
+                다 각자 취향의 노래가 있는거지^^
+                (혹은 미디어와 거리를 두는 타입일수도...)`,
             ]);
         } else {
             setResultImg("result5");
-            setLevelResult([
-                `미디어로부터 멀리 떠나`,
-                `속세를 벗어난 삶을 사셨나요?`,
-                `혹은 외국인일 가능성도 있겠네요!`,
-                `도파민 중독으로부터 벗어나`,
-                `건강한...삶을 살고 있는 당신, 응원합니다!`,
+            setLevelResult([`속세를 벗어남`,
+                `미디어로부터 멀리 떠나
+                속세를 벗어난 삶을 사셨나요?
+                혹은 외국인일 가능성도 있겠네요!
+                도파민 중독으로부터 벗어나
+                건강한...삶을 살고 있는 당신, 응원합니다!`,
             ]);
         }
     }, [query]);
@@ -109,8 +108,8 @@ export default function Index() {
         Kakao.Link.sendDefault({
             objectType: "feed",
             content: {
-                title: "무슨노래듣고계세요?",
-                description: levelResult,
+                title: levelResult[0],
+                description: levelResult[1],
                 imageUrl: `${url}/${resultImg}.png`,
                 link: {
                     mobileWebUrl: url,
