@@ -46,25 +46,25 @@ export default function Question(props) {
     // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-            if (count.music.length !== 0) {
-                youtubeRef.current.updateVideo();
-            } else {
-                Router.push("/");
-            }
+    //         if (count.music.length !== 0) {
+    //             youtubeRef.current.updateVideo();
+    //         } else {
+    //             Router.push("/");
+    //         }
             
-    }, []);
+    // }, []);
     
 
-        useInterval(
-            () => {
-                setSecond(second - 1);
-            },
-            1000,
-            second,
-            playState
-        );
+    //     useInterval(
+    //         () => {
+    //             setSecond(second - 1);
+    //         },
+    //         1000,
+    //         second,
+    //         playState
+    //     );
 
     
     const state = {
