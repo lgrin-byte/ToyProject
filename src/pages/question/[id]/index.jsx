@@ -3,7 +3,6 @@ import Image from "next/image";
 import YouTube from "react-youtube";
 
 import note from "../../../assets/images/note.png";
-import year2020img from "../../../assets/images/year2020.png";
 import play from "../../../assets/images/play.png";
 import replay from "../../../assets/images/replay.png";
 import pause from "../../../assets/images/pause.png";
@@ -21,13 +20,8 @@ import {
     StateBar,
     TimerImg,
 } from "../../../styles/questionStyle";
-import RefreshModal from "../../../components/modal/FeedbackModal";
-import useCustomModal from "../../../hooks/useCustomModal";
-import ModalPortal from "../../../components/modal/ModalPortal";
-
 import useInterval from "../../../hooks/useInterval";
 import year2020 from "../../../year2020";
-import { shuffle, random } from "lodash";
 import Link from "next/link";
 import Router from "next/router";
 import { useSelector, useDispatch } from "react-redux";
@@ -41,10 +35,6 @@ export default function Question(props) {
 
     
     // let count.music=[]
-    const random1 = shuffle(year2020.low).slice(0, 3);
-    const random2 = shuffle(year2020.middle).slice(0, 5);
-    const random3 = shuffle(year2020.high).slice(0, 2);
-
     const answerArr = [];
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
@@ -55,7 +45,7 @@ export default function Question(props) {
     const [level, setLevel] = useState(1);
     // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
-    const { modalOpen, setModalOpen, showModal } = useCustomModal();
+
     useEffect(() => {
 
             if (count.music.length !== 0) {
@@ -77,7 +67,6 @@ export default function Question(props) {
         );
 
     
-    const [isStartTimerOn, setIsStartTimerOn] = useState(true);
     const state = {
         play: {
             image: play,
@@ -134,6 +123,7 @@ useEffect(()=>{
             // Router.replace('/뮻')
         }
     };
+
     const handleCheck = () => {
         const answerTitle = count.music[level - 1]?.title.split("/");
         const answerSinger = count.music[level - 1]?.singer.split("/");
@@ -242,7 +232,7 @@ useEffect(()=>{
                         <span className="span">{count.year}s</span>
                     )}
                 </Div>
-                <Player>
+                {/* <Player>
                     <Image
                         src={count.musicImg}
                         alt=""
@@ -302,7 +292,7 @@ useEffect(()=>{
                             }}
                         />
                     )}
-                </Player>
+                </Player> */}
                 <MyProgress>
                     <StateBar className="stateBar" width={second}></StateBar>
                 </MyProgress>
