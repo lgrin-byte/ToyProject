@@ -49,7 +49,7 @@ export default function index() {
         if (selected) {
             setSelectedYear(selected);
             setIsActive("change");
-            setIsHref(`/question/${selected}`);
+            setIsHref(`/question/detail?year=${selected}`);
         }
     };
 
