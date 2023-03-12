@@ -20,7 +20,7 @@ export const Wrap = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: 0 auto 22px;
-    padding: 62px 0 ;
+    margin: 0 auto ;
+    padding: 62px 0 22px;
     
 `;
