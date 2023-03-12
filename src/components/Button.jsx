@@ -65,10 +65,16 @@ export const Btn = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* &:hover{
-        border: 1px solid blue;          
-
-    } */
+    /*     min-height: ${(props) => props.time>33? "1px": "54px" };
+    width: ${(props) => props.time>33? "1px": "329px" };
+    border-radius: 5px;
+    margin: 0 auto 30px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:  ${(props) => props.time>33? "absolute": "" };
+    clip-path: ${(props) => props.time>33? "inset(50%)": "" };
+    overflow: ${(props) => props.time>33? "hidden": "" }; */
     &:active{
       background-color: #EF6363;
             color: white;

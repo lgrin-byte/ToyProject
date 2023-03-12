@@ -54,8 +54,8 @@ export default function Question(props) {
                 Router.push("/");
             }
             
-    }, []);
-    
+            
+        }, []);
 
         useInterval(
             () => {
@@ -115,7 +115,7 @@ useEffect(()=>{
     };
 
     const handleBtn = () => {
-        if (level < 11) {
+        if (level < 11 ) {
             setLevel(level + 1);
             setSecond(35);
             handleCheck();
@@ -159,10 +159,20 @@ useEffect(()=>{
                     year: count.year,
                     musicImg: count.musicImg,
                     score: score,
-                    state: 0 
+                    state: 1 
                 })
             );
         }else{
+            dispatch(
+                login({
+                    name: count.name,
+                    music: count.music,
+                    year: count.year,
+                    musicImg: count.musicImg,
+                    score: count.score,
+                    state: 1 
+                })
+            );
             // alert(`오답 정답:${answerTitle}, ${answerSinger}`)
         }
     };
@@ -303,7 +313,8 @@ useEffect(()=>{
                         src={timer}
                         alt=""
                     />
-                    <p>{second}s</p>
+                    <p className="ment">재생이 안될 경우 되감기 버튼<br/>클릭 후 2-3초 기다려주세요!</p>
+                    <span>{second}s</span>
                 </Div>
                 <Cont_Inp>
                     <Title attr={`point${count.year}`}>가수</Title>
@@ -336,6 +347,7 @@ useEffect(()=>{
                     href={level === 10 ? "/loading" : "#"}
                     attr={isActive}
                     onClick={handleBtn}
+                    time={second}
                 >
                     {level === 10 ? "끝!" : "다음"}
                 </Btn>

@@ -66,10 +66,18 @@ export const Div = styled.div`
 
         ${(props) => props.time<20 && `${vibration} 0.1s infinite`};
     } */
+    p{
+        font-size: 15px;
+line-height: 18px;
+/* or 120% */
+
+text-align: center;
+
+color: #5D5B61;
+margin-right:-22px;
+    }
     span{
         margin-left: 22px;
-    }
-    p{
         color: ${(props) => props.time<11?"#EF6363": "black" };
 
     }
@@ -78,7 +86,7 @@ export const Div = styled.div`
 
 
 export const MyProgress = styled.div`
-    margin: 26px 0 10px;
+    margin: 26px 0 13px;
     width: 328px;
     height:3px;
     background-color:white;        
