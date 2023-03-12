@@ -9,6 +9,7 @@ export default function useCopyClipBoard() {
     try {
       await navigator.clipboard.writeText(text);
       setIsCopy(true);
+      alert("링크가 복사되었습니다.")
       return true;
     } catch (error) {
       console.error(error);

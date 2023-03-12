@@ -36,7 +36,7 @@ import { saveAs } from "file-saver";
 import Router, { useRouter } from "next/router";
 
 export default function Index() {
-    const url = "http://https://whatisthissong.swygbro.com"
+    const url = "https://whatisthissong.swygbro.com"
     const count = useSelector((state) => state.user.value);
     const inputRef = useRef(null);
     const arrMusic = [];
