@@ -121,7 +121,8 @@ const setAttr = (attr) => {
     case 'cont':
         return css`
     display: flex;
-    margin-top: 10px;
+    margin: 24px 0 14px;
+    margin-left: -12px;
     `;
     case 'feedback':
         return css`
@@ -139,8 +140,8 @@ const setAttr = (attr) => {
     case 'cont_share':
         return css`
     display: flex;
-    width: 338px;
-    justify-content: space-around;
+    width: 315px;
+    justify-content: space-between;
     margin:0 auto 35px;
         `
     case 'effect':
@@ -153,14 +154,14 @@ const setAttr = (attr) => {
     case 'score':
         return css`
         display: flex;
-        margin-top: -7px;
+        margin-top: -9px;
         align-items: center;
-    
+        -webkit-align-items:center;
             `
     case 'share':
         return css`
         display: flex;
-        margin-top: 17px;
+        margin-top: 22px;
         flex-direction: column;
         align-items: center;
             `
@@ -183,7 +184,8 @@ const setDot = (type) => {
         return css`
         background-image: url('/dot2.png')  ;
     /* margin-top: 4px; */
-    margin-right: 3px;
+    margin-right:4px;
+    margin: 30px 0 20px;
         width: 237px;
     height: 7px;
 
@@ -230,7 +232,7 @@ export const Wrap = styled.div`
 
 // `
 export const YearTitle = styled.div`
-    margin-left: 10px;
+    margin-left: ${({ type }) => type==="score"?'30px':'40px'};
     position:relative;
     
 `
@@ -272,14 +274,30 @@ export const H = styled.span`
     margin-left: 30px;
 `
 export const HB = styled.span`
--webkit-text-stroke: 10px white;
-letter-spacing: -1.8px;
-margin-left: 23px;
-
+    -webkit-text-stroke: 10px white;
+    letter-spacing: -1.8px;
+    margin-left: 23px;
     font-size: 58px;
     color: white;
+`
+
+export const HImg = styled.div`
+    background-image:${({ year }) => `url(${year})`} ;
+    width:${({year}) => year=="year/All.png"?"306px": "363px" };
+    /* margin-right:${({year}) => year=="year/All.png"?"30px": "" }; */
+
+    height: 45px;
+    background-size: cover;
 
 `
+export const ScoreImg = styled.div`
+    background-image:${({ score }) => `url(${score})`} ;
+    width: 363px;
+    height: 55px;
+    background-size: cover;
+    margin:14px 0px;
+`
+
 
 export const Box= styled.div`
     /* background-image: url('/dot.png')  ;
@@ -306,14 +324,14 @@ export const Story =styled.p`
 ` 
 
 export const Share = styled.span`
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 14px;
 `
 export const ResultImg = styled.div`
     position: absolute;
     width: 370px;
     /* 740 × 706 */
-    left: 15px;
+    left: 10px;
     top: 5px;
     z-index: 999;
     background-size: cover;
@@ -333,13 +351,16 @@ export const Back = styled.div`
 `
 
 export const WrapCard = styled.div`
-    margin: 0 auto 6px;
+    margin: 0 auto 2px;
     text-align: center;
     width:390px;
     height:770px;
     padding-top:27px;
     background-color : ${({ year }) => setYear(year)};
+    ${"p"}{
+        letter-spacing: -1.0px;
 
+    }
 `
 export const ContAnswer = styled.div`
     width: 390px;
