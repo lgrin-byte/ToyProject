@@ -115,7 +115,7 @@ useEffect(()=>{
     };
 
     const handleBtn = () => {
-        if (level < 11 ) {
+        if (level < 11 && second<35) {
             setLevel(level + 1);
             setSecond(35);
             handleCheck();
