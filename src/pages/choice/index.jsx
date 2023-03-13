@@ -20,6 +20,7 @@ import year2010img from "../../assets/images/year2010.png";
 import year2000img from "../../assets/images/year2000.png";
 import year1990img from "../../assets/images/year1990.png";
 import alltimeimg from "../../assets/images/alltime.png";
+import GoogleAd from "../../hooks/GoogleAd";
 
 export default function index() {
     const count = useSelector((state) => state.user.value);
@@ -145,6 +146,7 @@ export default function index() {
                 >
                     게임시작
                 </Btn>
+                <GoogleAd/>
             </Wrap>
         </div>
     );

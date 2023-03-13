@@ -25,6 +25,7 @@ import link from "../../assets/images/link.png";
 import download from "../../assets/images/download.png";
 import facebook from "../../assets/images/facebook.png";
 import feedback from "../../assets/images/리뷰.png";
+import GoogleAd from "../../hooks/GoogleAd";
 
 import Image from "next/image";
 import useCopyClipBoard from "../../hooks/useCopyClipBoard";
@@ -208,6 +209,7 @@ export default function Index() {
                         </ContBtn>
                     </a>
                 </BtnContYear>
+                <GoogleAd/>
             </Wrap>
         </div>
     );

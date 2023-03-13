@@ -13,6 +13,7 @@ import ConfirmModal from '../../components/modal/ConfirmModal';
 import Login from '../../components/Login';
 import 나가기 from '../../assets/images/나가기.svg'
 import setting from '../../assets/images/settings.svg'
+import GoogleAd from "../../hooks/GoogleAd";
 
 
 export default function index() {
@@ -120,6 +121,7 @@ if(isLoading){
                             
                                 }    
             </ModalPortal>  
+            <GoogleAd/>
             </Wrap>
         </div>
     )

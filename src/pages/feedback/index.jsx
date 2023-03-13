@@ -9,6 +9,7 @@ import btnBack from '../../assets/images/btnBack.png'
 import btnFeedback from '../../assets/images/btnfeedback.png'
 import "firebase/firestore"; 
 import Image from 'next/image';
+import GoogleAd from "../../hooks/GoogleAd";
 
 export default function index() {
 const arr = [
@@ -86,6 +87,7 @@ useEffect(()=>{
             )}         
 
         </ContFeed>
+        <GoogleAd/>
          {/* <FeedBack/> */}
         </Wrap>
     </div>
