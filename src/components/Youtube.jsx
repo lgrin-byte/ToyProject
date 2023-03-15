@@ -1,4 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+export const focusIn =  keyframes`
+        0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+        }
+        50% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+
+        100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+`
 
 export const Player = styled.div`
     width: 327px;
@@ -11,6 +27,9 @@ export const Player = styled.div`
         left: 119.5px;
         &:hover{
             cursor: pointer;
+        }
+        &:active{
+            animation: ${focusIn} 1s cubic-bezier(1.000, 0.000, 0.000, 1.000) both;
         }
     }
     ${".btn_replay"}{
