@@ -6,8 +6,8 @@ export const focusIn =  keyframes`
                 transform: scale(0.5);
         }
         50% {
-        -webkit-transform: scale(1);
-                transform: scale(1);
+        -webkit-transform: scale(1.3);
+                transform: scale(1.3);
         }
 
         100% {
@@ -27,9 +27,9 @@ export const Player = styled.div`
         left: 119.5px;
         &:hover{
             cursor: pointer;
+            animation: ${focusIn} 1s cubic-bezier(1.000, 0.000, 0.000, 1.000) both;
         }
         &:active{
-            animation: ${focusIn} 1s cubic-bezier(1.000, 0.000, 0.000, 1.000) both;
         }
     }
     ${".btn_replay"}{
