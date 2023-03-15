@@ -25,19 +25,25 @@ export const Player = styled.div`
         position: absolute;
         top: 92.42px;
         left: 119.5px;
+
+
         &:hover{
             cursor: pointer;
-            animation: ${focusIn} 1s cubic-bezier(1.000, 0.000, 0.000, 1.000) both;
+
         }
         &:active{
+            fill: #EF6363;
         }
     }
     ${".btn_replay"}{
         position: absolute;
-        top: 90px;
+        top: 92px;
         left: 191px;
         &:hover{
             cursor: pointer;
+        }
+        &:active{
+            stroke: #EF6363;
         }
     }
 `;

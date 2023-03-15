@@ -1,16 +1,21 @@
 import styled, {css, keyframes } from 'styled-components';
 import Image from 'next/image';
 
+export const focusIn =  keyframes`
+        0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+        }
+        50% {
+        -webkit-transform: scale(1.3);
+                transform: scale(1.3);
+        }
 
-    // const setAttr = (attr) => {
-    //     switch (attr) {
-    //     case 'year':
-    //         return css`
-    //         width: 50px;
-    //         height: 50px;
-    //         background-size: 30px;
-    //         `;
-
+        100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+`
 
     export const vibration = keyframes` 
         from {
@@ -139,4 +144,9 @@ export const Ment = styled.p`
     color: red;
     font-size: 16px;
     margin: 56px 0 20px;
+`
+
+export const ImageToast = styled(Image)`
+    animation: ${focusIn} 2s cubic-bezier(0.775, 0.885, 0.32, 1.275) forwards alternate infinite;
+
 `
