@@ -87,7 +87,7 @@ useEffect(()=>{
             )}         
 
         </ContFeed>
-        <GoogleAd/>
+        {/* <GoogleAd/> */}
          {/* <FeedBack/> */}
         </Wrap>
     </div>
