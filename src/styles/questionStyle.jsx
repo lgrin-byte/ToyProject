@@ -7,13 +7,13 @@ export const focusIn =  keyframes`
                 transform: scale(0.5);
         }
         50% {
-        -webkit-transform: scale(1.3);
-                transform: scale(1.3);
+        -webkit-transform: scale(1);
+                transform: scale(1);
         }
 
         100% {
-        -webkit-transform: scale(1);
-                transform: scale(1);
+        -webkit-transform: scale(0.3);
+                transform: scale(0.3);
         }
 `
 
@@ -147,6 +147,27 @@ export const Ment = styled.p`
 `
 
 export const ImageToast = styled(Image)`
-    animation: ${focusIn} 2s cubic-bezier(0.775, 0.885, 0.32, 1.275) forwards alternate infinite;
+    margin: 0 auto;
+    animation: ${focusIn} 3s cubic-bezier(0.775, 01.85, 0.32, 1.275) ;
 
+`
+
+export const ContToast = styled.div`
+    position: absolute;
+    top: 177px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* margin: 0 auto; */
+
+    div{
+        margin-top: 22px;
+        width: 330px;
+        height: 114px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 6px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        text-align: center;
+        padding: 14px;
+        font-size: 18px
+    }
 `

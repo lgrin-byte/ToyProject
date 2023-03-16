@@ -4,6 +4,8 @@ import YouTube from "react-youtube";
 
 import note from "../../../assets/images/note.png";
 import timer from "../../../assets/images/timer.png";
+import  answerImg from "../../../assets/images/false.png";
+import falseImg from "../../../assets/images/answer.png";
 import { Btn } from "../../../components/Button";
 import { Cont_Inp, Title, Inp, MentEng } from "../../../components/InputAnswer";
 import { Player } from "../../../components/Youtube";
@@ -17,6 +19,7 @@ import {
     StateBar,
     TimerImg,
     ImageToast,
+    ContToast
 } from "../../../styles/questionStyle";
 import useInterval from "../../../hooks/useInterval";
 import year2020 from "../../../year2020";
@@ -160,7 +163,7 @@ export default function Question(props) {
         }
         if (숫자 === 11) {
             let score = count.score + 1;
-            setToastState(true);
+            setToastState("answer");
             dispatch(
                 login({
                     name: count.name,
@@ -172,6 +175,7 @@ export default function Question(props) {
                 })
             );
         } else {
+            setToastState("false");
             dispatch(
                 login({
                     name: count.name,
@@ -394,13 +398,15 @@ export default function Question(props) {
                 >
                     {level === 10 ? "끝!" : "다음"}
                 </Btn>
-                {toastState==="answer" && <ImageToast src={play} />}
-                {toastState==="false" && <>
-                                            <ImageToast src={play} />
+                {toastState==="answer" && <ContToast> <ImageToast src={answerImg} /></ContToast>}
+                {toastState==="false" && <ContToast>
+                                            <ImageToast src={falseImg} />
                                             <div>
-                                                {count.music[level - 1]?.title.split("/")[0]}
+                                                <p style={{color:"red", marginBottom:"4px"}}>오답!</p>
+                                                <p>{count.music[level-2]?.singer.split("/")[0]}</p>
+                                                <p>{count.music[level-2]?.title.split("/")[0]}</p>
                                             </div>
-                                        </>}
+                                        </ContToast>}
             </Wrap>
         </div>
     );
