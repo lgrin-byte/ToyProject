@@ -72,22 +72,38 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
         var hours = ('0' + now.getHours()).slice(-2); 
         var minutes = ('0' + now.getMinutes()).slice(-2);
         var seconds = ('0' + now.getSeconds()).slice(-2); 
+        if(selected){
+            db.collection('feedback').doc(selected).set(
+                {nickname: name,
+                comment: comment,
+                datetime:`${year}.${month}.${day}`,
+                publish:parseInt(year+month+day+hours+minutes+seconds),
+                secret:isSecret
+            }
+            ).then(() => {
+                closeModal()
+            }).catch(err => {
+                console.log(err);
+            }
+            )
 
-        db.collection('feedback').doc(selected).set(
-            {nickname: name,
-            comment: comment,
-            datetime:`${year}.${month}.${day}`,
-            publish:parseInt(year+month+day+hours+minutes+seconds),
-            secret:isSecret
         }
-        )
-            
-        .then(() => {
-            closeModal()
-        }).catch(err => {
-            console.log(err);
-        }
-        )
+        else{
+
+            db.collection('feedback').add(
+                {nickname: name,
+                comment: comment,
+                datetime:`${year}.${month}.${day}`,
+                publish:parseInt(year+month+day+hours+minutes+seconds),
+                secret:isSecret
+            }
+            ).then(() => {
+                closeModal()
+            }).catch(err => {
+                console.log(err);
+            }
+            )
+        }    
     }
 
 
@@ -95,15 +111,18 @@ useEffect(()=>{
     db.collection('feedback').doc(selected).get().then((결과)=>{
         let arr=[]
         // 결과.forEach((doc)=>{
+            if(selected){
+                setName(결과.data()?.nickname)
+                setComment(결과.data()?.comment)
+                setIsSecret(결과.data()?.secret)
+            }
+
+            if (결과.data()?.secret) {
+                checkSecret.current.checked = true
+                console.log(checkSecret.current.checked);
+            }
+    
         
-        console.log(결과.data());
-        setName(결과.data().nickname)
-        setComment(결과.data().comment)
-        setIsSecret(결과.data().secret)
-        if (결과.data().secret) {
-            checkSecret.current.checked = true
-            console.log(checkSecret.current.checked);
-        }
     })
     
 },[])
