@@ -6,7 +6,11 @@ export const focusIn =  keyframes`
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
         }
-        50% {
+        37% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+        74% {
         -webkit-transform: scale(1);
                 transform: scale(1);
         }
@@ -14,7 +18,7 @@ export const focusIn =  keyframes`
         100% {
         -webkit-transform: scale(0.3);
                 transform: scale(0.3);
-                opacity:50%;
+                /* opacity:50%; */
         }
 `
 
@@ -149,17 +153,18 @@ export const Ment = styled.p`
 
 export const ImageToast = styled(Image)`
     margin: 0 auto;
-    animation: ${focusIn} 3s cubic-bezier(0.775, 01.85, 0.32, 1.275) ;
+
 
 `
 
 export const ContToast = styled.div`
     position: absolute;
     top: 177px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+    margin: 0 auto;
     /* margin: 0 auto; */
-
+    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1) ;
     div{
         margin-top: 22px;
         width: 330px;
