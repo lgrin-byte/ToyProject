@@ -118,7 +118,7 @@ export default function Question(props) {
     useEffect(() => {
         let timer = setTimeout(() => {
             setToastState(false); // 2초 뒤, toastState가 false가 되면서 알림창이 사라진다
-        }, 2000);
+        }, 1000);
 
         return () => {
             clearTimeout(timer);
