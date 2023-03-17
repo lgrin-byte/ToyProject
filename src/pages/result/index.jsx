@@ -25,6 +25,7 @@ import link from "../../assets/images/link.png";
 import download from "../../assets/images/download.png";
 import facebook from "../../assets/images/facebook.png";
 import feedback from "../../assets/images/리뷰.png";
+import image from "../../assets/images/main.png";
 import GoogleAd from "../../hooks/GoogleAd";
 
 import Image from "next/image";
@@ -154,7 +155,7 @@ export default function Index() {
     ];
     return (
         <div className={`color${query.year}`}>
-            <ImageFeed src={feedback} style={{display:"none"}}/>
+            <ImageFeed src={image} style={{display:"none"}}/>
             <Wrap>
                 <Card ref={inputRef} year={`color${count.year}`} data={query} />
 
