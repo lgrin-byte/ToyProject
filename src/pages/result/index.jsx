@@ -154,6 +154,7 @@ export default function Index() {
     ];
     return (
         <div className={`color${query.year}`}>
+            <ImageFeed src={feedback} style={{display:"none"}}/>
             <Wrap>
                 <Card ref={inputRef} year={`color${count.year}`} data={query} />
 
