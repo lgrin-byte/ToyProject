@@ -10,6 +10,7 @@ import btnFeedback from '../../assets/images/btnFeedback.png'
 import "firebase/firestore"; 
 import Image from 'next/image';
 import GoogleAd from "../../hooks/GoogleAd";
+import image from "../../assets/images/main.png";
 
 export default function index() {
 const arr = [
@@ -59,6 +60,7 @@ useEffect(()=>{
 
     return (
     <div className='feedback'>
+        <Image src={image} style={{display:"none"}}/>
         <Wrap>
         <BtnBack src={btnBack} alt="" onClick={()=>window.close()}/>
         <Title>피드백을 남겨주세요!</Title>

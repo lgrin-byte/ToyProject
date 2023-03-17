@@ -21,6 +21,8 @@ import year2000img from "../../assets/images/year2000.png";
 import year1990img from "../../assets/images/year1990.png";
 import alltimeimg from "../../assets/images/alltime.png";
 import GoogleAd from "../../hooks/GoogleAd";
+import Image from "next/image";
+import image from "../../assets/images/main.png";
 
 export default function index() {
     const count = useSelector((state) => state.user.value);
@@ -105,6 +107,7 @@ export default function index() {
 
     return (
         <div className={`color${musicYear}`}>
+            <Image src={image} style={{display:"none"}}/>
             <Wrap>
                 <ChoiceYear>원하는 연도를 선택해주세요</ChoiceYear>
 
