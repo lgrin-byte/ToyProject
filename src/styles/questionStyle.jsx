@@ -14,6 +14,7 @@ export const focusIn =  keyframes`
         100% {
         -webkit-transform: scale(0.3);
                 transform: scale(0.3);
+                opacity:50%;
         }
 `
 
