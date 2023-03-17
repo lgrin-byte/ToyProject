@@ -5,12 +5,11 @@ export const focusIn =  keyframes`
         0% {
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
-                opacity:50%;
+                
         }
         22% {
         -webkit-transform: scale(1);
                 transform: scale(1);
-                opacity:100%;
         }
         80% {
         -webkit-transform: scale(1);
@@ -25,6 +24,32 @@ export const focusIn =  keyframes`
                 opacity:50%;
         }
 `
+
+
+export const focusOut =  keyframes`
+        0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+                
+        }
+        22% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        }
+        70% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity:100%;
+        
+            }
+
+        100% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+                opacity:50%;
+        }
+`
+
 
     export const vibration = keyframes` 
         from {
@@ -49,6 +74,23 @@ const styles = css`
 const stylesFast = css`
     animation: ${vibration2} 0.2s infinite;
 `
+
+const stylesAnswer = css`
+    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1) ;
+`
+
+const stylesFalse = css`
+    animation: ${focusOut} 1.5s cubic-bezier(1, 1, 1, 1) ;
+`
+
+const setType = (type) => {
+    switch (type) {
+    case 'answer':
+        return stylesAnswer
+    case 'false':
+        return stylesFalse
+};
+}
 
 const setAttr = (time) => {
     if(time<=20){
@@ -166,7 +208,7 @@ export const ImageToast = styled(Image)`
     /* position: absolute; */
 `
 
-export const ContToast = styled.div`
+export const ContToastFalse = styled.div`
     width: 330px;
     position: absolute;
     top: 177px;
@@ -176,6 +218,7 @@ export const ContToast = styled.div`
     text-align: center; 
     /* margin: 0 auto; */
     animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1) ;
+
     div{
         margin-top: 22px;
         width: 330px;
@@ -187,4 +230,18 @@ export const ContToast = styled.div`
         padding: 14px;
         font-size: 18px
     }
+`
+
+export const ContToastAnswer = styled.div`
+    width: 330px;
+    position: absolute;
+    top: 177px;
+    /* left: 50%;
+    transform: translate(-50%, 0%); */
+    margin: 0 auto;
+    text-align: center; 
+    /* margin: 0 auto; */
+    animation: ${focusOut} 1s cubic-bezier(1, 1, 1, 1) alternate;
+    animation-fill-mode: forwards;
+
 `

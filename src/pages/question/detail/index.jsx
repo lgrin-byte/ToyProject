@@ -19,7 +19,8 @@ import {
     StateBar,
     TimerImg,
     ImageToast,
-    ContToast
+    ContToastAnswer,
+    ContToastFalse
 } from "../../../styles/questionStyle";
 import useInterval from "../../../hooks/useInterval";
 import year2020 from "../../../year2020";
@@ -398,15 +399,15 @@ export default function Question(props) {
                 >
                     {level === 10 ? "끝!" : "다음"}
                 </Btn>
-                {toastState==="answer" && <ContToast> <ImageToast src={answerImg} /></ContToast>}
-                {toastState==="false" && <ContToast>
+                {toastState==="answer" && <ContToastAnswer> <ImageToast src={answerImg} /></ContToastAnswer>}
+                {toastState==="false" && <ContToastFalse>
                                             <ImageToast src={falseImg} />
                                             <div>
                                                 <p style={{color:"red", marginBottom:"4px"}}>오답!</p>
                                                 <p>{count.music[level-2]?.singer.split("/")[0]}</p>
                                                 <p>{count.music[level-2]?.title.split("/")[0]}</p>
                                             </div>
-                                        </ContToast>}
+                                        </ContToastFalse>}
             </Wrap>
         </div>
     );
