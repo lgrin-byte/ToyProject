@@ -16,20 +16,6 @@ import GoogleAd from "../../hooks/GoogleAd";
 
 
 export default function index() {
-const arr = [
-    {name:"냥",
-    comment:"안녕하세요",
-    datetime:"23.03.02",
-    secret:true},
-    {name:"냥냥",
-        comment:"나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ",
-        datetime:"20230302",
-        secret:true},
-    {name:"뇽뇽",
-    comment:"나영너리오ㅓ랸얼ㄴ",
-    datetime:"20230302",
-    secret:false},
-    ]
     const {
         modalOpen,
         selected,

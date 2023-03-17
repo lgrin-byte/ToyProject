@@ -7,7 +7,8 @@ export default function Login({setIsLoading}) {
     const [password, setPassword]=useState();
 
     const onClick = ()=>{
-        if(process.env.NEXT_PUBLIC_PASSWORD==password){
+        console.log(password);
+        if(password=="123456"){
 
             setIsLoading(false)
         }else{
@@ -17,6 +18,7 @@ export default function Login({setIsLoading}) {
 
     const handleAnswer = (e)=>{
         setPassword(e.target.value)
+
     }
 
     return (

@@ -4,8 +4,8 @@ import YouTube from "react-youtube";
 
 import note from "../../../assets/images/note.png";
 import timer from "../../../assets/images/timer.png";
-import  answerImg from "../../../assets/images/answer.png";
-import falseImg from "../../../assets/images/false.png";
+import  answerImg from "../../../assets/images/answer.svg";
+import falseImg from "../../../assets/images/false.svg";
 import { Btn } from "../../../components/Button";
 import { Cont_Inp, Title, Inp, MentEng } from "../../../components/InputAnswer";
 import { Player } from "../../../components/Youtube";
