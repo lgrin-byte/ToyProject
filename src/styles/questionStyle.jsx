@@ -241,7 +241,7 @@ export const ContToastAnswer = styled.div`
     margin: 0 auto;
     text-align: center; 
     /* margin: 0 auto; */
-    animation: ${focusOut} 1s cubic-bezier(1, 1, 1, 1) alternate;
+    animation: ${focusOut} 1.5s cubic-bezier(1, 1, 1, 1) alternate;
     animation-fill-mode: forwards;
 
 `
