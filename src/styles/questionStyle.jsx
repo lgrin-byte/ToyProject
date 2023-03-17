@@ -5,20 +5,24 @@ export const focusIn =  keyframes`
         0% {
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
+                opacity:50%;
         }
         22% {
         -webkit-transform: scale(1);
                 transform: scale(1);
+                opacity:100%;
         }
         80% {
         -webkit-transform: scale(1);
                 transform: scale(1);
-        }
+                opacity:100%;
+        
+            }
 
         100% {
         -webkit-transform: scale(0.3);
                 transform: scale(0.3);
-                /* opacity:50%; */
+                opacity:50%;
         }
 `
 
