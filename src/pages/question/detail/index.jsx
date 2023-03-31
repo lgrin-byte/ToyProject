@@ -34,7 +34,6 @@ export default function Question(props) {
     const dispatch = useDispatch();
     let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
 
-    // let count.music=[]
     const answerArr = [];
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
@@ -43,7 +42,6 @@ export default function Question(props) {
     const [title, setTitle] = useState();
     const [isActive, setIsActive] = useState("question");
     const [level, setLevel] = useState(1);
-    // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
     let [toastState, setToastState] = useState(false);
 
