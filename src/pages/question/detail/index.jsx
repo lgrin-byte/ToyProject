@@ -47,7 +47,7 @@ export default function Question(props) {
 
     useEffect(() => {
         if (count.music.length !== 0) {
-            youtubeRef.current.updateVideo();
+            // youtubeRef.current.updateVideo();
         } else {
             Router.push("/");
         }
