@@ -141,9 +141,11 @@ export default function Question(props) {
         if (level < 11 && second < 35) {
             setLevel(level + 1);
             setSecond(35);
-            handleCheck();
             setIsLoading(true)
             setPlayState()
+            getProfileInfo()
+            handleCheck();
+
         } else {
             // Router.replace('/뮻')
         }
@@ -205,7 +207,7 @@ export default function Question(props) {
                     year: count.year,
                     musicImg: count.musicImg,
                     score: score,
-                    state: 1,
+                    state: 0,
                 })
             );
         } else {
@@ -217,7 +219,7 @@ export default function Question(props) {
                     year: count.year,
                     musicImg: count.musicImg,
                     score: count.score,
-                    state: 1,
+                    state: 0,
                 })
             );
             // alert(`오답 정답:${answerTitle}, ${answerSinger}`)
@@ -246,9 +248,10 @@ export default function Question(props) {
             const targerPage = "/loading";
             Router.push(targerPage);
         }
+
+
         setSinger("");
         setTitle("");
-        getProfileInfo()
 
     }, [level]);
     // // 새로고침 막기 변수
