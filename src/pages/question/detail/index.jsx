@@ -45,9 +45,13 @@ export default function Question(props) {
     const [second, setSecond] = useState(35);
     let [toastState, setToastState] = useState(false);
 
+    const [isLoading, setIsLoading] = useState(true);
+
+
     useEffect(() => {
         if (count.music.length !== 0) {
-            // youtubeRef.current.updateVideo();
+
+
         } else {
             Router.push("/");
         }
@@ -68,6 +72,7 @@ export default function Question(props) {
                 playEvent
                     ? playEvent.target.playVideo()
                     : youtubeRef.current.updateVideo();
+                setIsLoading(false)
             },
         },
         replay: {
@@ -83,7 +88,7 @@ export default function Question(props) {
     };
 
     useEffect(() => {
-        if (playState == 1) {
+        if (playState == 1 && !isLoading) {
             dispatch(
                 login({
                     name: count.name,
@@ -93,10 +98,38 @@ export default function Question(props) {
                     score: count.score,
                     state: 1,
                 })
+            );}
+        else if (isLoading){
+            getProfileInfo()
+            dispatch(
+                login({
+                    name: count.name,
+                    music: count.music,
+                    year: count.year,
+                    musicImg: count.musicImg,
+                    score: count.score,
+                    state: 0,
+                })
             );
+        
         }
+        console.log(playState);
     }, [playState]);
 
+    const getProfileInfo = async () => {
+
+        if (playState == 1 && isLoading){
+            playEvent.target.pauseVideo();
+            setIsLoading(false)
+        }
+        
+        console.log("언제실행>",playState);
+    };
+
+    const handleLoading = ()=>{
+
+    }
+    
     const handleAnswer = (e) => {
         // Input을 체크해서 state를 변경하는 함수.
         if (e.target.name === "singer") setSinger(e.target.value);
@@ -109,6 +142,8 @@ export default function Question(props) {
             setLevel(level + 1);
             setSecond(35);
             handleCheck();
+            setIsLoading(true)
+            setPlayState()
         } else {
             // Router.replace('/뮻')
         }
@@ -201,6 +236,7 @@ export default function Question(props) {
         setLevel(level + 1);
         setSecond(35);
         handleCheck();
+        setIsLoading(true)
     }
 
     useEffect(() => {
@@ -212,6 +248,8 @@ export default function Question(props) {
         }
         setSinger("");
         setTitle("");
+        getProfileInfo()
+
     }, [level]);
     // // 새로고침 막기 변수
     const preventClose = (e) => {
@@ -236,6 +274,14 @@ export default function Question(props) {
         }
     };
     const focusRef = useRef();
+
+    const onHandle = (e) => {
+            console.log(youtubeRef);
+            console.log(youtubeRef.current.updateVideo);
+            // youtubeRef.playVideo();
+            playEvent.target.playVideo();
+
+    };
     return (
         <div className={`color${count.year}`}>
             <Wrap>
@@ -407,6 +453,7 @@ export default function Question(props) {
                                             </div>
                                         </ContToastFalse>}
             </Wrap>
+            <button onClick={onHandle}>ghfdh</button>
         </div>
     );
 }
