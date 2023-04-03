@@ -165,11 +165,6 @@ export default function Question(props) {
         const answerTitle = count.music[level - 1]?.title.split("/");
         const answerSinger = count.music[level - 1]?.singer.split("/");
         let 숫자 = 0;
-        console.log(
-            " Bad Girl Good Girl ANTIFRAGILE heartbeat 8282 HOT".includes(
-                count.music[level - 1]?.title
-            )
-        );
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
             let resultData = title
@@ -242,8 +237,8 @@ export default function Question(props) {
     }
 
     useEffect(() => {
+        handleBtn();
         if (level === 11) {
-            handleBtn();
 
             const targerPage = "/loading";
             Router.push(targerPage);
