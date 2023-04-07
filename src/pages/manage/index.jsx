@@ -7,6 +7,7 @@ import "firebase/firestore";
 import Image from 'next/image';
 import FeedbackModal from '../../components/modal/FeedbackModal'
 import useCustomModal from "../../hooks/useCustomModal";
+import btnFeedback from '../../assets/images/btnFeedback.png'
 import ModalPortal from "../../components/modal/ModalPortal";
 import ConfirmModal from '../../components/modal/ConfirmModal';
 import Login from '../../components/Login';
@@ -49,6 +50,8 @@ useEffect(()=>{
     
 },[modalOpen, modalSecondOpen])
 
+
+
 const showSecondModal = (e)=>{
     setSelect(e.target.id)
     console.log(select);
@@ -71,10 +74,14 @@ if(isLoading){
             <Wrap>
             <BtnBack src={btnBack} alt="" onClick={()=>window.close()}/>
             <Title>피드백을 남겨주세요!</Title>
-            <ContFeed type="manage">
+            <BtnFeedback onClick={showModal} attr={modalOpen}>
+            <BtnFeed src={btnFeedback} />
+            리뷰 작성하기</BtnFeedback>
+
+            <ContFeed>
                 {array.map((a)=>
                     <WrapFeed key={a.id} >
-                        <Nickname>
+                        <Nickname name={a.nickname}>
                             <p>{a.nickname}</p>
                             <span>{a.datetime}</span>
                         </Nickname>
@@ -94,6 +101,7 @@ if(isLoading){
                                 modalOpen={modalOpen}
                                 selected={selected}
                                 setModalOpen={setModalOpen} 
+                                manage={true}
                                 type="feedback"
                                 />}
                     {modalSecondOpen && 
@@ -112,3 +120,4 @@ if(isLoading){
     )
     }
 }
+

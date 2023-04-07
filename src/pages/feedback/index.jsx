@@ -13,20 +13,7 @@ import GoogleAd from "../../hooks/GoogleAd";
 import image from "../../assets/images/main.png";
 
 export default function index() {
-const arr = [
-    {name:"냥",
-    comment:"안녕하세요",
-    datetime:"23.03.02",
-    secret:true},
-    {name:"냥냥",
-        comment:"나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ나영너리오ㅓ랸얼ㄴ",
-        datetime:"20230302",
-        secret:true},
-    {name:"뇽뇽",
-    comment:"나영너리오ㅓ랸얼ㄴ",
-    datetime:"20230302",
-    secret:false},
-    ]
+
 const {
     modalOpen,
     setModalOpen,
@@ -40,15 +27,13 @@ useEffect(()=>{
         let arr=[]
         결과.forEach((doc)=>{
         
+            
+ 
         if(doc.data().secret){
             arr.push({...doc.data(),nickname:"비밀유저",comment:"비밀댓글입니다."})
         }
-        //         arr.push(doc.data())
         else{arr.push(doc.data())}
             })
-        // if(!arr[-1]){
-        //     arr.pop()
-        // }
         const arrSort = arr.sort((a,b)=>{
             return b.publish - a.publish
         }) 
@@ -78,7 +63,7 @@ useEffect(()=>{
         <ContFeed>
             {array.map((a,i)=>
                 <WrapFeed  key={i}>
-                    <Nickname>
+                    <Nickname name={a.nickname}>
                         <p>{a.nickname}</p>
                         <span>{a.datetime}</span>
                     </Nickname>

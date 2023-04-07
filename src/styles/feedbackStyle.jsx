@@ -110,7 +110,9 @@ export const Nickname = styled.div`
     ${"p"}{
         font-size: 15px;
         line-height: 30px;
-        color: #EF6363;
+        color: ${({name}) => name.includes("관리자")? "gray":"#EF6363"
+    
+};
     }
 `;
 
