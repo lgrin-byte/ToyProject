@@ -33,7 +33,6 @@ export default function Question(props) {
     const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
     let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
-
     const answerArr = [];
     const youtubeRef = useRef();
     const [playEvent, setPlayEvent] = useState();
@@ -42,16 +41,14 @@ export default function Question(props) {
     const [title, setTitle] = useState();
     const [isActive, setIsActive] = useState("question");
     const [level, setLevel] = useState(1);
+    // const arr = [1,2,3,4,5,6,7,8,9,10];
     const [second, setSecond] = useState(35);
     let [toastState, setToastState] = useState(false);
-
-    const [isLoading, setIsLoading] = useState(true);
-
+    const [color, setColor] = useState("#EF6363");
 
     useEffect(() => {
         if (count.music.length !== 0) {
-
-
+            youtubeRef.current.updateVideo();
         } else {
             Router.push("/");
         }
@@ -72,7 +69,6 @@ export default function Question(props) {
                 playEvent
                     ? playEvent.target.playVideo()
                     : youtubeRef.current.updateVideo();
-                setIsLoading(false)
             },
         },
         replay: {
@@ -88,7 +84,7 @@ export default function Question(props) {
     };
 
     useEffect(() => {
-        if (playState == 1 && !isLoading) {
+        if (playState == 1) {
             dispatch(
                 login({
                     name: count.name,
@@ -98,38 +94,11 @@ export default function Question(props) {
                     score: count.score,
                     state: 1,
                 })
-            );}
-        else if (isLoading){
-            getProfileInfo()
-            dispatch(
-                login({
-                    name: count.name,
-                    music: count.music,
-                    year: count.year,
-                    musicImg: count.musicImg,
-                    score: count.score,
-                    state: 0,
-                })
             );
-        
+        setColor("white")
         }
-        console.log(playState);
     }, [playState]);
 
-    const getProfileInfo = async () => {
-
-        if (playState == 1 && isLoading){
-            playEvent.target.pauseVideo();
-            setIsLoading(false)
-        }
-        
-        console.log("언제실행>",playState);
-    };
-
-    const handleLoading = ()=>{
-
-    }
-    
     const handleAnswer = (e) => {
         // Input을 체크해서 state를 변경하는 함수.
         if (e.target.name === "singer") setSinger(e.target.value);
@@ -141,11 +110,7 @@ export default function Question(props) {
         if (level < 11 && second < 35) {
             setLevel(level + 1);
             setSecond(35);
-            setIsLoading(true)
-            setPlayState()
-            getProfileInfo()
             handleCheck();
-
         } else {
             // Router.replace('/뮻')
         }
@@ -165,6 +130,11 @@ export default function Question(props) {
         const answerTitle = count.music[level - 1]?.title.split("/");
         const answerSinger = count.music[level - 1]?.singer.split("/");
         let 숫자 = 0;
+        console.log(
+            " Bad Girl Good Girl ANTIFRAGILE heartbeat 8282 HOT".includes(
+                count.music[level - 1]?.title
+            )
+        );
         for (let i of answerTitle) {
             i = i.toLowerCase().split(" ").join("");
             let resultData = title
@@ -202,7 +172,7 @@ export default function Question(props) {
                     year: count.year,
                     musicImg: count.musicImg,
                     score: score,
-                    state: 0,
+                    state: 1,
                 })
             );
         } else {
@@ -214,7 +184,7 @@ export default function Question(props) {
                     year: count.year,
                     musicImg: count.musicImg,
                     score: count.score,
-                    state: 0,
+                    state: 1,
                 })
             );
             // alert(`오답 정답:${answerTitle}, ${answerSinger}`)
@@ -233,21 +203,17 @@ export default function Question(props) {
         setLevel(level + 1);
         setSecond(35);
         handleCheck();
-        setIsLoading(true)
     }
 
     useEffect(() => {
-        handleBtn();
         if (level === 11) {
+            handleBtn();
 
             const targerPage = "/loading";
             Router.push(targerPage);
         }
-
-
         setSinger("");
         setTitle("");
-
     }, [level]);
     // // 새로고침 막기 변수
     const preventClose = (e) => {
@@ -272,14 +238,6 @@ export default function Question(props) {
         }
     };
     const focusRef = useRef();
-
-    const onHandle = (e) => {
-            console.log(youtubeRef);
-            console.log(youtubeRef.current.updateVideo);
-            // youtubeRef.playVideo();
-            playEvent.target.playVideo();
-
-    };
     return (
         <div className={`color${count.year}`}>
             <Wrap>
@@ -323,7 +281,7 @@ export default function Question(props) {
                             width="26"
                             height="30"
                             viewBox="0 0 26 30"
-                            fill="white"
+                            fill={color}
                             xmlns="http://www.w3.org/2000/svg"
                             className="btn_play"
                             alt=""
@@ -451,7 +409,6 @@ export default function Question(props) {
                                             </div>
                                         </ContToastFalse>}
             </Wrap>
-            <button onClick={onHandle}>ghfdh</button>
         </div>
     );
 }

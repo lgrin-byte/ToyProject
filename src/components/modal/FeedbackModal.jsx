@@ -6,7 +6,7 @@ import 나가기 from '../..//assets/images/나가기.svg'
 import { db } from "../../api/firebaseConfig"; 
 import "firebase/firestore"; 
 
-export default function FeedbackModal({type, modalOpen, selected, setModalOpen, handleModal}) {
+export default function FeedbackModal({type, modalOpen, selected, setModalOpen, handleModal, manage}) {
     const [name, setName] = useState();
     const [comment, setComment] = useState();
     const [isActive, setIsActive] = useState();
@@ -74,7 +74,7 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
         var seconds = ('0' + now.getSeconds()).slice(-2); 
         if(selected){
             db.collection('feedback').doc(selected).set(
-                {nickname: name,
+                {nickname:name,
                 comment: comment,
                 datetime:`${year}.${month}.${day}`,
                 publish:parseInt(year+month+day+hours+minutes+seconds),
@@ -89,7 +89,6 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
 
         }
         else{
-
             db.collection('feedback').add(
                 {nickname: name,
                 comment: comment,
@@ -108,14 +107,15 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
 
 
 useEffect(()=>{
+    if(selected){
     db.collection('feedback').doc(selected).get().then((결과)=>{
         let arr=[]
         // 결과.forEach((doc)=>{
-            if(selected){
+            
                 setName(결과.data()?.nickname)
                 setComment(결과.data()?.comment)
                 setIsSecret(결과.data()?.secret)
-            }
+            
 
             if (결과.data()?.secret) {
                 checkSecret.current.checked = true
@@ -124,7 +124,9 @@ useEffect(()=>{
     
         
     })
-    
+}
+manage&& setName("관리자 🎤") 
+
 },[])
 
     return (
