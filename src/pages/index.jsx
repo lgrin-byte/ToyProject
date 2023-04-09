@@ -13,7 +13,7 @@ import Modal from "../components/modal/Modal";
 import useCustomModal from "../hooks/useCustomModal";
 import ModalPortal from "../components/modal/ModalPortal";
 import {db } from "../api/firebaseConfig"; 
-
+import ReactGA from 'react-ga'
 import { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../hooks/count/counterSlice";
@@ -40,6 +40,7 @@ export default function index() {
     const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
+    const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID;
 
     useEffect(()=>{
         db.collection('feedback').get().then((결과)=>{
@@ -50,6 +51,8 @@ export default function index() {
         e.target.value ? setIsActive("change") : setIsActive("empty");
         dispatch(login({ name: e.target.value }));
     };
+    
+    ReactGA.initialize(TRACKING_ID);
 
     return (
         <Wrap>
