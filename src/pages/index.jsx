@@ -73,7 +73,7 @@ export default function index() {
                 <HB>
                     무슨 노래 <br /> 듣고 계세요?
                 </HB> */}
-                <ImgMain src={title}/>
+                <ImgMain src={title} alt="무슨 노래 듣고 계세요?"/>
                 <ModalBtn onClick={showModal}>게임규칙</ModalBtn>
             </WrapMain>
 

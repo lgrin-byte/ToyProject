@@ -137,6 +137,7 @@ export default function Index() {
     };
     //    const cardRef = useRef();
     const onDownloadBtn = () => {
+        alert("이미지 저장이 안될 시 브라우저를 크롬으로 변경해주세요");
         const card = inputRef.current;
         domtoimage.toBlob(card).then((blob) => {
             saveAs(blob, `${query.score}'s_card.png`);

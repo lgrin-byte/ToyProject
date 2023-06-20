@@ -22,5 +22,5 @@ export const Wrap = styled.div`
     flex-direction: column;
     margin: 0 auto ;
     padding: 62px 0 22px;
-    
+    align-items: center;
 `;
