@@ -15,16 +15,42 @@
 </p>
 
 <p align="center">
-  <img width="80%" src="https://user-images.githubusercontent.com/66896175/227681772-cd06e024-ecdd-4581-a0af-da979a975713.mp4">
+  <video width="80%" src="https://user-images.githubusercontent.com/66896175/227681772-cd06e024-ecdd-4581-a0af-da979a975713.mp4">
 </p>
-
 <br>
 
-## 기술 스택
+## 팀 소개
+<br>
+<div align="center">
+  
+|[기획자/디자이너]조수아|[개발자]이경린|
+|:-:|:-:|
+|<img width=120 src="">|<img width=120 src="">|
 
-| React.js | Next.js |  Redux Toolkit   |  styled-component   | firebase |
-| :--------: | :--------: | :------: | :-----: | :-----: |
-|   ![react]    |   ![next]    | ![redux] | ![styled] | ![fire] |
+
+
+## 기술 스택
+<br/>
+
+<div>
+
+ <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white">
+ <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white">
+ <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=Javascript&logoColor=white">
+</div>
+
+ <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white">
+ <img src="https://img.shields.io/badge/Next-000000?style=flat-square&logo=nextdotjs&logoColor=white">
+ <img src="https://img.shields.io/badge/StyledComponents-DB7093?style=flat-square&logo=StyledComponents&logoColor=white">
+
+ <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white">
+
+   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white">
+   <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white">
+</div>
+
+<br/>
+
 
 <br>
 
