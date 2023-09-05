@@ -2,7 +2,7 @@
 
 <p align="center">
   <br>
-  <img src="./src/assets/images/main.png">
+  <img  width=800 src="https://github.com/lgrin-byte/WhatisThisSong/assets/66896175/b388301e-3b95-4500-8ee0-550bef1a73ba">
   <br>
 </p> 
 
