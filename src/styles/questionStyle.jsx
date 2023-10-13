@@ -1,7 +1,7 @@
-import styled, {css, keyframes } from 'styled-components';
-import Image from 'next/image';
+import styled, { css, keyframes } from "styled-components";
+import Image from "next/image";
 
-export const focusIn =  keyframes`
+export const focusIn = keyframes`
         0% {
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
@@ -23,10 +23,9 @@ export const focusIn =  keyframes`
                 transform: scale(0.3);
                 opacity:50%;
         }
-`
+`;
 
-
-export const focusOut =  keyframes`
+export const focusOut = keyframes`
         0% {
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
@@ -48,10 +47,9 @@ export const focusOut =  keyframes`
                 transform: scale(0);
                 opacity:50%;
         }
-`
+`;
 
-
-    export const vibration = keyframes` 
+export const vibration = keyframes` 
         from {
             transform: rotate(10deg);
         }
@@ -59,7 +57,7 @@ export const focusOut =  keyframes`
             transform: rotate(-10deg);
         }
     `;
-    export const vibration2 = keyframes` 
+export const vibration2 = keyframes` 
     from {
         transform: rotate(15deg);
     }
@@ -69,46 +67,42 @@ export const focusOut =  keyframes`
 `;
 const styles = css`
     animation: ${vibration} 0.2s infinite;
-`
+`;
 
 const stylesFast = css`
     animation: ${vibration2} 0.2s infinite;
-`
+`;
 
 const stylesAnswer = css`
-    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1) ;
-`
+    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1);
+`;
 
 const stylesFalse = css`
-    animation: ${focusOut} 1.5s cubic-bezier(1, 1, 1, 1) ;
-`
+    animation: ${focusOut} 1.5s cubic-bezier(1, 1, 1, 1);
+`;
 
 const setType = (type) => {
     switch (type) {
-    case 'answer':
-        return stylesAnswer
-    case 'false':
-        return stylesFalse
+        case "answer":
+            return stylesAnswer;
+        case "false":
+            return stylesFalse;
+    }
 };
-}
 
 const setAttr = (time) => {
-    if(time<=20){
-        return styles
-    }else if(time<=10){
-        return stylesFast
+    if (time <= 20) {
+        return styles;
+    } else if (time <= 10) {
+        return stylesFast;
     }
-}
+};
 
 export const Wrap = styled.div`
     width: 329px;
-    /* width: 100vw; */
-    min-height: 100vh; 
-    margin: 0 auto ;
+    min-height: 100vh;
+    margin: 0 auto;
     padding-top: 25px;
-    /* padding: 70px ; */
-
-    
 `;
 
 export const Div = styled.div`
@@ -116,63 +110,49 @@ export const Div = styled.div`
     margin-bottom: 36px;
     justify-content: space-between;
     align-items: center;
-    /* ${".vibration"}{
-        animation: 
-        ${vibration} 0.1s infinite;
 
-        ${(props) => props.time<20 && `${vibration} 0.1s infinite`};
-    } */
-    p{
+    p {
         font-size: 15px;
-line-height: 18px;
-/* or 120% */
-
-text-align: center;
-
-color: #5D5B61;
-margin-right:-22px;
+        line-height: 18px;
+        text-align: center;
+        color: #5d5b61;
+        margin-right: -22px;
     }
-    span{
+    span {
         margin-left: 22px;
-        color: ${(props) => props.time<11?"#EF6363": "black" };
-
+        color: ${(props) => (props.time < 11 ? "#EF6363" : "black")};
     }
 `;
-
-
 
 export const MyProgress = styled.div`
     margin: 26px 0 13px;
     width: 328px;
-    height:3px;
-    background-color:white;        
+    height: 3px;
+    background-color: white;
 `;
 
 export const StateBar = styled.div`
-    width:  calc(100/35*${(props)=>props.width}%);
-    /* transition: 0.5s; */
-    height:3px;
-    background-color: #EF6363;;       
+    width: calc(100 / 35 * ${(props) => props.width}%);
+    height: 3px;
+    background-color: #ef6363;
 `;
 
 export const Rate = styled.div`
-    /* margin-top: 6px; */
     width: 8px;
     height: 8px;
-    background-color: ${(props) => props.range>props.level?"white": "#EF6363" };
-
-    /* background-color:#EF6363; */
+    background-color: ${(props) =>
+        props.range > props.level ? "white" : "#EF6363"};
     margin-left: 10px;
     border-radius: 50%;
-`
+`;
 export const TimerImg = styled(Image)`
     ${({ time }) => setAttr(time)}
-`
+`;
 
 export const Img = styled(Image)`
     position: absolute;
     top: 32px;
-`
+`;
 
 export const Btn = styled.button`
     padding: 5px;
@@ -184,64 +164,51 @@ export const Btn = styled.button`
 export const Input = styled.input`
     margin: 12px 0;
     padding: 8px;
-
     /* 텍스트창 구분을 위해 임시로 넣음 */
     border-radius: 10px;
     background-color: rgba(0, 29, 36, 0.1);
-`
+`;
 
 export const Ment = styled.p`
     text-align: center;
     color: red;
     font-size: 16px;
     margin: 56px 0 20px;
-`
+`;
 
 export const ImageToast = styled(Image)`
-    /* margin: 0 auto; */
     width: 170px;
     height: 170px;
     display: inline;
-    /* text-align: center; */
-    /* left: 50%; */
-    /* transform: translate(-50%, 0%); */
-    /* position: absolute; */
-`
+`;
 
 export const ContToastFalse = styled.div`
     width: 330px;
     position: absolute;
     top: 177px;
-    /* left: 50%;
-    transform: translate(-50%, 0%); */
     margin: 0 auto;
-    text-align: center; 
-    /* margin: 0 auto; */
-    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1) ;
+    text-align: center;
+    animation: ${focusIn} 2s cubic-bezier(1, 1, 1, 1);
 
-    div{
+    div {
         margin-top: 22px;
         width: 330px;
         height: 114px;
-        background: #FFFFFF;
+        background: #ffffff;
         box-shadow: 0px 2px 6px 3px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         text-align: center;
         padding: 14px;
-        font-size: 18px
+        font-size: 18px;
     }
-`
+`;
 
 export const ContToastAnswer = styled.div`
     width: 330px;
     position: absolute;
     top: 177px;
-    /* left: 50%;
-    transform: translate(-50%, 0%); */
     margin: 0 auto;
-    text-align: center; 
-    /* margin: 0 auto; */
+    text-align: center;
     animation: ${focusOut} 1.5s cubic-bezier(1, 1, 1, 1) alternate;
     animation-fill-mode: forwards;
-
-`
+`;

@@ -107,7 +107,7 @@ export default function index() {
 
     return (
         <div className={`color${musicYear}`}>
-            <Image src={image} style={{display:"none"}}/>
+            <Image src={image} style={{ display: "none" }} />
             <Wrap>
                 <ChoiceYear>원하는 연도를 선택해주세요</ChoiceYear>
 
@@ -149,7 +149,7 @@ export default function index() {
                 >
                     게임시작
                 </Btn>
-                <GoogleAd/>
+                <GoogleAd />
             </Wrap>
         </div>
     );

@@ -1,11 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const userSlice = createSlice({
     name: "user",
-    initialState: { value: {name: "", year: "", music:[] ,musicImg:"", score: "",state:0}},
+    initialState: {
+        value: {
+            name: "",
+            year: "",
+            music: [],
+            musicImg: "",
+            score: "",
+            state: 0,
+        },
+    },
     reducers: {
         login: (state, action) => {
-            state.value = action.payload
+            state.value = action.payload;
         },
     },
 });

@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from "styled-components";
 
-export const focusIn =  keyframes`
+export const focusIn = keyframes`
         0% {
         -webkit-transform: scale(0.5);
                 transform: scale(0.5);
@@ -14,36 +14,34 @@ export const focusIn =  keyframes`
         -webkit-transform: scale(1);
                 transform: scale(1);
         }
-`
+`;
 
 export const Player = styled.div`
     width: 327px;
     height: 223px;
     /* margin: 30px; */
     position: relative;
-    ${".btn_play"}{
+    ${".btn_play"} {
         position: absolute;
         top: 92.42px;
         left: 119.5px;
 
-
-        &:hover{
+        &:hover {
             cursor: pointer;
-
         }
-        &:active{
-            fill: #EF6363;
+        &:active {
+            fill: #ef6363;
         }
     }
-    ${".btn_replay"}{
+    ${".btn_replay"} {
         position: absolute;
         top: 92px;
         left: 191px;
-        &:hover{
+        &:hover {
             cursor: pointer;
         }
-        &:active{
-            stroke: #EF6363;
+        &:active {
+            stroke: #ef6363;
         }
     }
 `;

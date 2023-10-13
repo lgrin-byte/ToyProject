@@ -1,7 +1,9 @@
+
+
 import React,{useEffect} from 'react'
 import {LoadingImg, Div} from '../../styles/loadingStyle'
 import Link from 'next/link';
-import Router, {useRouter} from 'next/router';
+import Router from 'next/router';
 import { useSelector } from "react-redux";
 
 export default function index() {
@@ -9,9 +11,6 @@ export default function index() {
 
   useEffect(()=>{
     setTimeout(()=>{ 
-
-      const targerPage = `/result/${count.name}`;
-      // Router.push(targerPage);
       Router.push(
         {
           pathname: `/result/`,

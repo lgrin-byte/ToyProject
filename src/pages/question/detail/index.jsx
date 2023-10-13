@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import YouTube from "react-youtube";
-
 import note from "../../../assets/images/note.png";
 import timer from "../../../assets/images/timer.png";
-import  answerImg from "../../../assets/images/answer.svg";
+import answerImg from "../../../assets/images/answer.svg";
 import falseImg from "../../../assets/images/false.svg";
 import { Btn } from "../../../components/Button";
 import { Cont_Inp, Title, Inp, MentEng } from "../../../components/InputAnswer";
@@ -20,11 +19,9 @@ import {
     TimerImg,
     ImageToast,
     ContToastAnswer,
-    ContToastFalse
+    ContToastFalse,
 } from "../../../styles/questionStyle";
 import useInterval from "../../../hooks/useInterval";
-import year2020 from "../../../year2020";
-import Link from "next/link";
 import Router from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../../hooks/count/counterSlice";
@@ -95,7 +92,7 @@ export default function Question(props) {
                     state: 1,
                 })
             );
-        setColor("white")
+            setColor("white");
         }
     }, [playState]);
 
@@ -103,7 +100,6 @@ export default function Question(props) {
         // Input을 체크해서 state를 변경하는 함수.
         if (e.target.name === "singer") setSinger(e.target.value);
         else if (e.target.name === "songName") setTitle(e.target.value);
-        // (singer&title) ? setIsActive("change") : setIsActive("question")
     };
 
     const handleBtn = () => {
@@ -112,7 +108,6 @@ export default function Question(props) {
             setSecond(35);
             handleCheck();
         } else {
-            // Router.replace('/뮻')
         }
     };
 
@@ -187,7 +182,6 @@ export default function Question(props) {
                     state: 1,
                 })
             );
-            // alert(`오답 정답:${answerTitle}, ${answerSinger}`)
         }
     };
 
@@ -399,15 +393,26 @@ export default function Question(props) {
                 >
                     {level === 10 ? "끝!" : "다음"}
                 </Btn>
-                {toastState==="answer" && <ContToastAnswer> <ImageToast src={answerImg} /></ContToastAnswer>}
-                {toastState==="false" && <ContToastFalse>
-                                            <ImageToast src={falseImg} />
-                                            <div>
-                                                <p style={{color:"red", marginBottom:"4px"}}>오답!</p>
-                                                <p>{count.music[level-2]?.singer.split("/")[0]}</p>
-                                                <p>{count.music[level-2]?.title.split("/")[0]}</p>
-                                            </div>
-                                        </ContToastFalse>}
+                {toastState === "answer" && (
+                    <ContToastAnswer>
+                        {" "}
+                        <ImageToast src={answerImg} />
+                    </ContToastAnswer>
+                )}
+                {toastState === "false" && (
+                    <ContToastFalse>
+                        <ImageToast src={falseImg} />
+                        <div>
+                            <p style={{ color: "red", marginBottom: "4px" }}>
+                                오답!
+                            </p>
+                            <p>
+                                {count.music[level - 2]?.singer.split("/")[0]}
+                            </p>
+                            <p>{count.music[level - 2]?.title.split("/")[0]}</p>
+                        </div>
+                    </ContToastFalse>
+                )}
             </Wrap>
         </div>
     );

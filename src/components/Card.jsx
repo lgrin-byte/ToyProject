@@ -22,7 +22,7 @@ import {
     Hall,
     HallB,
     HImg,
-    ScoreImg
+    ScoreImg,
 } from "../styles/resultStyle";
 import Router, { useRouter } from "next/router";
 
@@ -86,13 +86,17 @@ const Card = React.forwardRef((_, inputRef) => {
             <p>'{query.name}'님의 점수는?</p>
             <ContYear attr="cont">
                 <YearTitle>
-
-                        <>
-                            {/* <H year={`color${query.year}`}>{query.year}s</H>
+                    <>
+                        {/* <H year={`color${query.year}`}>{query.year}s</H>
                             <HB>{query.year}s</HB> */}
-                            <HImg year={query.year == "All" ?`year/${query.year}.png`:`year/${query.year}s.png`}/>
-                        </>
-
+                        <HImg
+                            year={
+                                query.year == "All"
+                                    ? `year/${query.year}.png`
+                                    : `year/${query.year}s.png`
+                            }
+                        />
+                    </>
                 </YearTitle>
                 {query.year !== "All" && (
                     <ContYear attr="effect">
@@ -104,8 +108,7 @@ const Card = React.forwardRef((_, inputRef) => {
                 <ResultImg img={resultImg} />
             </Back>
 
-
-                    <ScoreImg score={`score/${query.score}.png`}/>
+            <ScoreImg score={`score/${query.score}.png`} />
             {/* <h2>갓 오브 뮤직</h2> */}
             <Story>
                 {levelResult.map((a, i) => (

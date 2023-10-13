@@ -1,57 +1,40 @@
 import {
     Wrap,
-    H,
-    HB,
-    Image,
     Input,
     ImageMain,
     WrapMain,
-    ImgMain
+    ImgMain,
 } from "../styles/mainStyle";
 import { Btn, ModalBtn } from "../components/Button";
 import Modal from "../components/modal/Modal";
 import useCustomModal from "../hooks/useCustomModal";
 import ModalPortal from "../components/modal/ModalPortal";
-import {db } from "../api/firebaseConfig"; 
-import ReactGA from 'react-ga'
-import { useState,useEffect } from "react";
+import ReactGA from "react-ga";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../hooks/count/counterSlice";
 import speaker from "../assets/images/speaker.png";
 import title from "../assets/images/title.png";
 import main from "../assets/images/main.png";
 import {
-    // Div,
-    Ment,
-    Img,
     Rate,
-    MyProgress,
-    StateBar,
-    TimerImg,
 } from "../styles/questionStyle";
 import { Div, DivRate } from "../components/Div";
 import ImageNext from "next/image";
-import "firebase/firestore"; 
+import "firebase/firestore";
 import GoogleAd from "../hooks/GoogleAd";
-
 
 export default function index() {
     const [isActive, setIsActive] = useState();
-    const count = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
     const { modalOpen, setModalOpen, showModal } = useCustomModal();
     const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID;
 
-    useEffect(()=>{
-        db.collection('feedback').get().then((결과)=>{
-            let arr=[]
-        })
-    },[])
     const handleNickname = (e) => {
         e.target.value ? setIsActive("change") : setIsActive("empty");
         dispatch(login({ name: e.target.value }));
     };
-    
+
     ReactGA.initialize(TRACKING_ID);
 
     return (
@@ -67,13 +50,7 @@ export default function index() {
             <p className="info">(게임진행을 위해 소리를 켜주세요!)</p>
             <WrapMain>
                 <ImageMain src={main} alt="" />
-                {/* <H>
-                    무슨 노래 <br /> 듣고 계세요?
-                </H>
-                <HB>
-                    무슨 노래 <br /> 듣고 계세요?
-                </HB> */}
-                <ImgMain src={title} alt="무슨 노래 듣고 계세요?"/>
+                <ImgMain src={title} alt="무슨 노래 듣고 계세요?" />
                 <ModalBtn onClick={showModal}>게임규칙</ModalBtn>
             </WrapMain>
 
@@ -87,7 +64,7 @@ export default function index() {
             <Btn href="/choice" attr={isActive}>
                 시작하기
             </Btn>
-            <GoogleAd/>
+            <GoogleAd />
         </Wrap>
     );
 }

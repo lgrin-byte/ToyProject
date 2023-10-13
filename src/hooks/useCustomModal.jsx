@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 export default function useCustomModal(type) {
     // 모달 관리 변수
@@ -10,17 +10,23 @@ export default function useCustomModal(type) {
     const showModal = (e) => {
         setModalOpen(true);
         setSelected(e.target.id);
-
     };
 
-    useEffect(()=>{
-        //스크롤 금지 
-        if(modalOpen){
-            document.body.style.overflow ="hidden";
-        }else{
-            document.body.style.overflow ="";
+    useEffect(() => {
+        //스크롤 금지
+        if (modalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
         }
-    }, [modalOpen])
+    }, [modalOpen]);
 
-    return {modalOpen, selected, modalSecondOpen, setModalOpen, setModalSecondOpen, showModal}
+    return {
+        modalOpen,
+        selected,
+        modalSecondOpen,
+        setModalOpen,
+        setModalSecondOpen,
+        showModal,
+    };
 }

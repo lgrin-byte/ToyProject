@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const Div = styled.div`
     display: flex;
@@ -7,9 +6,8 @@ export const Div = styled.div`
     /* margin-bottom: 54px; */
     align-items: center;
 
-    p{
-        color: ${(props) => props.time<11?"#EF6363": "black" };
-
+    p {
+        color: ${(props) => (props.time < 11 ? "#EF6363" : "black")};
     }
 `;
 

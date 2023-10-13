@@ -1,20 +1,35 @@
-import React, {useEffect, useRef, useState} from 'react'
-import style from "./modal.module.css"
-import { WrapModal,CancelBar,CloseSpan,Btn,CloseBtn } from './ModalStyle';
-import { Back,Wrap,Cont,Input,CheckBox,Comment,BtnSubmit } from './FeedbackModalStyle';
-import 나가기 from '../..//assets/images/나가기.svg'
-import { db } from "../../api/firebaseConfig"; 
-import "firebase/firestore"; 
+import React, { useEffect, useRef, useState } from "react";
+import { WrapModal, CancelBar, CloseSpan, Btn, CloseBtn } from "./ModalStyle";
+import {
+    Back,
+    Wrap,
+    Cont,
+    Input,
+    CheckBox,
+    Comment,
+    BtnSubmit,
+} from "../styles/feedbackModalStyle";
+import { db } from "../../api/firebaseConfig";
+import "firebase/firestore";
 
-export default function FeedbackModal({type, modalOpen, selected, setModalOpen, handleModal, manage}) {
+export default function FeedbackModal({
+    type,
+    modalOpen,
+    selected,
+    setModalOpen,
+    handleModal,
+    manage,
+}) {
     const [name, setName] = useState();
     const [comment, setComment] = useState();
     const [isActive, setIsActive] = useState();
     const [isSecret, setIsSecret] = useState(false);
-    const onChange = ({ target }) => {target.checked ? setIsSecret(true) : setIsSecret(false);}; 
+    const onChange = ({ target }) => {
+        target.checked ? setIsSecret(true) : setIsSecret(false);
+    };
     const focusRef = useRef();
     const checkSecret = useRef();
-    // 모달 끄기 
+    // 모달 끄기
     const closeModal = () => {
         setModalOpen(false);
     };
@@ -22,7 +37,7 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
     // 모달 외부 클릭시 끄기 처리
     // Modal 창을 useRef로 취득
     const modalRef = useRef();
-    
+
     useEffect(() => {
         // 이벤트 핸들러 함수
         const handler = (event) => {
@@ -31,119 +46,143 @@ export default function FeedbackModal({type, modalOpen, selected, setModalOpen, 
                 setModalOpen(false);
             }
         };
-        
+
         // 이벤트 핸들러 등록
-        document.addEventListener('mousedown', handler);
+        document.addEventListener("mousedown", handler);
         // document.addEventListener('touchstart', handler); // 모바일 대응
-        
+
         return () => {
             // 이벤트 핸들러 해제
-            document.removeEventListener('mousedown', handler);
+            document.removeEventListener("mousedown", handler);
             // document.removeEventListener('touchstart', handler); // 모바일 대응
         };
     });
 
     const handleFeedback = (e) => {
         // Input을 체크해서 state를 변경하는 함수.
-        if (e.target.name === "name") setName(e.target.value); 
+        if (e.target.name === "name") setName(e.target.value);
         else if (e.target.name === "comment") setComment(e.target.value);
-    }
-    useEffect(()=>{
-
-    
-        if(name&&comment){
-            setIsActive("active")
-        }else{
-            setIsActive("")
+    };
+    useEffect(() => {
+        if (name && comment) {
+            setIsActive("active");
+        } else {
+            setIsActive("");
         }
-
-
-    },[name, comment])
-    const onKeyPress=(e)=>{
-        if(e.key==='Enter'){
+    }, [name, comment]);
+    const onKeyPress = (e) => {
+        if (e.key === "Enter") {
             focusRef.current.focus();
         }
-    }
+    };
     const addData = () => {
         const now = new Date();
-        const year = (now.getFullYear()+"").slice(2,);
-        let month= ('0' + (now.getMonth()+1)).slice(-2);
-        let day= ('0' + now.getDate()).slice(-2); 
-        var hours = ('0' + now.getHours()).slice(-2); 
-        var minutes = ('0' + now.getMinutes()).slice(-2);
-        var seconds = ('0' + now.getSeconds()).slice(-2); 
-        if(selected){
-            db.collection('feedback').doc(selected).set(
-                {nickname:name,
-                comment: comment,
-                datetime:`${year}.${month}.${day}`,
-                publish:parseInt(year+month+day+hours+minutes+seconds),
-                secret:isSecret
-            }
-            ).then(() => {
-                closeModal()
-            }).catch(err => {
-                console.log(err);
-            }
-            )
-
+        const year = (now.getFullYear() + "").slice(2);
+        let month = ("0" + (now.getMonth() + 1)).slice(-2);
+        let day = ("0" + now.getDate()).slice(-2);
+        var hours = ("0" + now.getHours()).slice(-2);
+        var minutes = ("0" + now.getMinutes()).slice(-2);
+        var seconds = ("0" + now.getSeconds()).slice(-2);
+        if (selected) {
+            db.collection("feedback")
+                .doc(selected)
+                .set({
+                    nickname: name,
+                    comment: comment,
+                    datetime: `${year}.${month}.${day}`,
+                    publish: parseInt(
+                        year + month + day + hours + minutes + seconds
+                    ),
+                    secret: isSecret,
+                })
+                .then(() => {
+                    closeModal();
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } else {
+            db.collection("feedback")
+                .add({
+                    nickname: name,
+                    comment: comment,
+                    datetime: `${year}.${month}.${day}`,
+                    publish: parseInt(
+                        year + month + day + hours + minutes + seconds
+                    ),
+                    secret: isSecret,
+                })
+                .then(() => {
+                    closeModal();
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
-        else{
-            db.collection('feedback').add(
-                {nickname: name,
-                comment: comment,
-                datetime:`${year}.${month}.${day}`,
-                publish:parseInt(year+month+day+hours+minutes+seconds),
-                secret:isSecret
-            }
-            ).then(() => {
-                closeModal()
-            }).catch(err => {
-                console.log(err);
-            }
-            )
-        }    
-    }
+    };
 
+    useEffect(() => {
+        if (selected) {
+            db.collection("feedback")
+                .doc(selected)
+                .get()
+                .then((결과) => {
+                    let arr = [];
+                    setName(결과.data()?.nickname);
+                    setComment(결과.data()?.comment);
+                    setIsSecret(결과.data()?.secret);
 
-useEffect(()=>{
-    if(selected){
-    db.collection('feedback').doc(selected).get().then((결과)=>{
-        let arr=[]
-        // 결과.forEach((doc)=>{
-            
-                setName(결과.data()?.nickname)
-                setComment(결과.data()?.comment)
-                setIsSecret(결과.data()?.secret)
-            
-
-            if (결과.data()?.secret) {
-                checkSecret.current.checked = true
-                console.log(checkSecret.current.checked);
-            }
-    
-        
-    })
-}
-manage&& setName("관리자 🎤") 
-
-},[])
+                    if (결과.data()?.secret) {
+                        checkSecret.current.checked = true;
+                        console.log(checkSecret.current.checked);
+                    }
+                });
+        }
+        manage && setName("관리자 🎤");
+    }, []);
 
     return (
         <Back>
-            <Wrap  ref={modalRef}>
-            <WrapModal type={type} >
-                <Cont>
-                    <Input type="text" name='name' value={name} onChange={handleFeedback} onKeyPress={onKeyPress} maxLength={7} placeholder='닉네임을 입력해주세요.'/>
-                    <CheckBox>
-                        <input type="checkbox" id="secret" ref={checkSecret} onClick={onChange}/>
-                        <label htmlFor="secret" onClick={onChange} >비밀글</label>
-                    </CheckBox>
-                </Cont>
-                <Comment id="comment" name='comment' value={comment}  ref={focusRef}  onChange={handleFeedback} cols="30"  maxLength={100} rows="5" placeholder='내용을 작성해주세요'></Comment>
-            </WrapModal>
-            <BtnSubmit attr={isActive} onClick={addData}>올리기</BtnSubmit>
+            <Wrap ref={modalRef}>
+                <WrapModal type={type}>
+                    <Cont>
+                        <Input
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={handleFeedback}
+                            onKeyPress={onKeyPress}
+                            maxLength={7}
+                            placeholder="닉네임을 입력해주세요."
+                        />
+                        <CheckBox>
+                            <input
+                                type="checkbox"
+                                id="secret"
+                                ref={checkSecret}
+                                onClick={onChange}
+                            />
+                            <label htmlFor="secret" onClick={onChange}>
+                                비밀글
+                            </label>
+                        </CheckBox>
+                    </Cont>
+                    <Comment
+                        id="comment"
+                        name="comment"
+                        value={comment}
+                        ref={focusRef}
+                        onChange={handleFeedback}
+                        cols="30"
+                        maxLength={100}
+                        rows="5"
+                        placeholder="내용을 작성해주세요"
+                    ></Comment>
+                </WrapModal>
+                <BtnSubmit attr={isActive} onClick={addData}>
+                    올리기
+                </BtnSubmit>
             </Wrap>
         </Back>
-    )
+    );
 }

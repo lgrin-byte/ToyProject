@@ -1,39 +1,5 @@
-import { createGlobalStyle,css } from 'styled-components';
-import reset from 'styled-reset';
-const setAttr = (attr) => {
-    switch (attr) {
-    case '2020':
-
-        return css`
-        background-color: white;
-        `;
-    case '2010':
-        return css`
-        background-color: #EF6363;
-        color: white;
-        /* animation: ${scale} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
-        `;
-    case '2000':
-        return css`
-        background-color: var(--deep-gray);
-        margin-bottom: 25px;
-        `;
-    case '':
-        return css`
-            border: 1px solid black;
-            background-color: white;
-            animation: ${scaleDown} 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-        `;
-    
-    default:
-        return css`
-            border: 1px solid black;
-            background-color: white;
-            
-        `;
-    }
-};
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -61,14 +27,12 @@ input, button {
     font-family: var(--font);
 }
 textarea {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 ::placeholder {
 }
-label {
-  /* color: var(--super-gray); */
-}
+
 ol, ul, li {
     list-style: none;
 }
@@ -91,22 +55,14 @@ html {
     min-width: 390px;
     height: 100vh;
     min-height: 844px;
-    /* background-color: var(--light-gray); */
     margin: 0 auto ;
 }
 body {
-
-    /* width: 100%; */
     position: relative;
-    /* height: 100%; */
-    /* color: var(--black); */
     line-height: 1.4;
-    /* background-color: ${props => props.theme.mainColor}; */
-    /* background-color: ${(props) => props.theme.bgColor}; */
     background-color: var(--light-purple);
     font-family: var(--font);
     font-size: 20px;
-    /* box-shadow: 0 0 10px var(--deep-gray); */
 }
 .ir {
     position: absolute;
@@ -117,41 +73,40 @@ body {
 }
 
 .color2020{
-    background-color: ${props => props.theme.color2020};
+    background-color: ${(props) => props.theme.color2020};
     height: 100%;
 }
 .color2010{
-    background-color: ${props => props.theme.color2010};
+    background-color: ${(props) => props.theme.color2010};
     height: 100%;
 
 }
 .color2000{
-    background-color: ${props => props.theme.color2000};
+    background-color: ${(props) => props.theme.color2000};
     height: 100%;
 
 }
 .color1990{
-    background-color: ${props => props.theme.color1990};
+    background-color: ${(props) => props.theme.color1990};
     height: 100%;
 
 }
 .colorAll{
-    background-color: ${props => props.theme.colorAll};
+    background-color: ${(props) => props.theme.colorAll};
     height: 100%;
 
 }
 
 .feedback{
-    background-color: ${props => props.theme.feedback};
+    background-color: ${(props) => props.theme.feedback};
     height: 100vh;
 }
 
 @media all and (min-width: 720px) {
-  html {
-    /* width: 100vw; */
-  }
+    html {
+        /* width: 100vw; */
+    }
 }
 `;
-
 
 export default GlobalStyle;
